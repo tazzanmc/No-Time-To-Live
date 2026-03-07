@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxkpqtjpofrd0"]
+
+[sub_resource type="GDScript" id="GDScript_gmi6l"]
+script/source = "extends Node2D
+
+@onready var timerRef = $intensityTimer
+@onready var socialBarRef = $socialBar
+@onready var satietyBarRef = $satietyBar
+@onready var moneyBarRef = $moneyBar
+
+func _ready():
+	timerRef.start()
+
+func _progress():
+	pass
+
+func _on_timer_timeout() -> void:
+	socialBarRef.value = socialBarRef.value - .01
+	satietyBarRef.value = satietyBarRef.value - .01
+	moneyBarRef.value = moneyBarRef.value - .01
+	
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
+bg_color = Color(0, 0.54901963, 0.6117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdl1d"]
+bg_color = Color(0.36746526, 0.9179187, 0.99999994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtffl"]
+bg_color = Color(0.65879554, 0.55531865, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yb3aw"]
+bg_color = Color(1, 0.84705883, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_helsn"]
+bg_color = Color(0, 0.5086578, 0.18832248, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wu1m"]
+bg_color = Color(0, 0.8627451, 0.34117648, 1)
+
+[node name="RunScene" type="Node2D"]
+script = SubResource("GDScript_gmi6l")
+
+[node name="intensityTimer" type="Timer" parent="."]
+wait_time = 0.009999999999999998
+
+[node name="socialBar" type="ProgressBar" parent="."]
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 467.0
+offset_bottom = 42.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gmi6l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rdl1d")
+value = 100.0
+show_percentage = false
+
+[node name="satietyBar" type="ProgressBar" parent="."]
+offset_left = 11.0
+offset_top = 45.0
+offset_right = 467.0
+offset_bottom = 72.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dtffl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yb3aw")
+value = 100.0
+show_percentage = false
+
+[node name="moneyBar" type="ProgressBar" parent="."]
+offset_left = 11.0
+offset_top = 75.0
+offset_right = 467.0
+offset_bottom = 102.0
+theme_override_styles/background = SubResource("StyleBoxFlat_helsn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4wu1m")
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="intensityTimer" to="." method="_on_timer_timeout"]
