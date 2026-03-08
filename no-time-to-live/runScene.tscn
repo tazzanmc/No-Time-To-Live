@@ -9,15 +9,18 @@ script/source = "extends Node2D
 @onready var moneyBarRef = $moneyBar
 @onready var loseLabel = $placeholderLoseLabel
 
+var lostCondition = false
+
 func _ready():
 	timerRef.start()
 
-func _progress():
-	pass
+func _process(_delta: float) -> void:
+	if (Input.is_action_just_pressed(\"SpacebarInput\") && lostCondition):
+		get_tree().change_scene_to_file(\"res://titleScreen.tscn\")
 
 # Natural decrease of the needs bar
 func _on_timer_timeout() -> void:
-	socialBarRef.value = socialBarRef.value - 1
+	socialBarRef.value = socialBarRef.value - 2   
 	satietyBarRef.value = satietyBarRef.value - .1
 	moneyBarRef.value = moneyBarRef.value - .1
 
@@ -28,6 +31,7 @@ func socialBarValueChanged(value: float) -> void:
 func gameLost():
 	loseLabel.visible = true
 	timerRef.stop()
+	lostCondition = true
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
