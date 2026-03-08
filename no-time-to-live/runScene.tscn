@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxkpqtjpofrd0"]
+[gd_scene load_steps=9 format=3 uid="uid://cxkpqtjpofrd0"]
 
 [sub_resource type="GDScript" id="GDScript_gmi6l"]
 script/source = "extends Node2D
@@ -7,6 +7,7 @@ script/source = "extends Node2D
 @onready var socialBarRef = $socialBar
 @onready var satietyBarRef = $satietyBar
 @onready var moneyBarRef = $moneyBar
+@onready var loseLabel = $placeholderLoseLabel
 
 func _ready():
 	timerRef.start()
@@ -16,10 +17,17 @@ func _progress():
 
 # Natural decrease of the needs bar
 func _on_timer_timeout() -> void:
-	socialBarRef.value = socialBarRef.value - .1
+	socialBarRef.value = socialBarRef.value - 1
 	satietyBarRef.value = satietyBarRef.value - .1
 	moneyBarRef.value = moneyBarRef.value - .1
-	
+
+func socialBarValueChanged(value: float) -> void:
+	if(socialBarRef.value <= 0 || satietyBarRef.value <= 0 || moneyBarRef.value <= 0):
+		gameLost()
+
+func gameLost():
+	loseLabel.visible = true
+	timerRef.stop()
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
@@ -39,6 +47,9 @@ bg_color = Color(0, 0.5086578, 0.18832248, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wu1m"]
 bg_color = Color(0, 0.8627451, 0.34117648, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmi6l"]
+font_size = 80
 
 [node name="RunScene" type="Node2D"]
 script = SubResource("GDScript_gmi6l")
@@ -81,4 +92,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_4wu1m")
 value = 100.0
 show_percentage = false
 
+[node name="placeholderLoseLabel" type="Label" parent="."]
+visible = false
+offset_left = 783.0
+offset_top = 453.0
+offset_right = 1113.0
+offset_bottom = 563.0
+text = "You Lost"
+label_settings = SubResource("LabelSettings_gmi6l")
+
 [connection signal="timeout" from="intensityTimer" to="." method="_on_timer_timeout"]
+[connection signal="value_changed" from="socialBar" to="." method="socialBarValueChanged"]
