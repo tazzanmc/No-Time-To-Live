@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dttmf8duyinv"]
+
+[ext_resource type="Texture2D" uid="uid://mq7cgt3emmnt" path="res://Assets/Textures/UI/buttonMockup.png" id="1_xe0rr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c50c"]
+texture = ExtResource("1_xe0rr")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 33, 33)
+
+[node name="TestButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.060000002
+anchor_bottom = 0.051000003
+offset_right = -21.200005
+offset_bottom = -0.08000183
+theme_override_colors/font_color = Color(0.12791999, 0.0884, 0.13, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_2c50c")
+text = "testButton"
+alignment = 0
