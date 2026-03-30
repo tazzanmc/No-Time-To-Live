@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_tu7rx")
-shader_parameter/dist = 5
-shader_parameter/color = Color(0.13, 0.013000003, 0.06564998, 0.5019608)
-shader_parameter/angle = 53.1310025237225
+shader_parameter/dist = 1
+shader_parameter/color = Color(0, 0, 0, 0.5)
+shader_parameter/angle = 90.0

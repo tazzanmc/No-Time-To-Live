@@ -78,7 +78,6 @@ label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" parent="." instance=ExtResource("4_u74eo")]
 position = Vector2(993, 563)
-rotation = 0.3123264
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
 
