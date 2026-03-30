@@ -1,38 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxkpqtjpofrd0"]
+[gd_scene load_steps=11 format=3 uid="uid://cxkpqtjpofrd0"]
 
-[sub_resource type="GDScript" id="GDScript_gmi6l"]
-script/source = "extends Node2D
-
-@onready var timerRef = $intensityTimer
-@onready var socialBarRef = $socialBar
-@onready var satietyBarRef = $satietyBar
-@onready var moneyBarRef = $moneyBar
-@onready var loseLabel = $placeholderLoseLabel
-
-var lostCondition = false
-
-func _ready():
-	timerRef.start()
-
-func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed(\"SpacebarInput\") && lostCondition):
-		get_tree().change_scene_to_file(\"res://titleScreen.tscn\")
-
-# Natural decrease of the needs bar
-func _on_timer_timeout() -> void:
-	socialBarRef.value = socialBarRef.value - 2   
-	satietyBarRef.value = satietyBarRef.value - .1
-	moneyBarRef.value = moneyBarRef.value - .1
-
-func socialBarValueChanged(value: float) -> void:
-	if(socialBarRef.value <= 0 || satietyBarRef.value <= 0 || moneyBarRef.value <= 0):
-		gameLost()
-
-func gameLost():
-	loseLabel.visible = true
-	timerRef.stop()
-	lostCondition = true
-"
+[ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://runScript.gd" id="1_4wu1m"]
+[ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/Title/NTTLtitleMockup.png" id="2_rdl1d"]
+[ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://title_card.gd" id="3_yb3aw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
 bg_color = Color(0, 0.54901963, 0.6117647, 1)
@@ -56,7 +26,7 @@ bg_color = Color(0, 0.8627451, 0.34117648, 1)
 font_size = 80
 
 [node name="RunScene" type="Node2D"]
-script = SubResource("GDScript_gmi6l")
+script = ExtResource("1_4wu1m")
 
 [node name="placeholderBackground" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -105,5 +75,14 @@ offset_bottom = 563.0
 text = "You Lost"
 label_settings = SubResource("LabelSettings_gmi6l")
 
+[node name="titleCard" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(958.0001, 551)
+scale = Vector2(4.301, 5)
+texture = ExtResource("2_rdl1d")
+script = ExtResource("3_yb3aw")
+
+[connection signal="gameEnd" from="." to="titleCard" method="_game_end_signal"]
+[connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]
 [connection signal="timeout" from="intensityTimer" to="." method="_on_timer_timeout"]
 [connection signal="value_changed" from="socialBar" to="." method="socialBarValueChanged"]

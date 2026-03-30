@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5tu1ic2r7uqu"]
+
+[ext_resource type="Texture2D" uid="uid://c2oihx8ykqtq2" path="res://Assets/PlaceholderPhone.png" id="1_y6wvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2jsp"]
+size = Vector2(114, 198)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fiu3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y6wvl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TaskScene" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D"]
+position = Vector2(63, 105)
+shape = SubResource("RectangleShape2D_a2jsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/CharacterBody2D"]
+position = Vector2(65, 105.99999)
+scale = Vector2(0.13858697, 0.11548911)
+sprite_frames = SubResource("SpriteFrames_fiu3j")
