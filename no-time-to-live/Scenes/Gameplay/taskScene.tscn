@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5tu1ic2r7uqu"]
 
-[ext_resource type="Texture2D" uid="uid://c2oihx8ykqtq2" path="res://Assets/PlaceholderPhone.png" id="1_y6wvl"]
+[ext_resource type="Texture2D" uid="uid://c2oihx8ykqtq2" path="res://Assets/Textures/Test/PlaceholderPhone.png" id="1_y6wvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2jsp"]
 size = Vector2(114, 198)

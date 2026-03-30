@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2oihx8ykqtq2"
-path="res://.godot/imported/PlaceholderPhone.png-42017a0908e36b784f65639a2aac91b5.ctex"
+uid="uid://bikfqaajwq3la"
+path="res://.godot/imported/NTTLtitleMockup.png-50448e7abd64dc46d5ac92853762e533.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlaceholderPhone.png"
-dest_files=["res://.godot/imported/PlaceholderPhone.png-42017a0908e36b784f65639a2aac91b5.ctex"]
+source_file="res://Assets/Textures/UI/NTTLtitleMockup.png"
+dest_files=["res://.godot/imported/NTTLtitleMockup.png-50448e7abd64dc46d5ac92853762e533.ctex"]
 
 [params]
 

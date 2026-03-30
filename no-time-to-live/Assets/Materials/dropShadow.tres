@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c82afls8npsr4"]
+
+[ext_resource type="Shader" uid="uid://dasbols14yymf" path="res://Assets/Materials/dropShadow.gdshader" id="1_tu7rx"]
+
+[resource]
+shader = ExtResource("1_tu7rx")
+shader_parameter/dist = 5
+shader_parameter/color = Color(0.13, 0.013000003, 0.06564998, 0.5019608)
+shader_parameter/angle = 53.1310025237225

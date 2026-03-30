@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2mqk0ff8iocx"]
+
+[ext_resource type="Material" uid="uid://c82afls8npsr4" path="res://Assets/Materials/dropShadow.tres" id="1_d7yqc"]
+
+[node name="pixelSprite2D" type="Sprite2D"]
+texture_filter = 1
+material = ExtResource("1_d7yqc")
+scale = Vector2(3, 3)

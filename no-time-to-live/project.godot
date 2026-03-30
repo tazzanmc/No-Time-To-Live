@@ -20,6 +20,25 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Assets/Materials/": "orange",
+"res://Assets/Textures/": "orange",
+"res://Assets/Textures/Test/": "yellow",
+"res://Assets/Textures/UI/": "yellow",
+"res://Scenes/": "green",
+"res://Scenes/Gameplay/": "teal",
+"res://Scenes/Test/": "teal",
+"res://Scenes/UI/": "teal",
+"res://Scripts/": "purple",
+"res://Scripts/Gameplay/": "pink",
+"res://Scripts/Materials/": "pink",
+"res://Scripts/Test/": "pink",
+"res://Scripts/UI/": "pink"
+}
+
 [input]
 
 SpacebarInput={

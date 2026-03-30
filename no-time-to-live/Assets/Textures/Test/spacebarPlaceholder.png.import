@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bikfqaajwq3la"
-path="res://.godot/imported/NTTLtitleMockup.png-3f29b6443eaf62714afeb91068a55c1d.ctex"
+uid="uid://cyjfgh600ierm"
+path="res://.godot/imported/spacebarPlaceholder.png-aa1f91e0c7f0a0ee2ced8c60615c3499.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Title/NTTLtitleMockup.png"
-dest_files=["res://.godot/imported/NTTLtitleMockup.png-3f29b6443eaf62714afeb91068a55c1d.ctex"]
+source_file="res://Assets/Textures/Test/spacebarPlaceholder.png"
+dest_files=["res://.godot/imported/spacebarPlaceholder.png-aa1f91e0c7f0a0ee2ced8c60615c3499.ctex"]
 
 [params]
 
