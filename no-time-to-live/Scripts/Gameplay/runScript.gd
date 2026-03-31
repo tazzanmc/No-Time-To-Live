@@ -3,9 +3,16 @@ extends Node
 signal gameStart
 signal gameEnd
 
+@onready var socialBar = $socialBar
+@onready var satietyBar = $satietyBar
+@onready var moneyBar = $moneyBar
+
 var gameActiveBool = 0
 
-func _process(delta):
+func _ready():
+	print("nodes ready")
+
+func _process(_delta):
 	# Starts the game 
 	if (Input.is_action_just_pressed("SpacebarInput") && gameActiveBool == 0):
 		gameActiveBool = 1
@@ -13,8 +20,10 @@ func _process(delta):
 		print("Game Start")
 		print(gameActiveBool) 
 	# Ends the game (placeholder condition to test title)
-	elif (Input.is_action_just_pressed("SpacebarInput") && gameActiveBool == 1 ):
+	elif (socialBar.value <= 0 && gameActiveBool == 1 ):
 		gameActiveBool = 0
 		gameEnd.emit()
 		print("Game End")
 		print(gameActiveBool)
+	
+	
