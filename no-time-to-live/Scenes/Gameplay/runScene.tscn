@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://531evwyg41l"]
+[gd_scene load_steps=17 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
 [ext_resource type="Script" uid="uid://bbdppjwi4e4vo" path="res://Scripts/socialBar.gd" id="2_28rcq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://2dn7v832snyc" path="res://Scripts/Gameplay/satietyBar.gd" id="3_bbkr7"]
 [ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://Scripts/UI/title_card.gd" id="3_ncvfw"]
 [ext_resource type="Script" uid="uid://dtuvfbvd43bh1" path="res://Scripts/Gameplay/moneyBar.gd" id="4_1n8j8"]
+[ext_resource type="Script" uid="uid://c1hknm3os0soj" path="res://Scripts/Gameplay/Tasks/taskTimerScript.gd" id="7_1n8j8"]
+[ext_resource type="PackedScene" uid="uid://b5tu1ic2r7uqu" path="res://Scenes/Gameplay/Tasks/phoneScene.tscn" id="7_bbkr7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
 bg_color = Color(0, 0.54901963, 0.6117647, 1)
@@ -28,6 +30,18 @@ bg_color = Color(0, 0.8627451, 0.34117648, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_gmi6l"]
 font_size = 80
 
+[sub_resource type="GDScript" id="GDScript_bbkr7"]
+script/source = "extends Node
+
+
+func _call_phone_task() -> void:
+	var callType = randi_range(1, 4)
+	
+	match callType:
+		1:
+			if():
+"
+
 [node name="RunScene" type="Node2D"]
 script = ExtResource("1_ncvfw")
 
@@ -36,15 +50,11 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.43, 0.21586002, 0.07310001, 1)
 
-[node name="intensityTimer" type="Timer" parent="."]
-wait_time = 0.1
-
 [node name="socialBar" type="ProgressBar" parent="."]
-visible = false
-offset_left = 11.0
-offset_top = 15.0
-offset_right = 467.0
-offset_bottom = 42.0
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 468.0
+offset_bottom = 40.0
 theme_override_styles/background = SubResource("StyleBoxFlat_gmi6l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rdl1d")
 value = 100.0
@@ -52,11 +62,10 @@ show_percentage = false
 script = ExtResource("2_28rcq")
 
 [node name="satietyBar" type="ProgressBar" parent="."]
-visible = false
-offset_left = 11.0
-offset_top = 45.0
-offset_right = 467.0
-offset_bottom = 72.0
+offset_left = 12.0
+offset_top = 43.0
+offset_right = 468.0
+offset_bottom = 70.0
 theme_override_styles/background = SubResource("StyleBoxFlat_dtffl")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yb3aw")
 value = 100.0
@@ -64,11 +73,10 @@ show_percentage = false
 script = ExtResource("3_bbkr7")
 
 [node name="moneyBar" type="ProgressBar" parent="."]
-visible = false
-offset_left = 11.0
-offset_top = 75.0
-offset_right = 467.0
-offset_bottom = 102.0
+offset_left = 12.0
+offset_top = 73.0
+offset_right = 468.0
+offset_bottom = 100.0
 theme_override_styles/background = SubResource("StyleBoxFlat_helsn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4wu1m")
 value = 100.0
@@ -85,23 +93,39 @@ text = "You Lost"
 label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(958.0001, 551)
 scale = Vector2(4.301, 5)
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
 
+[node name="intensityTimer" type="Timer" parent="."]
+wait_time = 0.1
+
 [node name="barIntervalTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="taskTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+script = ExtResource("7_1n8j8")
+
+[node name="phoneScene" parent="." instance=ExtResource("7_bbkr7")]
+position = Vector2(707, 29.999992)
+scale = Vector2(2.5, 2.5)
+script = SubResource("GDScript_bbkr7")
+
 [connection signal="gameEnd" from="." to="titleCard" method="_game_end_signal"]
-[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
+[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="moneyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]
-[connection signal="timeout" from="intensityTimer" to="." method="_on_timer_timeout"]
 [connection signal="value_changed" from="socialBar" to="." method="socialBarValueChanged"]
+[connection signal="timeout" from="intensityTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="barIntervalTimer" to="socialBar" method="_timer_interval"]
 [connection signal="timeout" from="barIntervalTimer" to="satietyBar" method="_timer_interval"]
 [connection signal="timeout" from="barIntervalTimer" to="moneyBar" method="_timer_interval"]
+[connection signal="callPhoneTask" from="taskTimer" to="phoneScene" method="_call_phone_task"]
+[connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
