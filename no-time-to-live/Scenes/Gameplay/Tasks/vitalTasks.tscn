@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxp5pntperpdp"]
+
+[ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_g02lt"]
+
+[node name="VitalTasks" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Vital"
+
+[node name="t_test" type="Sprite2D" parent="."]
+texture = ExtResource("1_g02lt")

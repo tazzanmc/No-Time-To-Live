@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
-[ext_resource type="Script" uid="uid://bbdppjwi4e4vo" path="res://Scripts/Gameplay/socialBar.gd" id="2_28rcq"]
+[ext_resource type="Script" uid="uid://bbdppjwi4e4vo" path="res://Scripts/socialBar.gd" id="2_28rcq"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/NTTLtitleMockup.png" id="2_u74eo"]
 [ext_resource type="Script" uid="uid://2dn7v832snyc" path="res://Scripts/Gameplay/satietyBar.gd" id="3_bbkr7"]
 [ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://Scripts/UI/title_card.gd" id="3_ncvfw"]
@@ -99,9 +99,10 @@ text = "You Lost"
 label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(958.0001, 551)
-scale = Vector2(3, 3)
+scale = Vector2(4.301, 5)
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
 
@@ -122,8 +123,8 @@ scale = Vector2(2.5, 2.5)
 script = SubResource("GDScript_bbkr7")
 
 [connection signal="gameEnd" from="." to="titleCard" method="_game_end_signal"]
-[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
+[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="moneyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]

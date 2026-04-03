@@ -8,6 +8,7 @@ var maxWaitTime = 35.0
 var taskRandomizer
 
 func _on_timeout() -> void:
+	print("task timer timeout")
 	taskTimer.wait_time = randf_range(minWaitTime, maxWaitTime)
 	var ranTime = randfn(.15, .50)
 	
