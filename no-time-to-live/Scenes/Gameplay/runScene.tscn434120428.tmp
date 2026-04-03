@@ -34,12 +34,12 @@ font_size = 80
 script/source = "extends Node
 
 
-#func _call_phone_task() -> void:
-#	var callType = randi_range(1, 4)
-#	
-#	match callType:
-#		1:
-#			if():
+func _call_phone_task() -> void:
+	var callType = randi_range(1, 4)
+	
+	match callType:
+		1:
+			if():
 "
 
 [node name="RunScene" type="Node2D"]
