@@ -20,7 +20,7 @@ func _ready() -> void:
 	add_child(instance.linked)
 	add_child(instance.vital)
 	add_child(instance.auto)
-	spawn_task("normal", "t", true, Vector2(500, 500))
+	spawn_task("normal", "t_test1", true, Vector2(1000, 500))
 
 ## Gets a desired task from the desired type via 1st letter in name
 func get_from_instance(type: String, task: String, random: bool) -> int:

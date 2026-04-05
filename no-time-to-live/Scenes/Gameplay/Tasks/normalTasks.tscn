@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtgjymq6u3qul"]
+[gd_scene load_steps=3 format=3 uid="uid://dtgjymq6u3qul"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
+[ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
 
 [node name="NormalTasks" type="Node2D"]
 
@@ -9,5 +10,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Normal"
 
-[node name="t_test" type="Sprite2D" parent="."]
+[node name="t_test1" type="Sprite2D" parent="."]
 texture = ExtResource("1_q3qvi")
+
+[node name="t_test2" type="Sprite2D" parent="."]
+texture = ExtResource("2_qq832")

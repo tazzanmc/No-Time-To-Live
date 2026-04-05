@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mq7cgt3emmnt"
-path="res://.godot/imported/buttonMockup.png-853dd2d73b0b3b49728d8e7b46e25e7b.ctex"
+uid="uid://dvgt03he65dc"
+path="res://.godot/imported/menuButtonHover.png-78cf52d308633891f3b996b753134c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/UI/buttonMockup.png"
-dest_files=["res://.godot/imported/buttonMockup.png-853dd2d73b0b3b49728d8e7b46e25e7b.ctex"]
+source_file="res://Assets/Textures/UI/menuButtonHover.png"
+dest_files=["res://.godot/imported/menuButtonHover.png-78cf52d308633891f3b996b753134c32.ctex"]
 
 [params]
 

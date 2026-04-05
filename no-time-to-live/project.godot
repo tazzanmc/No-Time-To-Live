@@ -24,6 +24,7 @@ window/size/viewport_height=1080
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/Fonts/": "orange",
 "res://Assets/Materials/": "orange",
 "res://Assets/Textures/": "orange",
 "res://Assets/Textures/Test/": "yellow",
@@ -38,6 +39,10 @@ folder_colors={
 "res://Scripts/Test/": "pink",
 "res://Scripts/UI/": "pink"
 }
+
+[gui]
+
+theme/custom_font="uid://3ydks2hx52yk"
 
 [input]
 
