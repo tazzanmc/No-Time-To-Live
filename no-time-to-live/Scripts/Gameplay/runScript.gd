@@ -19,6 +19,7 @@ func _process(_delta):
 		gameStart.emit()
 		print("Game Start")
 		print(gameActiveBool) 
+		SignalManager.emit_signal("callPhoneTask")
 	# Ends the game (placeholder condition to test title)
 	elif (socialBar.value <= 0 && gameActiveBool == 1 ):
 		gameActiveBool = 0

@@ -29,7 +29,7 @@ func get_from_instance(type: String, task: String, random: bool) -> int:
 		if instance[type].get_child(i).name.begins_with(task):
 			tasks.append(i)
 	if random == true:
-		return tasks.pick_random()
+		return tasks.pick_random() 
 	else:
 		return tasks[0]
 

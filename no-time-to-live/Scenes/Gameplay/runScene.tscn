@@ -1,13 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://531evwyg41l"]
+[gd_scene load_steps=21 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
-[ext_resource type="Script" path="res://Scripts/Gameplay/socialBar.gd" id="2_28rcq"]
+[ext_resource type="Script" uid="uid://bbdppjwi4e4vo" path="res://Scripts/Gameplay/socialBar.gd" id="2_28rcq"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_u74eo"]
 [ext_resource type="Script" uid="uid://2dn7v832snyc" path="res://Scripts/Gameplay/satietyBar.gd" id="3_bbkr7"]
 [ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://Scripts/UI/title_card.gd" id="3_ncvfw"]
 [ext_resource type="Script" uid="uid://dtuvfbvd43bh1" path="res://Scripts/Gameplay/moneyBar.gd" id="4_1n8j8"]
 [ext_resource type="Script" uid="uid://c1hknm3os0soj" path="res://Scripts/Gameplay/Tasks/taskTimerScript.gd" id="7_1n8j8"]
+[ext_resource type="Script" uid="uid://d0vexbdk2yna2" path="res://Scripts/Gameplay/Tasks/task_generator.gd" id="9_wu1q0"]
 [ext_resource type="PackedScene" uid="uid://dttmf8duyinv" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
+[ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="10_4eg07"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="11_s8ik7"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="12_l60cb"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="13_d84c4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
 bg_color = Color(0, 0.54901963, 0.6117647, 1)
@@ -122,9 +127,16 @@ offset_right = 79.80222
 offset_bottom = 34.399178
 text = "Quit"
 
+[node name="taskGenerator" type="Node" parent="."]
+script = ExtResource("9_wu1q0")
+normal_tasks_scene = ExtResource("10_4eg07")
+linked_tasks_scene = ExtResource("11_s8ik7")
+vital_tasks_scene = ExtResource("12_l60cb")
+auto_tasks_scene = ExtResource("13_d84c4")
+
 [connection signal="gameEnd" from="." to="titleCard" method="_game_end_signal"]
-[connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
 [connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
+[connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
 [connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="moneyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]
@@ -133,6 +145,8 @@ text = "Quit"
 [connection signal="timeout" from="barIntervalTimer" to="socialBar" method="_timer_interval"]
 [connection signal="timeout" from="barIntervalTimer" to="satietyBar" method="_timer_interval"]
 [connection signal="timeout" from="barIntervalTimer" to="moneyBar" method="_timer_interval"]
+[connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_on_randomize_task"]
+[connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_randomize_task"]
 [connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
 
 [editable path="buttonSettings"]

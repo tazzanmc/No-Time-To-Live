@@ -5,6 +5,9 @@ extends ProgressBar
 var numIntervals = 1.0
 var gameStarted = 0
 
+func _ready():
+	SignalManager.connect("callPizza", _on_call_pizza)
+
 func _game_start_getter():
 	gameStarted = 1
 	satietyBar.visible = true
@@ -13,3 +16,6 @@ func _timer_interval() -> void:
 	if(gameStarted == 1):
 		satietyBar.value -= pow(numIntervals, .3)/2
 		numIntervals += 1
+
+func _on_call_pizza():
+	satietyBar.value += 10
