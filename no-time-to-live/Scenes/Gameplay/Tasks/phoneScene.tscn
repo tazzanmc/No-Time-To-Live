@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5tu1ic2r7uqu"]
+[gd_scene load_steps=8 format=3 uid="uid://c3vvsdbqva1rw"]
 
 [ext_resource type="Texture2D" uid="uid://us06g676crh5" path="res://Assets/Textures/Test/PhonePlaceholderFront.png" id="1_qj8ti"]
 [ext_resource type="Script" uid="uid://cpf04oxy1t1gt" path="res://Scripts/Gameplay/Tasks/phoneTaskScript.gd" id="1_rk4eu"]

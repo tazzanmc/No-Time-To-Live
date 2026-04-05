@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtgjymq6u3qul"]
+[gd_scene load_steps=10 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
+[ext_resource type="Texture2D" uid="uid://us06g676crh5" path="res://Assets/Textures/Test/PhonePlaceholderFront.png" id="3_72alw"]
+[ext_resource type="Script" uid="uid://bs5y4pligft8s" path="res://Scenes/Gameplay/Tasks/t_phone_scene.gd" id="3_g7syt"]
+[ext_resource type="Texture2D" uid="uid://bu61s5gmle32a" path="res://Assets/Textures/Test/AnswerCallButton.png" id="4_g7syt"]
+[ext_resource type="Texture2D" uid="uid://bt7ejng73fpeg" path="res://Assets/Textures/Test/DenyCallButton.png" id="5_12sih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
+size = Vector2(218, 393)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tucb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_72alw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtea1"]
+font_size = 32
 
 [node name="NormalTasks" type="Node2D"]
 
@@ -15,3 +36,56 @@ texture = ExtResource("1_q3qvi")
 
 [node name="t_test2" type="Sprite2D" parent="."]
 texture = ExtResource("2_qq832")
+
+[node name="t_phoneScene" type="Node2D" parent="."]
+script = ExtResource("3_g7syt")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="t_phoneScene"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="t_phoneScene/CharacterBody2D"]
+position = Vector2(109, 197)
+shape = SubResource("RectangleShape2D_lco26")
+
+[node name="ColorRect" type="ColorRect" parent="t_phoneScene/CharacterBody2D"]
+offset_left = 14.9999695
+offset_top = 9.999954
+offset_right = 210.99997
+offset_bottom = 383.99994
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="t_phoneScene/CharacterBody2D"]
+position = Vector2(111, 202.99995)
+scale = Vector2(0.2825279, 0.2506142)
+sprite_frames = SubResource("SpriteFrames_tucb0")
+
+[node name="callerLabel" type="Label" parent="t_phoneScene/CharacterBody2D"]
+texture_filter = 1
+offset_left = 37.99997
+offset_top = 44.999954
+offset_right = 189.99997
+offset_bottom = 78.999954
+text = "123-456-7890"
+label_settings = SubResource("LabelSettings_jtea1")
+
+[node name="answerCallButton" type="Button" parent="t_phoneScene"]
+offset_left = 19.99997
+offset_top = 308.99994
+offset_right = 86.99997
+offset_bottom = 375.99994
+icon = ExtResource("4_g7syt")
+flat = true
+expand_icon = true
+
+[node name="denyCallButton" type="Button" parent="t_phoneScene"]
+offset_left = 140.99997
+offset_top = 310.99994
+offset_right = 208.99997
+offset_bottom = 378.99994
+icon = ExtResource("5_12sih")
+flat = true
+expand_icon = true
+
+[node name="taskTimer" type="Timer" parent="t_phoneScene"]
+wait_time = 10.0
+
+[connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
