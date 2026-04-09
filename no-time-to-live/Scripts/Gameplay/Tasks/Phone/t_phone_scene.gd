@@ -12,7 +12,15 @@ func _ready():
 	SignalManager.connect("callPhoneTask", _start_call_task)
 	
 func _process(_delta):
-	pass
+	if $".".global_position.x < 0:
+		$".".global_position = Vector2(1, $".".global_position.y)
+	if $".".global_position.y < 0:
+		$".".global_position = Vector2($".".global_position.x, 1)
+
+	if $".".global_position.x > 1700:
+		$".".global_position = Vector2(1700, $".".global_position.y)
+	if $".".global_position.y > 685:
+		$".".global_position = Vector2( $".".global_position.x, 685)
 
 func _start_call_task():
 	callType  =  randi_range(1, 4)
