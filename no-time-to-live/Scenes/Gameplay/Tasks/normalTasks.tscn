@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=16 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bu61s5gmle32a" path="res://Assets/Textures/Test/AnswerCallButton.png" id="4_g7syt"]
 [ext_resource type="Texture2D" uid="uid://bt7ejng73fpeg" path="res://Assets/Textures/Test/DenyCallButton.png" id="5_12sih"]
 [ext_resource type="Script" uid="uid://tseh5xhb0ut8" path="res://Scripts/Gameplay/Tasks/Phone/call_task_timer.gd" id="7_12sih"]
+[ext_resource type="Script" uid="uid://cx3b04o7c3ub2" path="res://Scripts/Gameplay/Tasks/Job Application/t_job_application.gd" id="8_tucb0"]
+[ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="9_jtea1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(218, 393)
@@ -24,6 +26,18 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_jtea1"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_bn2gp"]
+font = ExtResource("9_jtea1")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_20noh"]
+font = ExtResource("9_jtea1")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6cqc7"]
 
 [node name="NormalTasks" type="Node2D"]
 
@@ -101,5 +115,123 @@ metadata/_edit_use_anchors_ = true
 wait_time = 10.0
 script = ExtResource("7_12sih")
 
+[node name="t_jobApplication" type="Node2D" parent="."]
+script = ExtResource("8_tucb0")
+
+[node name="ColorRect" type="ColorRect" parent="t_jobApplication"]
+offset_right = 426.0
+offset_bottom = 551.0
+
+[node name="ApplicationHeader" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+offset_left = 142.0
+offset_top = 6.0
+offset_right = 286.0
+offset_bottom = 38.0
+text = "Job Application"
+label_settings = SubResource("LabelSettings_bn2gp")
+
+[node name="SocialSecurityLabel" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+offset_left = 9.0
+offset_top = 60.0
+offset_right = 160.0
+offset_bottom = 92.0
+text = "Copy your SSN: "
+label_settings = SubResource("LabelSettings_20noh")
+
+[node name="DOBLabel" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+offset_left = 9.0
+offset_top = 200.0
+offset_right = 250.0
+offset_bottom = 232.0
+text = "Copy your date of birth: "
+label_settings = SubResource("LabelSettings_20noh")
+
+[node name="DescribeLabel" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+offset_left = 9.0
+offset_top = 340.0
+offset_right = 250.0
+offset_bottom = 372.0
+text = "Describe your boss: "
+label_settings = SubResource("LabelSettings_20noh")
+
+[node name="SocialSecurityAnswerLabel" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+anchors_preset = -1
+anchor_left = -0.07700001
+anchor_top = -10.633
+anchor_right = -0.07700001
+anchor_bottom = -10.633
+offset_left = 264.0
+offset_top = 61.0
+offset_right = 415.0
+offset_bottom = 93.0
+label_settings = SubResource("LabelSettings_20noh")
+horizontal_alignment = 2
+
+[node name="DOBAnswerLabel" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+anchors_preset = -1
+anchor_left = -0.080000006
+anchor_top = -10.653001
+anchor_right = -0.080000006
+anchor_bottom = -10.653001
+offset_left = 264.0
+offset_top = 200.0
+offset_right = 421.0
+offset_bottom = 232.0
+label_settings = SubResource("LabelSettings_20noh")
+horizontal_alignment = 2
+
+[node name="DescribeAnswerLabel" type="Label" parent="t_jobApplication"]
+texture_filter = 3
+anchors_preset = -1
+anchor_left = -0.085
+anchor_top = -10.614
+anchor_right = -0.085
+anchor_bottom = -10.614
+offset_left = 224.0
+offset_top = 340.0
+offset_right = 422.0
+offset_bottom = 372.0
+label_settings = SubResource("LabelSettings_20noh")
+horizontal_alignment = 2
+autowrap_mode = 1
+
+[node name="SubmitButton" type="Button" parent="t_jobApplication"]
+offset_left = 130.0
+offset_top = 458.0
+offset_right = 310.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0.88, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Submit!"
+icon = SubResource("ViewportTexture_6cqc7")
+
+[node name="SocialSecurityField" type="LineEdit" parent="t_jobApplication"]
+offset_left = 8.0
+offset_top = 101.0
+offset_right = 217.0
+offset_bottom = 125.0
+placeholder_text = "SSN"
+
+[node name="DOBField" type="LineEdit" parent="t_jobApplication"]
+offset_left = 9.0
+offset_top = 235.0
+offset_right = 218.0
+offset_bottom = 259.0
+placeholder_text = "DOB"
+
+[node name="BossDescriptorField" type="LineEdit" parent="t_jobApplication"]
+offset_left = 9.0
+offset_top = 377.0
+offset_right = 218.0
+offset_bottom = 401.0
+placeholder_text = "Boss Description"
+
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
+[connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
