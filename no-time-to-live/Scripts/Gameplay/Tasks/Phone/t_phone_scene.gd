@@ -1,6 +1,8 @@
 extends Node2D
 
 var callType
+var taskSelected : bool = false
+var centerMouse := Vector2.ZERO
 
 @onready var answerButton = $answerCallButton
 @onready var denyButton = $denyCallButton
@@ -35,7 +37,6 @@ func _answer_call():
 	match callType:
 		1:
 			SignalManager.emit_signal("callFamily")
-			
 		2:
 			SignalManager.emit_signal("callWork")
 		3:
@@ -51,3 +52,15 @@ func _deny_call():
 	callerID.visible = false
 	answerButton.visible = false
 	denyButton.visible = false
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			var phonePos = Rect2($".".global_position, $CharacterBody2D/ColorRect.size)
+			if phonePos.has_point(event.position):
+				taskSelected = true
+				centerMouse = position - event.position 
+		else:
+			taskSelected = false
+	elif event is InputEventMouse and taskSelected:
+		position = event.position + centerMouse
