@@ -6,15 +6,13 @@ signal callFamily()
 signal callWork()
 signal callPizza()
 signal callScam()
-signal correctJobInfoSubmittion()
+signal correctJobInfoSubmission()
 
 var jobPool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalManager.connect("correctJobInfoSubmittion", _enable_job_pool)
-
-
+	SignalManager.correctJobInfoSubmission.connect(_enable_job_pool)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -22,3 +20,4 @@ func _process(_delta):
 
 func _enable_job_pool():
 	jobPool = true
+	print("job pool enabled")

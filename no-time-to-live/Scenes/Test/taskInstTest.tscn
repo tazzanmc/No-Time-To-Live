@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://grctrsq5jwfk"]
 
 [ext_resource type="Script" uid="uid://d0vexbdk2yna2" path="res://Scripts/Gameplay/Tasks/task_generator.gd" id="1_pdqmi"]
-[ext_resource type="PackedScene" uid="uid://dtgjymq6u3qul" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="2_hkgbw"]
+[ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="2_hkgbw"]
 [ext_resource type="PackedScene" uid="uid://t4nm6v2h7adf" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="3_niswr"]
 [ext_resource type="PackedScene" uid="uid://dxp5pntperpdp" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="4_kshsq"]
 [ext_resource type="PackedScene" uid="uid://cauk5gol1qh08" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="5_ps5l6"]

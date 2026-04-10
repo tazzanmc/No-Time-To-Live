@@ -217,6 +217,7 @@ offset_top = 101.0
 offset_right = 217.0
 offset_bottom = 125.0
 placeholder_text = "SSN"
+caret_blink = true
 
 [node name="DOBField" type="LineEdit" parent="t_jobApplication"]
 offset_left = 9.0
@@ -224,6 +225,7 @@ offset_top = 235.0
 offset_right = 218.0
 offset_bottom = 259.0
 placeholder_text = "DOB"
+caret_blink = true
 
 [node name="BossDescriptorField" type="LineEdit" parent="t_jobApplication"]
 offset_left = 9.0
@@ -231,6 +233,7 @@ offset_top = 377.0
 offset_right = 218.0
 offset_bottom = 401.0
 placeholder_text = "Boss Description"
+caret_blink = true
 
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
