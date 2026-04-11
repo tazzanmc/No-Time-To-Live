@@ -31,6 +31,7 @@ folder_colors={
 "res://Assets/Fonts/": "orange",
 "res://Assets/Materials/": "orange",
 "res://Assets/Textures/": "orange",
+"res://Assets/Textures/Tasks/": "yellow",
 "res://Assets/Textures/Test/": "yellow",
 "res://Assets/Textures/UI/": "yellow",
 "res://Scenes/": "green",
