@@ -3,12 +3,14 @@ extends Timer
 signal randomizeTask
 
 @onready var taskTimer = $"."
-var minWaitTime = 5.0
-var maxWaitTime = 10.0
-var taskRandomizer
+@onready var taskGen := $"../taskGenerator"
+@export var minWaitTime: float = 5.0
+@export var maxWaitTime: float = 10.0
+var taskRandomizer: int 
+
 
 func _ready():
-	pass
+	taskTimer.wait_time = randf_range(minWaitTime, maxWaitTime)
 
 func _on_timeout() -> void:
 	print("task timer timeout")
@@ -24,4 +26,7 @@ func _on_timeout() -> void:
 
 func _randomize_task():
 	taskRandomizer = randi_range(1, 14)
-	SignalManager.emit_signal("callPhoneTask")
+	if taskRandomizer <= 7:
+		SignalManager.emit_signal("callPhoneTask")
+	else:
+		taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))

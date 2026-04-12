@@ -19,6 +19,9 @@ func _process(_delta):
 		gameStart.emit()
 		print("Game Start")
 		print(gameActiveBool) 
+		$buttonSettings.queue_free()
+		$buttonQuit.queue_free()
+		$taskGenerator.spawn_task("normal", "t_phone", false, Vector2(0,0))
 		SignalManager.emit_signal("callPhoneTask")
 	# Ends the game (placeholder condition to test title)
 	elif (socialBar.value <= 0 && gameActiveBool == 1 ):

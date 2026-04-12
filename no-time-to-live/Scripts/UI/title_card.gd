@@ -16,10 +16,10 @@ func _game_end_signal() -> void:
 	gameStartBool = false
 
 func _process(delta):
-	if(gameStartBool && position.y > -595):
+	if(gameStartBool && position.y > -409):
 		position.y -= (speed + acceleration) * delta
 		acceleration += 10   
 		
-	if(!gameStartBool && position.y <= 595):
+	if(!gameStartBool && position.y <= 409):
 		position.y += (speed + acceleration) * delta
 		acceleration += 10

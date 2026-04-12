@@ -45,3 +45,6 @@ func reset_tween() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween().set_ease(ease_type).set_trans(trans_type).set_parallel(true)
+
+func _kill() -> void:
+	self.queue_free()
