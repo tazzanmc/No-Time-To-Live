@@ -6,7 +6,12 @@ signal callFamily()
 signal callWork()
 signal callPizza()
 signal callScam()
+
+# Job Application signals
 signal correctJobInfoSubmission()
+
+# Grocery List signals
+signal completedGroceryTask()
 
 var jobPool = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=29 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="9_bn2gp"]
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="9_jtea1"]
 [ext_resource type="Texture2D" uid="uid://ds83yciijpdlg" path="res://Assets/Textures/Tasks/jobApplication.png" id="10_20noh"]
+[ext_resource type="Script" uid="uid://cx5wcepomi3r2" path="res://Scripts/Gameplay/Tasks/Grocery List/t_grocery_list.gd" id="12_20noh"]
+[ext_resource type="Script" uid="uid://bs8gvsyp77m1t" path="res://Scripts/Gameplay/Tasks/Make Food/t_make_food.gd" id="13_6cqc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(218, 393)
@@ -41,6 +43,35 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6cqc7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_6cqc7"]
+font = ExtResource("9_jtea1")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_16ecs"]
+font = ExtResource("9_jtea1")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qwhc"]
+size = Vector2(553, 121.26846)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cqc7"]
+size = Vector2(411.7292, 137.70337)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ecs"]
+size = Vector2(297, 842.0001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caxf5"]
+size = Vector2(836, 327.00006)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3er4"]
+size = Vector2(337.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xff3l"]
+size = Vector2(281, 82)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lhdd"]
+
 [node name="NormalTasks" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
@@ -57,7 +88,7 @@ visible = false
 texture = ExtResource("2_qq832")
 
 [node name="t_phoneScene" type="Node2D" parent="."]
-position = Vector2(1524, 229)
+position = Vector2(1645, 655)
 script = ExtResource("3_g7syt")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="t_phoneScene"]
@@ -245,6 +276,296 @@ offset_bottom = 449.0
 placeholder_text = "Boss Description"
 caret_blink = true
 
+[node name="t_groceryList" type="Node2D" parent="."]
+position = Vector2(6, 561)
+script = ExtResource("12_20noh")
+
+[node name="ColorRect" type="ColorRect" parent="t_groceryList"]
+offset_right = 418.0
+offset_bottom = 358.0
+color = Color(1, 1, 0.3764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel1" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 18.0
+offset_top = 7.0
+offset_right = 140.0
+offset_bottom = 39.0
+text = "test1"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel2" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 19.0
+offset_top = 50.0
+offset_right = 141.0
+offset_bottom = 82.0
+text = "test2"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel3" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 18.0
+offset_top = 90.0
+offset_right = 140.0
+offset_bottom = 122.0
+text = "test3"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel4" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 18.0
+offset_top = 130.0
+offset_right = 140.0
+offset_bottom = 162.0
+text = "test4"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel5" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 18.0
+offset_top = 171.0
+offset_right = 140.0
+offset_bottom = 203.0
+text = "test5"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel6" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 19.0
+offset_top = 212.0
+offset_right = 141.0
+offset_bottom = 244.0
+text = "test6"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel7" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 19.0
+offset_top = 254.0
+offset_right = 141.0
+offset_bottom = 286.0
+text = "test7"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyLabel8" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 19.0
+offset_top = 293.0
+offset_right = 141.0
+offset_bottom = 325.0
+text = "test8"
+label_settings = SubResource("LabelSettings_6cqc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck1" type="CheckBox" parent="t_groceryList"]
+offset_left = 370.0
+offset_top = 11.0
+offset_right = 394.0
+offset_bottom = 35.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck2" type="CheckBox" parent="t_groceryList"]
+offset_left = 370.0
+offset_top = 52.0
+offset_right = 394.0
+offset_bottom = 76.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck3" type="CheckBox" parent="t_groceryList"]
+offset_left = 370.0
+offset_top = 93.0
+offset_right = 394.0
+offset_bottom = 117.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck4" type="CheckBox" parent="t_groceryList"]
+offset_left = 369.0
+offset_top = 139.0
+offset_right = 393.0
+offset_bottom = 163.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck5" type="CheckBox" parent="t_groceryList"]
+offset_left = 369.0
+offset_top = 182.0
+offset_right = 393.0
+offset_bottom = 206.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck6" type="CheckBox" parent="t_groceryList"]
+offset_left = 369.0
+offset_top = 219.0
+offset_right = 393.0
+offset_bottom = 243.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck7" type="CheckBox" parent="t_groceryList"]
+offset_left = 368.0
+offset_top = 260.0
+offset_right = 392.0
+offset_bottom = 284.0
+metadata/_edit_use_anchors_ = true
+
+[node name="stickyCheck8" type="CheckBox" parent="t_groceryList"]
+offset_left = 368.0
+offset_top = 298.0
+offset_right = 392.0
+offset_bottom = 322.0
+metadata/_edit_use_anchors_ = true
+
+[node name="submitButton" type="Button" parent="t_groceryList"]
+offset_left = 150.0
+offset_top = 326.0
+offset_right = 273.0
+offset_bottom = 350.0
+text = "Is that everything?"
+metadata/_edit_use_anchors_ = true
+
+[node name="t_makeFoodPrompt" type="Node2D" parent="."]
+position = Vector2(584, 90)
+script = ExtResource("13_6cqc7")
+
+[node name="ColorRect" type="ColorRect" parent="t_makeFoodPrompt"]
+offset_left = 2.0
+offset_top = 360.0
+offset_right = 281.0
+offset_bottom = 547.0
+
+[node name="Label" type="Label" parent="t_makeFoodPrompt"]
+texture_filter = 1
+offset_left = 81.0
+offset_top = 418.0
+offset_right = 212.0
+offset_bottom = 472.0
+text = "You feel hungry..
+
+Do you want to make food?"
+label_settings = SubResource("LabelSettings_16ecs")
+horizontal_alignment = 1
+
+[node name="confirmButton" type="Button" parent="t_makeFoodPrompt"]
+texture_filter = 1
+offset_left = 64.0
+offset_top = 510.0
+offset_right = 95.0
+offset_bottom = 534.0
+text = "Yes"
+
+[node name="denyButton" type="Button" parent="t_makeFoodPrompt"]
+texture_filter = 1
+offset_left = 184.0
+offset_top = 509.0
+offset_right = 215.0
+offset_bottom = 533.0
+text = "No"
+
+[node name="fryingPanMinigame" type="Node2D" parent="t_makeFoodPrompt"]
+
+[node name="Pan" type="CharacterBody2D" parent="t_makeFoodPrompt/fryingPanMinigame"]
+position = Vector2(700, 316)
+rotation = -0.62831855
+
+[node name="PanSideLeft" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+offset_left = -485.56128
+offset_top = -500.5749
+offset_right = -276.41125
+offset_bottom = -468.40213
+rotation = 1.2566371
+color = Color(0, 0, 0, 1)
+
+[node name="PanBottomRect" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+offset_left = -432.7547
+offset_top = -323.06714
+offset_right = 131.2453
+offset_bottom = -283.06714
+rotation = 0.6422812
+color = Color(0, 0, 0, 1)
+
+[node name="PanSideRight" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+offset_left = -9.5563965
+offset_top = 2.9454346
+offset_right = 181.09973
+offset_bottom = 42.945435
+color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+
+[node name="PanBottom" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-246.04156, -109.997986)
+rotation = 0.6422812
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_1qwhc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(92.20203, 71.45349)
+shape = SubResource("RectangleShape2D_6cqc7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-518.0779, -369.04834)
+rotation = 1.2566371
+shape = SubResource("RectangleShape2D_6cqc7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(537.2863, -248.68567)
+rotation = 0.62831855
+shape = SubResource("RectangleShape2D_16ecs")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-352.97394, -917.7469)
+rotation = 0.62831855
+shape = SubResource("RectangleShape2D_16ecs")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(422.62103, -1035.9355)
+rotation = 0.62831855
+shape = SubResource("RectangleShape2D_caxf5")
+
+[node name="PanBottomArea" type="Area2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-188.88051, -161.95108)
+rotation = 0.62831855
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan/PanBottomArea"]
+shape = SubResource("RectangleShape2D_w3er4")
+
+[node name="GrilledCheese" type="RigidBody2D" parent="t_makeFoodPrompt/fryingPanMinigame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
+position = Vector2(459.5, 132)
+shape = SubResource("RectangleShape2D_xff3l")
+
+[node name="ColorRect2" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
+offset_left = 319.0
+offset_top = 92.0
+offset_right = 600.0
+offset_bottom = 132.0
+color = Color(0.83, 0.7359333, 0.498, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
+offset_left = 319.0
+offset_top = 132.0
+offset_right = 600.0
+offset_bottom = 172.0
+color = Color(0.73, 0.37424672, 0.102199994, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
+position = Vector2(460, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese/Area2D"]
+shape = SubResource("CircleShape2D_3lhdd")
+
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
 [connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
+[connection signal="pressed" from="t_groceryList/submitButton" to="t_groceryList" method="_submit_button_pressed"]
+[connection signal="pressed" from="t_makeFoodPrompt/confirmButton" to="t_makeFoodPrompt" method="_confirm_button_pressed"]
+[connection signal="pressed" from="t_makeFoodPrompt/denyButton" to="t_makeFoodPrompt" method="_deny_button_pressed"]
+[connection signal="area_entered" from="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese/Area2D" to="t_makeFoodPrompt" method="_sandwich_area_entered"]

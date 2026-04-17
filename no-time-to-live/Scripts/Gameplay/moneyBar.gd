@@ -9,6 +9,7 @@ func _ready():
 	SignalManager.connect("callPizza", _on_call_pizza)
 	SignalManager.connect("callWork", _on_call_work)
 	SignalManager.connect("callScam", _on_call_scam)
+	SignalManager.connect("completedGroceryTask", _on_complete_grocery)
 
 func _game_start_getter():
 	moneyBar.visible = true
@@ -27,3 +28,7 @@ func _on_call_work():
 
 func _on_call_scam():
 	moneyBar.value -=20
+
+func _on_complete_grocery():
+	moneyBar.value -= 10
+	print("succes")
