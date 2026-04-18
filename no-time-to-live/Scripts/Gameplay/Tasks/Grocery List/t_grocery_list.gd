@@ -33,12 +33,10 @@ func 	_random_grocery_generator():
 	$stickyLabel4.text = groceryNum[3]
 	$stickyLabel5.text = groceryNum[4]
 	$stickyLabel6.text = groceryNum[5]
-	$stickyLabel7.text = groceryNum[6]
-	$stickyLabel8.text = groceryNum[7]
 
 
 func _submit_button_pressed() -> void:
-	if($stickyCheck1.is_pressed() && $stickyCheck2.is_pressed() && $stickyCheck3.is_pressed() && $stickyCheck4.is_pressed() && $stickyCheck5.is_pressed() && $stickyCheck6.is_pressed() && $stickyCheck7.is_pressed() && $stickyCheck8.is_pressed()):
+	if($stickyCheck1.is_pressed() && $stickyCheck2.is_pressed() && $stickyCheck3.is_pressed() && $stickyCheck4.is_pressed() && $stickyCheck5.is_pressed() && $stickyCheck6.is_pressed()):
 		SignalManager.emit_signal("completedGroceryTask")
 		print("test")
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=30 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ds83yciijpdlg" path="res://Assets/Textures/Tasks/jobApplication.png" id="10_20noh"]
 [ext_resource type="Script" uid="uid://cx5wcepomi3r2" path="res://Scripts/Gameplay/Tasks/Grocery List/t_grocery_list.gd" id="12_20noh"]
 [ext_resource type="Script" uid="uid://bs8gvsyp77m1t" path="res://Scripts/Gameplay/Tasks/Make Food/t_make_food.gd" id="13_6cqc7"]
+[ext_resource type="Texture2D" uid="uid://b67q6p24rpu8h" path="res://Assets/Textures/Tasks/groceryList.png" id="13_16ecs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(218, 393)
@@ -281,47 +282,60 @@ position = Vector2(6, 561)
 script = ExtResource("12_20noh")
 
 [node name="ColorRect" type="ColorRect" parent="t_groceryList"]
-offset_right = 418.0
-offset_bottom = 358.0
+offset_right = 410.0
+offset_bottom = 368.0
 color = Color(1, 1, 0.3764706, 1)
+
+[node name="pixelSprite2D" parent="t_groceryList" instance=ExtResource("9_bn2gp")]
+position = Vector2(205.00002, 184)
+texture = ExtResource("13_16ecs")
+
+[node name="title" type="Label" parent="t_groceryList"]
+texture_filter = 1
+offset_left = 145.0
+offset_top = 25.0
+offset_right = 274.0
+offset_bottom = 57.0
+text = "Shopping List"
+label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyLabel1" type="Label" parent="t_groceryList"]
 texture_filter = 1
 offset_left = 18.0
-offset_top = 7.0
+offset_top = 83.0
 offset_right = 140.0
-offset_bottom = 39.0
+offset_bottom = 115.0
 text = "test1"
 label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyLabel2" type="Label" parent="t_groceryList"]
 texture_filter = 1
-offset_left = 19.0
-offset_top = 50.0
-offset_right = 141.0
-offset_bottom = 82.0
+offset_left = 27.0
+offset_top = 124.0
+offset_right = 149.0
+offset_bottom = 156.0
 text = "test2"
 label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyLabel3" type="Label" parent="t_groceryList"]
 texture_filter = 1
-offset_left = 18.0
-offset_top = 90.0
-offset_right = 140.0
-offset_bottom = 122.0
+offset_left = 21.0
+offset_top = 166.0
+offset_right = 143.0
+offset_bottom = 198.0
 text = "test3"
 label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyLabel4" type="Label" parent="t_groceryList"]
 texture_filter = 1
-offset_left = 18.0
-offset_top = 130.0
-offset_right = 140.0
-offset_bottom = 162.0
+offset_left = 24.0
+offset_top = 208.0
+offset_right = 146.0
+offset_bottom = 240.0
 text = "test4"
 label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
@@ -329,104 +343,70 @@ metadata/_edit_use_anchors_ = true
 [node name="stickyLabel5" type="Label" parent="t_groceryList"]
 texture_filter = 1
 offset_left = 18.0
-offset_top = 171.0
+offset_top = 251.0
 offset_right = 140.0
-offset_bottom = 203.0
+offset_bottom = 283.0
 text = "test5"
 label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyLabel6" type="Label" parent="t_groceryList"]
 texture_filter = 1
-offset_left = 19.0
-offset_top = 212.0
-offset_right = 141.0
-offset_bottom = 244.0
+offset_left = 23.0
+offset_top = 292.0
+offset_right = 145.0
+offset_bottom = 324.0
 text = "test6"
 label_settings = SubResource("LabelSettings_6cqc7")
 metadata/_edit_use_anchors_ = true
 
-[node name="stickyLabel7" type="Label" parent="t_groceryList"]
-texture_filter = 1
-offset_left = 19.0
-offset_top = 254.0
-offset_right = 141.0
-offset_bottom = 286.0
-text = "test7"
-label_settings = SubResource("LabelSettings_6cqc7")
-metadata/_edit_use_anchors_ = true
-
-[node name="stickyLabel8" type="Label" parent="t_groceryList"]
-texture_filter = 1
-offset_left = 19.0
-offset_top = 293.0
-offset_right = 141.0
-offset_bottom = 325.0
-text = "test8"
-label_settings = SubResource("LabelSettings_6cqc7")
-metadata/_edit_use_anchors_ = true
-
 [node name="stickyCheck1" type="CheckBox" parent="t_groceryList"]
-offset_left = 370.0
-offset_top = 11.0
-offset_right = 394.0
-offset_bottom = 35.0
+offset_left = 376.0
+offset_top = 88.0
+offset_right = 400.0
+offset_bottom = 112.0
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyCheck2" type="CheckBox" parent="t_groceryList"]
-offset_left = 370.0
-offset_top = 52.0
-offset_right = 394.0
-offset_bottom = 76.0
+offset_left = 376.0
+offset_top = 130.0
+offset_right = 400.0
+offset_bottom = 154.0
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyCheck3" type="CheckBox" parent="t_groceryList"]
-offset_left = 370.0
-offset_top = 93.0
-offset_right = 394.0
-offset_bottom = 117.0
+offset_left = 376.0
+offset_top = 172.0
+offset_right = 400.0
+offset_bottom = 196.0
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyCheck4" type="CheckBox" parent="t_groceryList"]
-offset_left = 369.0
-offset_top = 139.0
-offset_right = 393.0
-offset_bottom = 163.0
+offset_left = 376.0
+offset_top = 214.0
+offset_right = 400.0
+offset_bottom = 238.0
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyCheck5" type="CheckBox" parent="t_groceryList"]
-offset_left = 369.0
-offset_top = 182.0
-offset_right = 393.0
-offset_bottom = 206.0
+offset_left = 376.0
+offset_top = 256.0
+offset_right = 400.0
+offset_bottom = 280.0
 metadata/_edit_use_anchors_ = true
 
 [node name="stickyCheck6" type="CheckBox" parent="t_groceryList"]
-offset_left = 369.0
-offset_top = 219.0
-offset_right = 393.0
-offset_bottom = 243.0
-metadata/_edit_use_anchors_ = true
-
-[node name="stickyCheck7" type="CheckBox" parent="t_groceryList"]
-offset_left = 368.0
-offset_top = 260.0
-offset_right = 392.0
-offset_bottom = 284.0
-metadata/_edit_use_anchors_ = true
-
-[node name="stickyCheck8" type="CheckBox" parent="t_groceryList"]
-offset_left = 368.0
+offset_left = 376.0
 offset_top = 298.0
-offset_right = 392.0
+offset_right = 400.0
 offset_bottom = 322.0
 metadata/_edit_use_anchors_ = true
 
 [node name="submitButton" type="Button" parent="t_groceryList"]
 offset_left = 150.0
-offset_top = 326.0
+offset_top = 339.0
 offset_right = 273.0
-offset_bottom = 350.0
+offset_bottom = 363.0
 text = "Is that everything?"
 metadata/_edit_use_anchors_ = true
 
