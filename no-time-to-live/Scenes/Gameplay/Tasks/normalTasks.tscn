@@ -1,11 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=29 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
-[ext_resource type="Texture2D" uid="uid://us06g676crh5" path="res://Assets/Textures/Test/PhonePlaceholderFront.png" id="3_72alw"]
 [ext_resource type="Script" uid="uid://bs5y4pligft8s" path="res://Scripts/Gameplay/Tasks/Phone/t_phone_scene.gd" id="3_g7syt"]
-[ext_resource type="Texture2D" uid="uid://bu61s5gmle32a" path="res://Assets/Textures/Test/AnswerCallButton.png" id="4_g7syt"]
-[ext_resource type="Texture2D" uid="uid://bt7ejng73fpeg" path="res://Assets/Textures/Test/DenyCallButton.png" id="5_12sih"]
+[ext_resource type="Texture2D" uid="uid://jssda6ns7el8" path="res://Assets/Textures/Tasks/phone.png" id="5_1qwhc"]
+[ext_resource type="Texture2D" uid="uid://3jrxcrdrusmj" path="res://Assets/Textures/Tasks/acceptCallButton.png" id="5_16ecs"]
+[ext_resource type="Texture2D" uid="uid://u2lgbcx3plg8" path="res://Assets/Textures/Tasks/denyCallButton.png" id="6_1qwhc"]
 [ext_resource type="Script" uid="uid://tseh5xhb0ut8" path="res://Scripts/Gameplay/Tasks/Phone/call_task_timer.gd" id="7_12sih"]
 [ext_resource type="Script" uid="uid://cx3b04o7c3ub2" path="res://Scripts/Gameplay/Tasks/Job Application/t_job_application.gd" id="8_tucb0"]
 [ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="9_bn2gp"]
@@ -16,18 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b67q6p24rpu8h" path="res://Assets/Textures/Tasks/groceryList.png" id="13_16ecs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
-size = Vector2(218, 393)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tucb0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_72alw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+size = Vector2(182, 366.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jtea1"]
 font_size = 32
@@ -95,28 +84,25 @@ script = ExtResource("3_g7syt")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="t_phoneScene"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_phoneScene/CharacterBody2D"]
-position = Vector2(109, 197)
+position = Vector2(91, 183.75)
 shape = SubResource("RectangleShape2D_lco26")
 
 [node name="ColorRect" type="ColorRect" parent="t_phoneScene/CharacterBody2D"]
-offset_left = 14.9999695
-offset_top = 9.999954
-offset_right = 210.99997
-offset_bottom = 383.99994
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+offset_left = 2.9999695
+offset_top = 2.0000153
+offset_right = 176.99997
+offset_bottom = 361.0
+color = Color(0, 0, 0, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="t_phoneScene/CharacterBody2D"]
-position = Vector2(111, 202.99995)
-scale = Vector2(0.2825279, 0.2506142)
-sprite_frames = SubResource("SpriteFrames_tucb0")
+[node name="pixelSprite2D" parent="t_phoneScene/CharacterBody2D" instance=ExtResource("9_bn2gp")]
+position = Vector2(89, 181)
+texture = ExtResource("5_1qwhc")
 
 [node name="callerLabel" type="Label" parent="t_phoneScene/CharacterBody2D"]
-visible = false
 texture_filter = 1
-offset_left = 37.99997
+offset_left = 14.9999695
 offset_top = 44.999954
-offset_right = 189.99997
+offset_right = 166.99997
 offset_bottom = 78.999954
 text = "123-456-7890"
 label_settings = SubResource("LabelSettings_jtea1")
@@ -124,24 +110,27 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="answerCallButton" type="Button" parent="t_phoneScene"]
-visible = false
-offset_left = 19.99997
-offset_top = 308.99994
-offset_right = 86.99997
-offset_bottom = 375.99994
-icon = ExtResource("4_g7syt")
+texture_filter = 1
+custom_minimum_size = Vector2(15, 15)
+offset_left = 18.99997
+offset_top = 284.0
+offset_right = 69.99997
+offset_bottom = 335.0
+icon = ExtResource("5_16ecs")
 flat = true
+icon_alignment = 1
 expand_icon = true
-metadata/_edit_use_anchors_ = true
 
 [node name="denyCallButton" type="Button" parent="t_phoneScene"]
-visible = false
-offset_left = 140.99997
-offset_top = 310.99994
-offset_right = 208.99997
-offset_bottom = 378.99994
-icon = ExtResource("5_12sih")
+texture_filter = 1
+custom_minimum_size = Vector2(15, 15)
+offset_left = 111.99997
+offset_top = 284.0
+offset_right = 162.99997
+offset_bottom = 335.0
+icon = ExtResource("6_1qwhc")
 flat = true
+icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
