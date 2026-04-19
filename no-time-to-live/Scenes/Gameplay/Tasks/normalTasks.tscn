@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=30 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cx5wcepomi3r2" path="res://Scripts/Gameplay/Tasks/Grocery List/t_grocery_list.gd" id="12_20noh"]
 [ext_resource type="Script" uid="uid://bs8gvsyp77m1t" path="res://Scripts/Gameplay/Tasks/Make Food/t_make_food.gd" id="13_6cqc7"]
 [ext_resource type="Texture2D" uid="uid://b67q6p24rpu8h" path="res://Assets/Textures/Tasks/groceryList.png" id="13_16ecs"]
+[ext_resource type="Texture2D" uid="uid://bh1aj6v6ehq7y" path="res://Assets/Textures/Tasks/grilledCheese.png" id="15_1qwhc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(182, 366.5)
@@ -57,8 +58,8 @@ size = Vector2(836, 327.00006)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3er4"]
 size = Vector2(337.5, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xff3l"]
-size = Vector2(281, 82)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_1qwhc"]
+points = PackedVector2Array(-156, -76.5, -54, -145.5, 101, -147.5, 161, -78.5, 159, 106.5, -108, 148.5, -151, 32.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3lhdd"]
 
@@ -505,30 +506,19 @@ shape = SubResource("RectangleShape2D_w3er4")
 
 [node name="GrilledCheese" type="RigidBody2D" parent="t_makeFoodPrompt/fryingPanMinigame"]
 
+[node name="pixelSprite2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese" instance=ExtResource("9_bn2gp")]
+position = Vector2(464, 91)
+texture = ExtResource("15_1qwhc")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
-position = Vector2(459.5, 132)
-shape = SubResource("RectangleShape2D_xff3l")
-
-[node name="ColorRect2" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
-offset_left = 319.0
-offset_top = 92.0
-offset_right = 600.0
-offset_bottom = 132.0
-color = Color(0.83, 0.7359333, 0.498, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
-offset_left = 319.0
-offset_top = 132.0
-offset_right = 600.0
-offset_bottom = 172.0
-color = Color(0.73, 0.37424672, 0.102199994, 1)
-metadata/_edit_use_anchors_ = true
+position = Vector2(464, 91.5)
+shape = SubResource("ConvexPolygonShape2D_1qwhc")
 
 [node name="Area2D" type="Area2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
 position = Vector2(460, 92)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese/Area2D"]
+position = Vector2(7, -7)
 shape = SubResource("CircleShape2D_3lhdd")
 
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
