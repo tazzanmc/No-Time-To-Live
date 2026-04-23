@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=29 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bs8gvsyp77m1t" path="res://Scripts/Gameplay/Tasks/Make Food/t_make_food.gd" id="13_6cqc7"]
 [ext_resource type="Texture2D" uid="uid://b67q6p24rpu8h" path="res://Assets/Textures/Tasks/groceryList.png" id="13_16ecs"]
 [ext_resource type="Texture2D" uid="uid://bh1aj6v6ehq7y" path="res://Assets/Textures/Tasks/grilledCheese.png" id="15_1qwhc"]
+[ext_resource type="Texture2D" uid="uid://b2kga51jtm8hh" path="res://Assets/Textures/Tasks/fryPan.png" id="15_caxf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(182, 366.5)
@@ -43,20 +44,14 @@ font_color = Color(0, 0, 0, 1)
 font = ExtResource("9_jtea1")
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qwhc"]
-size = Vector2(553, 121.26846)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cqc7"]
-size = Vector2(411.7292, 137.70337)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ecs"]
-size = Vector2(297, 842.0001)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3er4"]
+size = Vector2(578, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caxf5"]
-size = Vector2(836, 327.00006)
+size = Vector2(101.823364, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3er4"]
-size = Vector2(337.5, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qwhc"]
+size = Vector2(553, 35.63423)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_1qwhc"]
 points = PackedVector2Array(-156, -76.5, -54, -145.5, 101, -147.5, 161, -78.5, 159, 106.5, -108, 148.5, -151, 32.5)
@@ -439,86 +434,88 @@ offset_bottom = 533.0
 text = "No"
 
 [node name="fryingPanMinigame" type="Node2D" parent="t_makeFoodPrompt"]
+position = Vector2(682, 454)
 
 [node name="Pan" type="CharacterBody2D" parent="t_makeFoodPrompt/fryingPanMinigame"]
-position = Vector2(700, 316)
-rotation = -0.62831855
 
-[node name="PanSideLeft" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-offset_left = -485.56128
-offset_top = -500.5749
-offset_right = -276.41125
-offset_bottom = -468.40213
-rotation = 1.2566371
-color = Color(0, 0, 0, 1)
+[node name="ColorRect" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+offset_left = -83.0
+offset_top = 88.0
+offset_right = -43.0
+offset_bottom = 128.0
+scale = Vector2(4.4085784, 11.032165)
+color = Color(1, 1, 1, 0)
 
-[node name="PanBottomRect" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-offset_left = -432.7547
-offset_top = -323.06714
-offset_right = 131.2453
-offset_bottom = -283.06714
-rotation = 0.6422812
-color = Color(0, 0, 0, 1)
+[node name="pixelSprite2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan" instance=ExtResource("9_bn2gp")]
+texture = ExtResource("15_caxf5")
 
-[node name="PanSideRight" type="ColorRect" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-offset_left = -9.5563965
-offset_top = 2.9454346
-offset_right = 181.09973
-offset_bottom = 42.945435
-color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-300, -238)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_w3er4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(299, -245)
+rotation = 4.712389
+shape = SubResource("RectangleShape2D_w3er4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(0, -525)
+shape = SubResource("RectangleShape2D_w3er4")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(263, -491.00003)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_caxf5")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-269, 40.99997)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_caxf5")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(-264, -493)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_caxf5")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
+position = Vector2(271, 42)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_caxf5")
 
 [node name="PanBottom" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(-246.04156, -109.997986)
-rotation = 0.6422812
+position = Vector2(-6, 78)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_1qwhc")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(92.20203, 71.45349)
-shape = SubResource("RectangleShape2D_6cqc7")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(-518.0779, -369.04834)
-rotation = 1.2566371
-shape = SubResource("RectangleShape2D_6cqc7")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(537.2863, -248.68567)
-rotation = 0.62831855
-shape = SubResource("RectangleShape2D_16ecs")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(-352.97394, -917.7469)
-rotation = 0.62831855
-shape = SubResource("RectangleShape2D_16ecs")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(422.62103, -1035.9355)
-rotation = 0.62831855
-shape = SubResource("RectangleShape2D_caxf5")
-
 [node name="PanBottomArea" type="Area2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan"]
-position = Vector2(-188.88051, -161.95108)
-rotation = 0.62831855
+position = Vector2(0.99998474, -57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/Pan/PanBottomArea"]
+position = Vector2(-5, 106)
 shape = SubResource("RectangleShape2D_w3er4")
 
 [node name="GrilledCheese" type="RigidBody2D" parent="t_makeFoodPrompt/fryingPanMinigame"]
+position = Vector2(-5, -123)
+mass = 500.0
+gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 10.0
+angular_damp = 10.0
 
 [node name="pixelSprite2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese" instance=ExtResource("9_bn2gp")]
-position = Vector2(464, 91)
 texture = ExtResource("15_1qwhc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
-position = Vector2(464, 91.5)
 shape = SubResource("ConvexPolygonShape2D_1qwhc")
 
 [node name="Area2D" type="Area2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese"]
-position = Vector2(460, 92)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFoodPrompt/fryingPanMinigame/GrilledCheese/Area2D"]
-position = Vector2(7, -7)
 shape = SubResource("CircleShape2D_3lhdd")
 
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]

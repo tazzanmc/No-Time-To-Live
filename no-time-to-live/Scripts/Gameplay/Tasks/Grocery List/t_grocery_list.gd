@@ -1,9 +1,7 @@
-extends Node2D
+extends task_generic
 
 var groceryList : Array = ["Scrub Daddy", "Watermelon", "Ketchup", "Potato", "Soda", "Chips", "Medication", "Tomato", "Romaine Lettuce", "Spaghetti", "Macaroni", "Ribs", "Pork Chops", "Oranges", "Bananas", "Soap", "Laundry Detergent", "Coffee", "Beer", "Peas"]
 var groceryNum = []
-var taskSelected : bool = false
-var centerMouse := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,15 +37,3 @@ func _submit_button_pressed() -> void:
 	if($stickyCheck1.is_pressed() && $stickyCheck2.is_pressed() && $stickyCheck3.is_pressed() && $stickyCheck4.is_pressed() && $stickyCheck5.is_pressed() && $stickyCheck6.is_pressed()):
 		SignalManager.emit_signal("completedGroceryTask")
 		print("test")
-		
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			var phonePos = Rect2($".".global_position, $ColorRect.size)
-			if phonePos.has_point(event.position):
-				taskSelected = true
-				centerMouse = position - event.position 
-		else:
-			taskSelected = false
-	elif event is InputEventMouse and taskSelected:
-		position = event.position + centerMouse
