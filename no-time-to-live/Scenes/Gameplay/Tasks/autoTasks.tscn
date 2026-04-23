@@ -10,4 +10,5 @@ offset_bottom = 23.0
 text = "Auto"
 
 [node name="t_test" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_3biq7")

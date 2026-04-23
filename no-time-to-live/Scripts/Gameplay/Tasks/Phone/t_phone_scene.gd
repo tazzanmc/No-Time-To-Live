@@ -66,6 +66,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			var phonePos = Rect2($".".global_position, $CharacterBody2D/ColorRect.size)
 			if phonePos.has_point(event.position):
+				print("test")
 				taskSelected = true
 				centerMouse = position - event.position 
 		else:
