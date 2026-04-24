@@ -13,7 +13,11 @@ signal correctJobInfoSubmission()
 # Grocery List signals
 signal completedGroceryTask()
 
+# Grilled cheese signals
 signal cookTaskComplete()
+
+# Mend clothes signals
+signal mendTaskComplete()
 
 var jobPool = false
 

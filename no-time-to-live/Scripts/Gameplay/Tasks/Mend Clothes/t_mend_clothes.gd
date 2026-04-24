@@ -1,13 +1,20 @@
 extends Node2D
 
+signal mendTaskComplete
+
 var promptSelected : bool = false
 var taskSelected : bool = false
 var centerMouse := Vector2.ZERO
+var taskCompleted : bool = false
 
 func _ready():
 	pass
 
-
+func _process(float) -> void:
+	if (taskCompleted && $mendClothesTask/dragCollider/holePlaceholder.scale.x > 0):
+		$mendClothesTask/dragCollider/holePlaceholder.scale.x -= .01
+	if($mendClothesTask/dragCollider/holePlaceholder.scale.x < .01):
+		$".".queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
@@ -40,7 +47,48 @@ func _mend_button_pressed() -> void:
 	# emit.mendTaskComplete
 	$".".queue_free()
 
-func _on_sew_area_1_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	print("test area")
-	if(event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		pass
+
+func _on_sew_1_pressed() -> void:
+	$mendClothesTask/sew1.hide()
+
+
+func _on_sew_2_pressed() -> void:
+	if($mendClothesTask/sew1.visible == false):
+		$mendClothesTask/sew2.hide()
+
+func _on_sew_3_pressed() -> void:
+	if($mendClothesTask/sew2.visible == false):
+		$mendClothesTask/sew3.hide()
+
+
+func _on_sew_4_pressed() -> void:
+	if($mendClothesTask/sew3.visible == false):
+		$mendClothesTask/sew4.hide()
+
+
+func _on_sew_5_pressed() -> void:
+	if($mendClothesTask/sew4.visible == false):
+		$mendClothesTask/sew5.hide()
+
+
+func _on_sew_6_pressed() -> void:
+	if($mendClothesTask/sew5.visible == false):
+		$mendClothesTask/sew6.hide()
+
+
+func _on_sew_7_pressed() -> void:
+	if($mendClothesTask/sew6.visible == false):
+		$mendClothesTask/sew7.hide()
+
+
+func _on_sew_8_pressed() -> void:
+	if($mendClothesTask/sew7.visible == false):
+		$mendClothesTask/sew8.hide()
+
+
+func _on_sew_9_pressed() -> void:
+	if($mendClothesTask/sew8.visible == false):
+		taskCompleted = true
+		mendTaskComplete.emit()
+		$mendClothesTask/sew9.hide()
+		
