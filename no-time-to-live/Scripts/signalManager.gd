@@ -13,6 +13,8 @@ signal correctJobInfoSubmission()
 # Grocery List signals
 signal completedGroceryTask()
 
+signal cookTaskComplete()
+
 var jobPool = false
 
 # Called when the node enters the scene tree for the first time.

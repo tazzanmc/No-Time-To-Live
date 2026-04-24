@@ -8,6 +8,7 @@ var gameStarted = 0
 func _ready():
 	SignalManager.connect("callPizza", _on_call_pizza)
 	SignalManager.connect("completedGroceryTask", _on_complete_grocery)
+	SignalManager.connect("cookTaskComplete", _on_complete_cook)
 
 func _game_start_getter():
 	gameStarted = 1
@@ -15,7 +16,7 @@ func _game_start_getter():
 
 func _timer_interval() -> void:
 	if(gameStarted == 1):
-		satietyBar.value -= pow(numIntervals, .3)/2
+		satietyBar.value -= pow(numIntervals, .3)/2satietyBar.value += 10
 		numIntervals += 1
 
 func _on_call_pizza():
@@ -24,3 +25,6 @@ func _on_call_pizza():
 func _on_complete_grocery():
 	satietyBar.value += 20
 	print("succes2")
+
+func _on_complete_cook():
+	satietyBar.value += 15

@@ -1,13 +1,292 @@
-[gd_scene load_steps=2 format=3 uid="uid://t4nm6v2h7adf"]
+[gd_scene load_steps=9 format=3 uid="uid://t4nm6v2h7adf"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_h1px6"]
+[ext_resource type="Script" uid="uid://dmr0ojrs5ufp2" path="res://Scripts/Gameplay/Tasks/Mend Clothes/t_mend_clothes.gd" id="2_jvaiu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvaiu"]
+size = Vector2(378, 308)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmmty"]
+radius = 16.03122
+
+[sub_resource type="LabelSettings" id="LabelSettings_jvaiu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8txcd"]
+size = Vector2(250, 162)
+
+[sub_resource type="LabelSettings" id="LabelSettings_odp6k"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3i06"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="LinkedTasks" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Linked"
 
 [node name="t_test" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_h1px6")
+
+[node name="t_mendClothes" type="Node2D" parent="."]
+script = ExtResource("2_jvaiu")
+
+[node name="mendClothesTask" type="CharacterBody2D" parent="t_mendClothes"]
+
+[node name="dragCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(822, 315)
+shape = SubResource("RectangleShape2D_jvaiu")
+
+[node name="clothesPlaceholder" type="ColorRect" parent="t_mendClothes/mendClothesTask/dragCollider"]
+offset_left = -190.0
+offset_top = -156.0
+offset_right = 192.0
+offset_bottom = 153.0
+color = Color(0.64, 0.224, 0.26559997, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="holePlaceholder" type="ColorRect" parent="t_mendClothes/mendClothesTask/dragCollider"]
+offset_left = -49.0
+offset_top = -128.0
+offset_right = 45.0
+offset_bottom = 117.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea1" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(761, 199)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea1"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea1"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea1"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea2" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(870, 232)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea2"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea2"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea2"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea3" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(765, 263)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea3"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea3"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea3"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea4" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(874, 311)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea4"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea4"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea4"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea5" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(758, 354)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea5"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea5"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea5"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea6" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(878, 394)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea6"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea6"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea6"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="sewArea7" type="Area2D" parent="t_mendClothes/mendClothesTask"]
+position = Vector2(765, 427)
+
+[node name="sewCollider" type="CollisionShape2D" parent="t_mendClothes/mendClothesTask/sewArea7"]
+shape = SubResource("CircleShape2D_fmmty")
+
+[node name="sewRect" type="ColorRect" parent="t_mendClothes/mendClothesTask/sewArea7"]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.23062363, 0.050569184, 0.050671443, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sewLabel" type="Label" parent="t_mendClothes/mendClothesTask/sewArea7"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 6.0
+text = "1"
+label_settings = SubResource("LabelSettings_jvaiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="taskPrompt" type="CharacterBody2D" parent="t_mendClothes"]
+visible = false
+
+[node name="promptPlaceholder" type="ColorRect" parent="t_mendClothes/taskPrompt"]
+offset_left = 695.0
+offset_top = 214.0
+offset_right = 945.0
+offset_bottom = 376.0
+
+[node name="dragCollider" type="CollisionShape2D" parent="t_mendClothes/taskPrompt"]
+position = Vector2(820, 295)
+shape = SubResource("RectangleShape2D_8txcd")
+
+[node name="promptTitle" type="Label" parent="t_mendClothes/taskPrompt"]
+texture_filter = 1
+offset_left = 746.0
+offset_top = 235.0
+offset_right = 896.0
+offset_bottom = 251.0
+text = "Your clothes are falling apart!"
+label_settings = SubResource("LabelSettings_odp6k")
+
+[node name="tailorLabel" type="Label" parent="t_mendClothes/taskPrompt"]
+texture_filter = 1
+offset_left = 669.0
+offset_top = 271.0
+offset_right = 849.0
+offset_bottom = 344.0
+text = "Hire a Tailor:
++10 social 
+-10 money"
+label_settings = SubResource("LabelSettings_odp6k")
+horizontal_alignment = 1
+
+[node name="tailorButton" type="Button" parent="t_mendClothes/taskPrompt"]
+texture_filter = 1
+offset_left = 741.0
+offset_top = 336.0
+offset_right = 777.0
+offset_bottom = 360.0
+text = "Tailor"
+
+[node name="mendLabel" type="Label" parent="t_mendClothes/taskPrompt"]
+texture_filter = 1
+offset_left = 842.0
+offset_top = 272.0
+offset_right = 915.0
+offset_bottom = 326.0
+text = "Mend yourself:
++10 social
++10 money"
+label_settings = SubResource("LabelSettings_w3i06")
+horizontal_alignment = 1
+
+[node name="mendButton" type="Button" parent="t_mendClothes/taskPrompt"]
+texture_filter = 1
+offset_left = 862.0
+offset_top = 336.0
+offset_right = 894.0
+offset_bottom = 360.0
+text = "Mend"
+
+[connection signal="input_event" from="t_mendClothes/mendClothesTask/sewArea1" to="t_mendClothes" method="_on_sew_area_1_input_event"]
+[connection signal="pressed" from="t_mendClothes/taskPrompt/tailorButton" to="t_mendClothes" method="_tailor_button_pressed"]
+[connection signal="pressed" from="t_mendClothes/taskPrompt/mendButton" to="t_mendClothes" method="_mend_button_pressed"]
