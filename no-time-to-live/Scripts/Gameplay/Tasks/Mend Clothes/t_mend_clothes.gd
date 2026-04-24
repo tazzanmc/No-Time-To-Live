@@ -1,6 +1,7 @@
 extends Node2D
 
 signal mendTaskComplete
+signal tailorTaskComplete
 
 var promptSelected : bool = false
 var taskSelected : bool = false
@@ -44,7 +45,6 @@ func _tailor_button_pressed() -> void:
 
 
 func _mend_button_pressed() -> void:
-	# emit.mendTaskComplete
 	$".".queue_free()
 
 

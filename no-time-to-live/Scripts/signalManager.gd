@@ -18,6 +18,11 @@ signal cookTaskComplete()
 
 # Mend clothes signals
 signal mendTaskComplete()
+signal tailorTaskComplete()
+
+# Signing bills
+signal billTaskComplete()
+signal billTaskFailed()
 
 var jobPool = false
 
