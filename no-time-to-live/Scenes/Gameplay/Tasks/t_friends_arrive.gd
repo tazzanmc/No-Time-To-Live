@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	$pauseSocialBar.start()
+	$friendTimer.start()
 	SignalManager.pauseSocialBarSignal.emit()
 	$RigidBody2D/ColorRect.show()
 
@@ -14,4 +15,4 @@ func _on_pause_social_bar_timeout() -> void:
 
 
 func _on_friend_timer_timeout() -> void:
-	$RigidBody2D/ColorRect.hide()
+	$".".queue_free()
