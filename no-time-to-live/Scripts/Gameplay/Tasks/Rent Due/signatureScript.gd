@@ -11,7 +11,7 @@ var img  : Image
 
 func _ready():
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
-	img.fill(Color.WHITE)
+	img.fill(Color.TRANSPARENT)
 	texture = ImageTexture.create_from_image(img)
 
 func _paint_tex(pos) -> void:
