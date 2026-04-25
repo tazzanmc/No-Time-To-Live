@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dcg3xkdx1iyeg" path="res://Scripts/Gameplay/Tasks/Rent Due/t_rent_due.gd" id="2_bl68h"]
 [ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="3_3hug7"]
 [ext_resource type="Script" uid="uid://b1wctl8i52ed5" path="res://Scripts/Gameplay/Tasks/Rent Due/signatureScript.gd" id="3_s2h5i"]
-[ext_resource type="Script" uid="uid://clyh3b5mnw32e" path="res://Scenes/Gameplay/Tasks/t_electrical_outage.gd" id="4_aqo5i"]
+[ext_resource type="Script" uid="uid://clyh3b5mnw32e" path="res://Scripts/Gameplay/Tasks/Electrical Outage/t_electrical_outage.gd" id="4_aqo5i"]
 [ext_resource type="Texture2D" uid="uid://ffhyiya7paa6" path="res://Assets/Textures/Tasks/bill.png" id="4_doyvd"]
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="6_doyvd"]
 

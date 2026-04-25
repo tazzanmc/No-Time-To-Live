@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cauk5gol1qh08"]
+[gd_scene load_steps=6 format=3 uid="uid://cauk5gol1qh08"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_3biq7"]
+[ext_resource type="Script" uid="uid://w2l2bnrbdycj" path="res://Scenes/Gameplay/Tasks/t_friends_arrive.gd" id="2_0g13w"]
+[ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="3_rqyup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g13w"]
+size = Vector2(1966, 663)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ponn"]
+font = ExtResource("3_rqyup")
+font_size = 32
 
 [node name="AutoTasks" type="Node2D"]
 
@@ -12,3 +21,42 @@ text = "Auto"
 [node name="t_test" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("1_3biq7")
+
+[node name="t_payCheque" type="Node2D" parent="."]
+
+[node name="t_friendsArrive" type="Node2D" parent="."]
+script = ExtResource("2_0g13w")
+
+[node name="pauseSocialBar" type="Timer" parent="t_friendsArrive"]
+wait_time = 15.0
+one_shot = true
+
+[node name="friendTimer" type="Timer" parent="t_friendsArrive"]
+wait_time = 5.0
+one_shot = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="t_friendsArrive"]
+position = Vector2(0, 318)
+
+[node name="ColorRect" type="ColorRect" parent="t_friendsArrive/RigidBody2D"]
+offset_left = -5.0
+offset_top = 436.0
+offset_right = 1970.0
+offset_bottom = 876.37
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="t_friendsArrive/RigidBody2D"]
+position = Vector2(968, 767.5)
+shape = SubResource("RectangleShape2D_0g13w")
+
+[node name="Label" type="Label" parent="t_friendsArrive/RigidBody2D"]
+offset_left = 777.0
+offset_top = 482.0
+offset_right = 1179.0
+offset_bottom = 514.0
+text = "Your friends are here! (They wont leave)"
+label_settings = SubResource("LabelSettings_4ponn")
+
+[connection signal="timeout" from="t_friendsArrive/pauseSocialBar" to="t_friendsArrive" method="_on_pause_social_bar_timeout"]
+[connection signal="timeout" from="t_friendsArrive/friendTimer" to="t_friendsArrive" method="_on_friend_timer_timeout"]

@@ -20,9 +20,13 @@ signal cookTaskComplete()
 signal mendTaskComplete()
 signal tailorTaskComplete()
 
-# Signing bills
+# Signing bills signals
 signal billTaskComplete()
 signal billTaskFailed()
+
+# Friends arrive signals
+signal pauseSocialBarSignal()
+signal unpauseSocialBarSignal()
 
 var jobPool = false
 

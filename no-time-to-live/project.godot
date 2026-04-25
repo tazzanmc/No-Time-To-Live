@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="No Time To Live"
-run/main_scene="uid://dxp5pntperpdp"
+run/main_scene="uid://cauk5gol1qh08"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
