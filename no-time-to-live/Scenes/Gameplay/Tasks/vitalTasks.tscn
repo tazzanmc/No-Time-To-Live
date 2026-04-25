@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxp5pntperpdp"]
+[gd_scene load_steps=5 format=3 uid="uid://dxp5pntperpdp"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_g02lt"]
 [ext_resource type="Script" uid="uid://dcg3xkdx1iyeg" path="res://Scripts/Gameplay/Tasks/Rent Due/t_rent_due.gd" id="2_bl68h"]
 [ext_resource type="Script" uid="uid://b1wctl8i52ed5" path="res://Scripts/Gameplay/Tasks/Rent Due/signatureScript.gd" id="3_s2h5i"]
-[ext_resource type="Script" uid="uid://dmy6637w4mwqs" path="res://Scripts/UI/task_notifier.gd" id="4_f6u8t"]
-[ext_resource type="Texture2D" uid="uid://t8e0yibf3tbt" path="res://Assets/Textures/Test/CircleNotifier.png" id="5_3hug7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2h5i"]
 size = Vector2(426, 159)
@@ -29,14 +27,13 @@ wait_time = 180.0
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="t_rentDue"]
-offset_left = 272.0
-offset_top = 125.0
-offset_right = 798.0
-offset_bottom = 797.0
+offset_right = 526.0
+offset_bottom = 672.0
 mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="signatureImage" type="Sprite2D" parent="t_rentDue"]
-position = Vector2(535, 676)
+position = Vector2(263, 551)
 script = ExtResource("3_s2h5i")
 
 [node name="Area2D" type="Area2D" parent="t_rentDue"]
@@ -44,24 +41,11 @@ z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_rentDue/Area2D"]
 z_index = 1
-position = Vector2(535, 676)
+position = Vector2(263, 551)
 shape = SubResource("RectangleShape2D_s2h5i")
-
-[node name="taskNotifier" type="Node2D" parent="t_rentDue"]
-script = ExtResource("4_f6u8t")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="t_rentDue/taskNotifier"]
-offset_left = 144.0
-offset_top = 5.0
-offset_right = 400.0
-offset_bottom = 261.0
-value = 100.0
-fill_mode = 4
-texture_under = ExtResource("5_3hug7")
-texture_progress = ExtResource("5_3hug7")
-tint_under = Color(0.22, 0.22, 0.22, 0.6666667)
-tint_progress = Color(1, 0.19, 0.19, 1)
 
 [connection signal="timeout" from="t_rentDue/taskTimer" to="t_rentDue" method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="t_rentDue/Area2D" to="t_rentDue" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="t_rentDue/Area2D" to="t_rentDue/signatureImage" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="t_rentDue/Area2D" to="t_rentDue" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_exited" from="t_rentDue/Area2D" to="t_rentDue/signatureImage" method="_on_area_2d_mouse_exited"]

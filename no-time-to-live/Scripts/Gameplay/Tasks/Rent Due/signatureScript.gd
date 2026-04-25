@@ -3,6 +3,7 @@ extends Sprite2D
 @export var paint_color : Color = Color.RED
 @export var img_size := Vector2i(400, 140)
 @export var brush_size := 3
+var mouseInSigImage = false
 
 signal billTaskComplete
 
@@ -25,7 +26,7 @@ func _input(event: InputEvent) -> void:
 				_paint_tex(impos)
 				texture.update(img)
 		elif event is InputEventMouseButton:
-			if event.is_released() && event.button_index == MOUSE_BUTTON_LEFT:
+			if event.is_released() && event.button_index == MOUSE_BUTTON_LEFT && mouseInSigImage:
 				billTaskComplete.emit()
 				$"..".queue_free()
 			
@@ -42,3 +43,10 @@ func _input(event: InputEvent) -> void:
 					_paint_tex(impos)
 			
 			texture.update(img)
+
+
+func _on_area_2d_mouse_entered() -> void:
+	mouseInSigImage = true
+
+func _on_area_2d_mouse_exited() -> void:
+	mouseInSigImage = false
