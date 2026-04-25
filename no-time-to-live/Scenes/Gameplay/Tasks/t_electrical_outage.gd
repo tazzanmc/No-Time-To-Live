@@ -30,6 +30,7 @@ func _on_check_button_1_pressed() -> void:
 		fuseBox[0]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_2_pressed() -> void:
@@ -39,6 +40,7 @@ func _on_check_button_2_pressed() -> void:
 		fuseBox[1]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_3_pressed() -> void:
@@ -48,6 +50,7 @@ func _on_check_button_3_pressed() -> void:
 		fuseBox[2]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 func _on_check_button_4_pressed() -> void:
 	if($CheckButton4.button_pressed):
@@ -56,6 +59,7 @@ func _on_check_button_4_pressed() -> void:
 		fuseBox[3]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_5_pressed() -> void:
@@ -65,6 +69,7 @@ func _on_check_button_5_pressed() -> void:
 		fuseBox[4]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_6_pressed() -> void:
@@ -74,6 +79,7 @@ func _on_check_button_6_pressed() -> void:
 		fuseBox[5]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_7_pressed() -> void:
@@ -83,6 +89,7 @@ func _on_check_button_7_pressed() -> void:
 		fuseBox[6]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_8_pressed() -> void:
@@ -92,6 +99,7 @@ func _on_check_button_8_pressed() -> void:
 		fuseBox[7]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_9_pressed() -> void:
@@ -101,6 +109,7 @@ func _on_check_button_9_pressed() -> void:
 		fuseBox[8]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_10_pressed() -> void:
@@ -110,6 +119,7 @@ func _on_check_button_10_pressed() -> void:
 		fuseBox[9]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 
 func _on_check_button_11_pressed() -> void:
@@ -119,6 +129,8 @@ func _on_check_button_11_pressed() -> void:
 		fuseBox[10]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
+
 
 func _on_check_button_12_pressed() -> void:
 	if($CheckButton12.button_pressed):
@@ -127,10 +139,11 @@ func _on_check_button_12_pressed() -> void:
 		fuseBox[11]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		queue_free()
 
 func arrayCount() -> bool:
 	var fullTrue = true
-	for x in 11:
+	for x in 12:
 		if(!fuseBox[x]):
 			fullTrue = false
 			return fullTrue
