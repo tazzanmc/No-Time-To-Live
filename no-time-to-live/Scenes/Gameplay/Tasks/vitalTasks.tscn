@@ -1,12 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxp5pntperpdp"]
+[gd_scene load_steps=11 format=3 uid="uid://dxp5pntperpdp"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_g02lt"]
 [ext_resource type="Script" uid="uid://dcg3xkdx1iyeg" path="res://Scripts/Gameplay/Tasks/Rent Due/t_rent_due.gd" id="2_bl68h"]
+[ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="3_3hug7"]
 [ext_resource type="Script" uid="uid://b1wctl8i52ed5" path="res://Scripts/Gameplay/Tasks/Rent Due/signatureScript.gd" id="3_s2h5i"]
 [ext_resource type="Script" uid="uid://clyh3b5mnw32e" path="res://Scenes/Gameplay/Tasks/t_electrical_outage.gd" id="4_aqo5i"]
+[ext_resource type="Texture2D" uid="uid://ffhyiya7paa6" path="res://Assets/Textures/Tasks/bill.png" id="4_doyvd"]
+[ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="6_doyvd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cm04n"]
+font = ExtResource("6_doyvd")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2h5i"]
-size = Vector2(426, 159)
+size = Vector2(342, 130)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqo5i"]
 font_size = 32
@@ -31,21 +39,38 @@ wait_time = 180.0
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="t_rentDue"]
-offset_right = 526.0
-offset_bottom = 672.0
+offset_right = 426.0
+offset_bottom = 556.0
 mouse_filter = 1
-metadata/_edit_use_anchors_ = true
+color = Color(1, 1, 1, 0)
+
+[node name="pixelSprite2D" parent="t_rentDue" instance=ExtResource("3_3hug7")]
+position = Vector2(213, 277)
+texture = ExtResource("4_doyvd")
 
 [node name="signatureImage" type="Sprite2D" parent="t_rentDue"]
-position = Vector2(263, 551)
+position = Vector2(212.94, 455.16)
 script = ExtResource("3_s2h5i")
+paint_color = Color(0.9843137, 0.29803923, 0.49803922, 1)
+brush_size = 2
+
+[node name="ApplicationHeader" type="Label" parent="t_rentDue"]
+texture_filter = 3
+offset_left = 85.0
+offset_top = 73.0
+offset_right = 347.0
+offset_bottom = 137.0
+text = "LATE RENT NOTICE"
+label_settings = SubResource("LabelSettings_cm04n")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="t_rentDue"]
 z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_rentDue/Area2D"]
 z_index = 1
-position = Vector2(263, 551)
+position = Vector2(213, 455)
 shape = SubResource("RectangleShape2D_s2h5i")
 
 [node name="t_electricalOutage" type="Node2D" parent="."]
