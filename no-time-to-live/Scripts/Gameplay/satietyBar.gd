@@ -16,7 +16,7 @@ func _game_start_getter():
 
 func _timer_interval() -> void:
 	if(gameStarted == 1):
-		satietyBar.value -= pow(numIntervals, .3)/2satietyBar.value += 10
+		#satietyBar.value -= pow(numIntervals, .3)/2 satietyBar.value += 10
 		numIntervals += 1
 
 func _on_call_pizza():

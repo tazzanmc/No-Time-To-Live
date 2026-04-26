@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bnm4uuh5ghkqu"]
+
+[ext_resource type="Shader" uid="uid://1i3ilgrsbcs7" path="res://Assets/Materials/friendShadow.gdshader" id="1_7j6fc"]
+
+[resource]
+shader = ExtResource("1_7j6fc")
+shader_parameter/dist = 1
+shader_parameter/color = Color(0, 0, 0, 0.5)

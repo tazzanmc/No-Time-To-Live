@@ -1,0 +1,155 @@
+[gd_scene load_steps=21 format=3 uid="uid://531evwyg41l"]
+
+[ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
+[ext_resource type="Script" uid="uid://bbdppjwi4e4vo" path="res://Scripts/Gameplay/socialBar.gd" id="2_28rcq"]
+[ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_u74eo"]
+[ext_resource type="Script" uid="uid://2dn7v832snyc" path="res://Scripts/Gameplay/satietyBar.gd" id="3_bbkr7"]
+[ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://Scripts/UI/title_card.gd" id="3_ncvfw"]
+[ext_resource type="Script" uid="uid://dtuvfbvd43bh1" path="res://Scripts/Gameplay/moneyBar.gd" id="4_1n8j8"]
+[ext_resource type="Script" uid="uid://c1hknm3os0soj" path="res://Scripts/Gameplay/Tasks/taskTimerScript.gd" id="7_1n8j8"]
+[ext_resource type="Script" uid="uid://d0vexbdk2yna2" path="res://Scripts/Gameplay/Tasks/task_generator.gd" id="9_wu1q0"]
+[ext_resource type="PackedScene" uid="uid://dttmf8duyinv" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
+[ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="10_4eg07"]
+[ext_resource type="PackedScene" uid="uid://t4nm6v2h7adf" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="11_s8ik7"]
+[ext_resource type="PackedScene" uid="uid://dxp5pntperpdp" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="12_l60cb"]
+[ext_resource type="PackedScene" uid="uid://cauk5gol1qh08" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="13_d84c4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
+bg_color = Color(0, 0.54901963, 0.6117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdl1d"]
+bg_color = Color(0, 0.62487906, 0.9985897, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtffl"]
+bg_color = Color(0.65879554, 0.55531865, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yb3aw"]
+bg_color = Color(1, 0.84705883, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_helsn"]
+bg_color = Color(0, 0.5086578, 0.18832248, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wu1m"]
+bg_color = Color(0, 0.8627451, 0.34117648, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmi6l"]
+font_size = 80
+
+[node name="RunScene" type="Node2D"]
+script = ExtResource("1_ncvfw")
+
+[node name="placeholderBackground" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.43, 0.21586002, 0.07310001, 1)
+
+[node name="socialBar" type="ProgressBar" parent="."]
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 468.0
+offset_bottom = 40.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gmi6l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rdl1d")
+value = 100.0
+show_percentage = false
+script = ExtResource("2_28rcq")
+
+[node name="satietyBar" type="ProgressBar" parent="."]
+offset_left = 12.0
+offset_top = 43.0
+offset_right = 468.0
+offset_bottom = 70.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dtffl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yb3aw")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_bbkr7")
+
+[node name="moneyBar" type="ProgressBar" parent="."]
+offset_left = 12.0
+offset_top = 73.0
+offset_right = 468.0
+offset_bottom = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_helsn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4wu1m")
+value = 100.0
+show_percentage = false
+script = ExtResource("4_1n8j8")
+
+[node name="placeholderLoseLabel" type="Label" parent="."]
+visible = false
+offset_left = 783.0
+offset_top = 453.0
+offset_right = 1113.0
+offset_bottom = 563.0
+text = "You Lost"
+label_settings = SubResource("LabelSettings_gmi6l")
+
+[node name="titleCard" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(595, 409)
+scale = Vector2(3, 3)
+texture = ExtResource("2_u74eo")
+script = ExtResource("3_ncvfw")
+
+[node name="intensityTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="barIntervalTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="taskTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+script = ExtResource("7_1n8j8")
+
+[node name="buttonSettings" parent="." instance=ExtResource("9_xorqe")]
+offset_left = 613.00006
+offset_top = 625.0
+offset_right = 613.00006
+offset_bottom = 625.0
+scale = Vector2(3.0534618, 2.9410028)
+
+[node name="Button" parent="buttonSettings" index="0"]
+text = "Settings"
+
+[node name="buttonQuit" parent="." instance=ExtResource("9_xorqe")]
+offset_left = 346.00006
+offset_top = 722.00006
+offset_right = 346.00006
+offset_bottom = 722.00006
+scale = Vector2(3.0534618, 2.9410028)
+
+[node name="Button" parent="buttonQuit" index="0"]
+offset_left = 29.802221
+offset_top = -13.600824
+offset_right = 79.80222
+offset_bottom = 34.399178
+text = "Quit"
+
+[node name="taskGenerator" type="Node" parent="."]
+script = ExtResource("9_wu1q0")
+normal_tasks_scene = ExtResource("10_4eg07")
+linked_tasks_scene = ExtResource("11_s8ik7")
+vital_tasks_scene = ExtResource("12_l60cb")
+auto_tasks_scene = ExtResource("13_d84c4")
+
+[connection signal="gameEnd" from="." to="titleCard" method="_game_end_signal"]
+[connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
+[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
+[connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]
+[connection signal="gameStart" from="." to="moneyBar" method="_game_start_getter"]
+[connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]
+[connection signal="gameStart" from="." to="buttonSettings/Button/ButtonEffectsComponent" method="_kill"]
+[connection signal="gameStart" from="." to="buttonQuit/Button/ButtonEffectsComponent" method="kill"]
+[connection signal="value_changed" from="socialBar" to="." method="socialBarValueChanged"]
+[connection signal="timeout" from="intensityTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="barIntervalTimer" to="socialBar" method="_timer_interval"]
+[connection signal="timeout" from="barIntervalTimer" to="satietyBar" method="_timer_interval"]
+[connection signal="timeout" from="barIntervalTimer" to="moneyBar" method="_timer_interval"]
+[connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_on_randomize_task"]
+[connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_randomize_task"]
+[connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
+
+[editable path="buttonSettings"]
+[editable path="buttonQuit"]

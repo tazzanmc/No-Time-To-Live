@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxp5pntperpdp"]
+[gd_scene load_steps=13 format=3 uid="uid://dxp5pntperpdp"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_g02lt"]
 [ext_resource type="Script" uid="uid://dcg3xkdx1iyeg" path="res://Scripts/Gameplay/Tasks/Rent Due/t_rent_due.gd" id="2_bl68h"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://clyh3b5mnw32e" path="res://Scripts/Gameplay/Tasks/Electrical Outage/t_electrical_outage.gd" id="4_aqo5i"]
 [ext_resource type="Texture2D" uid="uid://ffhyiya7paa6" path="res://Assets/Textures/Tasks/bill.png" id="4_doyvd"]
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="6_doyvd"]
+[ext_resource type="Texture2D" uid="uid://dxtwe8vcnu7iy" path="res://Assets/Textures/Tasks/circuitBreaker.png" id="8_cm04n"]
+[ext_resource type="Texture2D" uid="uid://c7p58i4waas3a" path="res://Assets/Textures/Tasks/circuitBreakerSwitch.png" id="9_jnavp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cm04n"]
 font = ExtResource("6_doyvd")
@@ -18,6 +20,7 @@ size = Vector2(342, 130)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqo5i"]
 font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="VitalTasks" type="Node2D"]
 
@@ -78,89 +81,104 @@ position = Vector2(853, 6)
 script = ExtResource("4_aqo5i")
 
 [node name="ColorRect" type="ColorRect" parent="t_electricalOutage"]
-offset_right = 804.0
-offset_bottom = 511.0
-color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+offset_left = 72.0
+offset_right = 556.0
+offset_bottom = 559.0
+color = Color(0.4, 0.4, 0.4, 0)
+
+[node name="pixelSprite2D" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(278.00006, 278)
+texture = ExtResource("8_cm04n")
+
+[node name="pixelSprite2D2" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(281.00006, 179)
+texture = ExtResource("9_jnavp")
 
 [node name="CheckButton1" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 50.0
-offset_top = 83.0
-offset_right = 168.00003
-offset_bottom = 160.00006
+offset_left = 214.0
+offset_top = 160.0
+offset_right = 303.00003
+offset_bottom = 198.0
 
 [node name="CheckButton2" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 56.0
-offset_top = 182.0
-offset_right = 174.00003
-offset_bottom = 258.99988
+offset_left = 214.0
+offset_top = 199.0
+offset_right = 303.00003
+offset_bottom = 237.0
 
 [node name="CheckButton3" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 58.0
-offset_top = 289.0
-offset_right = 176.00003
-offset_bottom = 366.0
+offset_left = 213.0
+offset_top = 238.0
+offset_right = 304.0
+offset_bottom = 276.0
 
 [node name="CheckButton4" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 55.0
-offset_top = 370.0
-offset_right = 173.00006
-offset_bottom = 447.0
+offset_left = 214.0
+offset_top = 276.0
+offset_right = 304.0
+offset_bottom = 315.0
 
 [node name="CheckButton5" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 345.0
-offset_top = 84.0
-offset_right = 463.0
-offset_bottom = 161.00006
+offset_left = 214.0
+offset_top = 315.0
+offset_right = 304.0
+offset_bottom = 354.0
 
 [node name="CheckButton6" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 347.0
-offset_top = 178.0
-offset_right = 465.0
-offset_bottom = 254.9999
+offset_left = 214.0
+offset_top = 354.0
+offset_right = 303.0
+offset_bottom = 393.0
 
 [node name="CheckButton7" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 350.0
-offset_top = 285.0
-offset_right = 468.0
-offset_bottom = 362.0
+offset_left = 414.27917
+offset_top = 198.44568
+offset_right = 503.74756
+offset_bottom = 237.1616
+rotation = 3.1415927
 
 [node name="CheckButton8" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 348.0
-offset_top = 370.0
-offset_right = 466.00003
-offset_bottom = 447.0
+offset_left = 414.29688
+offset_top = 237.81697
+offset_right = 503.59375
+offset_bottom = 276.63394
+rotation = -3.1415927
 
 [node name="CheckButton9" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 602.0
-offset_top = 96.0
-offset_right = 720.0
-offset_bottom = 173.00006
+offset_left = 414.77637
+offset_top = 276.61578
+offset_right = 504.55273
+offset_bottom = 315.23163
+rotation = -3.1415927
 
 [node name="CheckButton10" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 603.0
-offset_top = 188.0
-offset_right = 721.0
-offset_bottom = 264.99988
+offset_left = 414.3407
+offset_top = 315.74475
+offset_right = 504.6814
+offset_bottom = 355.48938
+rotation = -3.1415927
 
 [node name="CheckButton11" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 609.0
-offset_top = 288.0
-offset_right = 727.0
-offset_bottom = 365.0
+offset_left = 414.3407
+offset_top = 354.18027
+offset_right = 504.6814
+offset_bottom = 393.36053
+rotation = -3.1415927
 
 [node name="CheckButton12" type="CheckButton" parent="t_electricalOutage"]
-offset_left = 608.0
-offset_top = 373.0
-offset_right = 726.0
-offset_bottom = 450.0
+offset_left = 414.90527
+offset_top = 393.61578
+offset_right = 505.81055
+offset_bottom = 432.23157
+rotation = -3.1415927
 
 [node name="Label" type="Label" parent="t_electricalOutage"]
 texture_filter = 1
-offset_left = 249.0
-offset_top = 10.0
-offset_right = 563.0
-offset_bottom = 77.0
-text = "Fuse Box
+offset_left = 160.0
+offset_top = -70.0
+offset_right = 474.0
+offset_bottom = -3.0
+text = "Circuit Breaker
 (Electronic devices will not work)"
 label_settings = SubResource("LabelSettings_aqo5i")
 horizontal_alignment = 1

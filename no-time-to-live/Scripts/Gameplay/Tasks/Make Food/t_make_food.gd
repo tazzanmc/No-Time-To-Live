@@ -38,7 +38,7 @@ func _confirm_button_pressed() -> void:
 	$fryingPanMinigame/GrilledCheese.show()
 	
 	$fryingPanMinigame/Pan.position = Vector2(0, 0)
-	$fryingPanMinigame/GrilledCheese.position = Vector2(0, -200)
+	$fryingPanMinigame/GrilledCheese.position = Vector2(0, -400)
 	print(Vector2(get_viewport_rect().size / 2))
 	
 	startCooking = true

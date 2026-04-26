@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=36 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bh1aj6v6ehq7y" path="res://Assets/Textures/Tasks/grilledCheese.png" id="15_1qwhc"]
 [ext_resource type="Texture2D" uid="uid://b2kga51jtm8hh" path="res://Assets/Textures/Tasks/fryPan.png" id="15_caxf5"]
 [ext_resource type="Script" uid="uid://fh4et11kw2di" path="res://Scripts/Gameplay/Tasks/Accounting Job/t_accounting.gd" id="17_w3er4"]
+[ext_resource type="Texture2D" uid="uid://4h8roborgdhm" path="res://Assets/Textures/Tasks/accounting.png" id="18_3lhdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(182, 366.5)
@@ -68,6 +69,9 @@ points = PackedVector2Array(-156, -76.5, -54, -145.5, 101, -147.5, 161, -78.5, 1
 [sub_resource type="LabelSettings" id="LabelSettings_3lhdd"]
 font_size = 32
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1f5pw"]
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_6sgfl"]
 font_size = 32
@@ -565,126 +569,155 @@ shape = SubResource("ConvexPolygonShape2D_1qwhc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D"]
 shape = SubResource("CircleShape2D_3lhdd")
 
-[node name="t_Accounting" type="Node2D" parent="."]
-position = Vector2(2521, 163)
+[node name="t_accounting" type="Node2D" parent="."]
 script = ExtResource("17_w3er4")
 equationArray = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
-[node name="ColorRect" type="ColorRect" parent="t_Accounting"]
-offset_left = -1351.0
-offset_top = 68.0
-offset_right = -925.0
-offset_bottom = 623.0
+[node name="ColorRect" type="ColorRect" parent="t_accounting"]
+offset_right = 426.0
+offset_bottom = 552.0
+color = Color(1, 1, 1, 0)
+
+[node name="pixelSprite2D" parent="t_accounting" instance=ExtResource("9_bn2gp")]
+position = Vector2(213, 276)
+texture = ExtResource("18_3lhdd")
+
+[node name="LineEdit" type="LineEdit" parent="t_accounting"]
+offset_left = 350.00006
+offset_top = 193.0
+offset_right = 382.00006
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 16
+
+[node name="LineEdit2" type="LineEdit" parent="t_accounting"]
+offset_left = 350.00006
+offset_top = 249.0
+offset_right = 382.00006
+offset_bottom = 273.0
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit" type="LineEdit" parent="t_Accounting"]
-offset_left = -989.955
-offset_top = 164.0
-offset_right = -957.955
-offset_bottom = 188.0
+[node name="LineEdit3" type="LineEdit" parent="t_accounting"]
+offset_left = 350.00006
+offset_top = 305.0
+offset_right = 382.00006
+offset_bottom = 329.0
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit2" type="LineEdit" parent="t_Accounting"]
-offset_left = -989.955
-offset_top = 234.0
-offset_right = -957.955
-offset_bottom = 258.0
+[node name="LineEdit4" type="LineEdit" parent="t_accounting"]
+offset_left = 350.00006
+offset_top = 361.0
+offset_right = 382.00006
+offset_bottom = 385.0
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit3" type="LineEdit" parent="t_Accounting"]
-offset_left = -989.955
-offset_top = 313.0
-offset_right = -957.955
-offset_bottom = 337.0
+[node name="LineEdit5" type="LineEdit" parent="t_accounting"]
+offset_left = 350.00006
+offset_top = 417.0
+offset_right = 382.00006
+offset_bottom = 441.0
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit4" type="LineEdit" parent="t_Accounting"]
-offset_left = -989.955
-offset_top = 393.0
-offset_right = -957.955
-offset_bottom = 417.0
+[node name="LineEdit6" type="LineEdit" parent="t_accounting"]
+offset_left = 350.00006
+offset_top = 477.0
+offset_right = 382.00006
+offset_bottom = 501.0
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit5" type="LineEdit" parent="t_Accounting"]
-offset_left = -989.955
-offset_top = 479.0
-offset_right = -957.955
-offset_bottom = 503.0
-metadata/_edit_use_anchors_ = true
-
-[node name="LineEdit6" type="LineEdit" parent="t_Accounting"]
-offset_left = -989.955
-offset_top = 562.0
-offset_right = -957.955
-offset_bottom = 586.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="t_Accounting"]
+[node name="Title" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1329.0
-offset_top = 80.0
-offset_right = -1221.0
-offset_bottom = 112.0
-text = "Excel"
+offset_left = 42.0
+offset_top = 67.0
+offset_right = 223.0
+offset_bottom = 99.0
+text = "Account Expenses"
 label_settings = SubResource("LabelSettings_3lhdd")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="t_Accounting"]
+[node name="Account#" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1328.61
-offset_top = 161.0
-offset_right = -1198.61
-offset_bottom = 193.0
+offset_left = 42.0
+offset_top = 126.0
+offset_right = 142.0
+offset_bottom = 158.0
+text = "Account #"
+label_settings = SubResource("LabelSettings_1f5pw")
+
+[node name="Account#2" type="Label" parent="t_accounting"]
+texture_filter = 1
+offset_left = 202.0
+offset_top = 126.0
+offset_right = 302.0
+offset_bottom = 158.0
+text = "Expenses"
+label_settings = SubResource("LabelSettings_1f5pw")
+
+[node name="Total" type="Label" parent="t_accounting"]
+texture_filter = 1
+offset_left = 334.0
+offset_top = 125.0
+offset_right = 385.0
+offset_bottom = 157.0
+text = "Total"
+label_settings = SubResource("LabelSettings_1f5pw")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="t_accounting"]
+texture_filter = 1
+offset_left = 42.0
+offset_top = 185.0
+offset_right = 172.0
+offset_bottom = 217.0
 text = "Account one: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="t_Accounting"]
+[node name="Label3" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1328.61
-offset_top = 226.0
-offset_right = -1198.61
-offset_bottom = 258.0
+offset_left = 42.0
+offset_top = 241.0
+offset_right = 172.0
+offset_bottom = 273.0
 text = "Account two: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="t_Accounting"]
+[node name="Label4" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1328.61
-offset_top = 313.0
-offset_right = -1178.61
-offset_bottom = 345.0
+offset_left = 42.0
+offset_top = 295.0
+offset_right = 192.0
+offset_bottom = 327.0
 text = "Account three: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="t_Accounting"]
+[node name="Label5" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1328.61
-offset_top = 396.0
-offset_right = -1186.61
-offset_bottom = 428.0
+offset_left = 42.0
+offset_top = 353.0
+offset_right = 184.0
+offset_bottom = 385.0
 text = "Account four: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label6" type="Label" parent="t_Accounting"]
+[node name="Label6" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1328.61
-offset_top = 470.0
-offset_right = -1194.61
-offset_bottom = 502.0
+offset_left = 42.0
+offset_top = 409.0
+offset_right = 176.0
+offset_bottom = 441.0
 text = "Account five: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label7" type="Label" parent="t_Accounting"]
+[node name="Label7" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = -1328.61
-offset_top = 555.0
-offset_right = -1198.61
-offset_bottom = 587.0
+offset_left = 42.0
+offset_top = 469.0
+offset_right = 172.0
+offset_bottom = 501.0
 text = "Account six: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
@@ -696,4 +729,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="t_makeFood/cookingPrompt/confirmButton" to="t_makeFood" method="_confirm_button_pressed"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/denyButton" to="t_makeFood" method="_deny_button_pressed"]
 [connection signal="area_entered" from="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D" to="t_makeFood" method="_sandwich_area_entered"]
-[connection signal="text_submitted" from="t_Accounting/LineEdit" to="t_Accounting" method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="t_accounting/LineEdit" to="t_accounting" method="_on_line_edit_text_submitted"]
