@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=34 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b67q6p24rpu8h" path="res://Assets/Textures/Tasks/groceryList.png" id="13_16ecs"]
 [ext_resource type="Texture2D" uid="uid://bh1aj6v6ehq7y" path="res://Assets/Textures/Tasks/grilledCheese.png" id="15_1qwhc"]
 [ext_resource type="Texture2D" uid="uid://b2kga51jtm8hh" path="res://Assets/Textures/Tasks/fryPan.png" id="15_caxf5"]
+[ext_resource type="Script" uid="uid://fh4et11kw2di" path="res://Scripts/Gameplay/Tasks/Accounting Job/t_accounting.gd" id="17_w3er4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(182, 366.5)
@@ -63,6 +64,14 @@ size = Vector2(553, 67.81717)
 points = PackedVector2Array(-156, -76.5, -54, -145.5, 101, -147.5, 161, -78.5, 159, 106.5, -108, 148.5, -151, 32.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3lhdd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lhdd"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sgfl"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="NormalTasks" type="Node2D"]
 
@@ -556,6 +565,130 @@ shape = SubResource("ConvexPolygonShape2D_1qwhc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D"]
 shape = SubResource("CircleShape2D_3lhdd")
 
+[node name="t_Accounting" type="Node2D" parent="."]
+position = Vector2(2521, 163)
+script = ExtResource("17_w3er4")
+equationArray = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+[node name="ColorRect" type="ColorRect" parent="t_Accounting"]
+offset_left = -1351.0
+offset_top = 68.0
+offset_right = -925.0
+offset_bottom = 623.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="t_Accounting"]
+offset_left = -989.955
+offset_top = 164.0
+offset_right = -957.955
+offset_bottom = 188.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit2" type="LineEdit" parent="t_Accounting"]
+offset_left = -989.955
+offset_top = 234.0
+offset_right = -957.955
+offset_bottom = 258.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit3" type="LineEdit" parent="t_Accounting"]
+offset_left = -989.955
+offset_top = 313.0
+offset_right = -957.955
+offset_bottom = 337.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit4" type="LineEdit" parent="t_Accounting"]
+offset_left = -989.955
+offset_top = 393.0
+offset_right = -957.955
+offset_bottom = 417.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit5" type="LineEdit" parent="t_Accounting"]
+offset_left = -989.955
+offset_top = 479.0
+offset_right = -957.955
+offset_bottom = 503.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit6" type="LineEdit" parent="t_Accounting"]
+offset_left = -989.955
+offset_top = 562.0
+offset_right = -957.955
+offset_bottom = 586.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1329.0
+offset_top = 80.0
+offset_right = -1221.0
+offset_bottom = 112.0
+text = "Excel"
+label_settings = SubResource("LabelSettings_3lhdd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1328.61
+offset_top = 161.0
+offset_right = -1198.61
+offset_bottom = 193.0
+text = "Account one: "
+label_settings = SubResource("LabelSettings_6sgfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1328.61
+offset_top = 226.0
+offset_right = -1198.61
+offset_bottom = 258.0
+text = "Account two: "
+label_settings = SubResource("LabelSettings_6sgfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1328.61
+offset_top = 313.0
+offset_right = -1178.61
+offset_bottom = 345.0
+text = "Account three: "
+label_settings = SubResource("LabelSettings_6sgfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1328.61
+offset_top = 396.0
+offset_right = -1186.61
+offset_bottom = 428.0
+text = "Account four: "
+label_settings = SubResource("LabelSettings_6sgfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label6" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1328.61
+offset_top = 470.0
+offset_right = -1194.61
+offset_bottom = 502.0
+text = "Account five: "
+label_settings = SubResource("LabelSettings_6sgfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label7" type="Label" parent="t_Accounting"]
+texture_filter = 1
+offset_left = -1328.61
+offset_top = 555.0
+offset_right = -1198.61
+offset_bottom = 587.0
+text = "Account six: "
+label_settings = SubResource("LabelSettings_6sgfl")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
 [connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
@@ -563,3 +696,4 @@ shape = SubResource("CircleShape2D_3lhdd")
 [connection signal="pressed" from="t_makeFood/cookingPrompt/confirmButton" to="t_makeFood" method="_confirm_button_pressed"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/denyButton" to="t_makeFood" method="_deny_button_pressed"]
 [connection signal="area_entered" from="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D" to="t_makeFood" method="_sandwich_area_entered"]
+[connection signal="text_submitted" from="t_Accounting/LineEdit" to="t_Accounting" method="_on_line_edit_text_submitted"]
