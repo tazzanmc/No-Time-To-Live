@@ -36,4 +36,9 @@ func 	_random_grocery_generator():
 func _submit_button_pressed() -> void:
 	if($stickyCheck1.is_pressed() && $stickyCheck2.is_pressed() && $stickyCheck3.is_pressed() && $stickyCheck4.is_pressed() && $stickyCheck5.is_pressed() && $stickyCheck6.is_pressed()):
 		SignalManager.emit_signal("completedGroceryTask")
-		print("test")
+		$".".queue_free()
+
+
+func _on_timer_timeout() -> void:
+	SignalManager.failedGrocery.emit()
+	$".".queue_free()

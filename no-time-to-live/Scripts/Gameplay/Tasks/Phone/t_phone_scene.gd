@@ -28,7 +28,11 @@ func _start_call_task():
 		1:
 			callerID.text = "Mom"
 		2: 
-			callerID.text = "Work Inc"
+			if(SignalManager.jobPool):
+				callerID.text = "Work Inc"
+			else:
+				callerID.text = "Mom"
+				callType = 1
 		3:
 			callerID.text = "Luigi's Pizza"
 		4:
@@ -55,11 +59,14 @@ func _answer_call():
 	callerID.visible = false
 	answerButton.visible = false
 	denyButton.visible = false
+	$".".queue_free()
+
 
 func _deny_call():
 	callerID.visible = false
 	answerButton.visible = false
 	denyButton.visible = false
+	$".".queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:

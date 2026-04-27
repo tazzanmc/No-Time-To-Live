@@ -430,6 +430,11 @@ offset_bottom = 363.0
 text = "Is that everything?"
 metadata/_edit_use_anchors_ = true
 
+[node name="Timer" type="Timer" parent="t_groceryList"]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
 [node name="t_makeFood" type="Node2D" parent="."]
 script = ExtResource("13_6cqc7")
 
@@ -722,12 +727,24 @@ text = "Account six: "
 label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
+[node name="Timer" type="Timer" parent="t_accounting"]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
 [connection signal="pressed" from="t_phoneScene/denyCallButton" to="t_phoneScene" method="_deny_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
 [connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
 [connection signal="pressed" from="t_groceryList/submitButton" to="t_groceryList" method="_submit_button_pressed"]
+[connection signal="timeout" from="t_groceryList/Timer" to="t_groceryList" method="_on_timer_timeout"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/confirmButton" to="t_makeFood" method="_confirm_button_pressed"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/denyButton" to="t_makeFood" method="_deny_button_pressed"]
 [connection signal="area_entered" from="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D" to="t_makeFood" method="_sandwich_area_entered"]
 [connection signal="text_submitted" from="t_accounting/LineEdit" to="t_accounting" method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="t_accounting/LineEdit2" to="t_accounting" method="_on_line_edit_2_text_submitted"]
+[connection signal="text_submitted" from="t_accounting/LineEdit3" to="t_accounting" method="_on_line_edit_3_text_submitted"]
+[connection signal="text_submitted" from="t_accounting/LineEdit4" to="t_accounting" method="_on_line_edit_4_text_submitted"]
+[connection signal="text_submitted" from="t_accounting/LineEdit5" to="t_accounting" method="_on_line_edit_5_text_submitted"]
+[connection signal="text_submitted" from="t_accounting/LineEdit6" to="t_accounting" method="_on_line_edit_6_text_submitted"]
+[connection signal="timeout" from="t_accounting/Timer" to="t_accounting" method="_on_timer_timeout"]

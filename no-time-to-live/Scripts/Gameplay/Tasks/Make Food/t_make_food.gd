@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(_delta):
 	if(startCooking):
 		if touchBottomPanCount > 10:
-			cookTaskComplete.emit()
+			SignalManager.cookTaskComplete.emit()
 			$".".queue_free()
 
 

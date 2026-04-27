@@ -12,6 +12,7 @@ signal correctJobInfoSubmission()
 
 # Grocery List signals
 signal completedGroceryTask()
+signal failedGrocery()
 
 # Grilled cheese signals
 signal cookTaskComplete()
@@ -19,6 +20,7 @@ signal cookTaskComplete()
 # Mend clothes signals
 signal mendTaskComplete()
 signal tailorTaskComplete()
+signal clothesTaskFail()
 
 # Signing bills signals
 signal billTaskComplete()
@@ -27,6 +29,10 @@ signal billTaskFailed()
 # Friends arrive signals
 signal pauseSocialBarSignal()
 signal unpauseSocialBarSignal()
+
+# Accounting signals
+signal completedAccounting()
+signal failedAccounting()
 
 # Cashed cheque signal
 signal cashedCheck()

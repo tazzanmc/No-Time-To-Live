@@ -24,7 +24,7 @@ func _process(_delta):
 		$taskGenerator.spawn_task("normal", "t_phone", false, Vector2(0,0))
 		SignalManager.emit_signal("callPhoneTask")
 	# Ends the game (placeholder condition to test title)
-	elif (socialBar.value <= 0 && gameActiveBool == 1 ):
+	elif (socialBar.value <= 0 && gameActiveBool == 1 || moneyBar.value <= 0 ||satietyBar.value <= 0):
 		gameActiveBool = 0
 		gameEnd.emit()
 		print("Game End")

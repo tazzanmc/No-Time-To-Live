@@ -2,6 +2,7 @@ extends Node2D
 
 signal mendTaskComplete
 signal tailorTaskComplete
+signal clothesTaskFail
 
 var promptSelected : bool = false
 var taskSelected : bool = false
@@ -40,12 +41,13 @@ func _input(event: InputEvent) -> void:
 
 
 func _tailor_button_pressed() -> void:
-	$mendClothesTask.show()
-	$taskPrompt.hide()
+	SignalManager.tailorTaskComplete.emit()
+	$".".queue_free() 
 
 
 func _mend_button_pressed() -> void:
-	$".".queue_free()
+	$mendClothesTask.show()
+	$taskPrompt.hide()
 
 
 func _on_sew_1_pressed() -> void:
@@ -89,6 +91,11 @@ func _on_sew_8_pressed() -> void:
 func _on_sew_9_pressed() -> void:
 	if($mendClothesTask/sew8.visible == false):
 		taskCompleted = true
-		mendTaskComplete.emit()
+		SignalManager.mendTaskComplete.emit()
 		$mendClothesTask/sew9.hide()
 		
+
+
+func _on_timer_timeout() -> void:
+	SignalManager.clothesTaskFail.emit()
+	$".".queue_free()

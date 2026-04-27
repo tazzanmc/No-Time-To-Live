@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dhwgosbqk1j8l" path="res://Assets/Textures/Tasks/pinkSlip.png" id="11_2wpti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0g13w"]
-size = Vector2(1966, 663)
+size = Vector2(1966, 382)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ponn"]
 font = ExtResource("3_rqyup")
@@ -101,7 +101,7 @@ one_shot = true
 position = Vector2(0, 318)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_friendsArrive/RigidBody2D"]
-position = Vector2(968, 767.5)
+position = Vector2(968, 245)
 shape = SubResource("RectangleShape2D_0g13w")
 
 [node name="friends" type="Node2D" parent="t_friendsArrive/RigidBody2D"]
@@ -113,12 +113,12 @@ texture = ExtResource("4_hfj20")
 
 [node name="pixelSprite2D2" parent="t_friendsArrive/RigidBody2D/friends" instance=ExtResource("3_b4uax")]
 material = ExtResource("4_26rjg")
-position = Vector2(1024, 353)
+position = Vector2(1024, 350)
 texture = ExtResource("5_26rjg")
 
 [node name="pixelSprite2D3" parent="t_friendsArrive/RigidBody2D/friends" instance=ExtResource("3_b4uax")]
 material = ExtResource("4_26rjg")
-position = Vector2(1464, 265)
+position = Vector2(1465, 259)
 texture = ExtResource("6_hqasj")
 
 [node name="Label" type="Label" parent="t_friendsArrive/RigidBody2D"]
@@ -130,7 +130,6 @@ text = "Your friends are here! (They wont leave)"
 label_settings = SubResource("LabelSettings_4ponn")
 
 [node name="t_pinkSlip" type="Node2D" parent="."]
-visible = false
 script = SubResource("GDScript_26rjg")
 
 [node name="Timer" type="Timer" parent="t_pinkSlip"]

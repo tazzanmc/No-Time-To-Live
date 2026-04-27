@@ -9,6 +9,7 @@ func _ready():
 	SignalManager.connect("callPizza", _on_call_pizza)
 	SignalManager.connect("completedGroceryTask", _on_complete_grocery)
 	SignalManager.connect("cookTaskComplete", _on_complete_cook)
+	SignalManager.connect("failedGrocery", _on_fail_grocery)
 
 func _game_start_getter():
 	gameStarted = 1
@@ -28,3 +29,6 @@ func _on_complete_grocery():
 
 func _on_complete_cook():
 	satietyBar.value += 15
+
+func _on_fail_grocery():
+	satietyBar.value -= 10

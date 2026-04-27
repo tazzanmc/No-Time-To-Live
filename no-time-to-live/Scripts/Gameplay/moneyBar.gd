@@ -15,6 +15,7 @@ func _ready():
 	SignalManager.connect("billTaskComplete", _on_bill_complete)
 	SignalManager.connect("cashedCheck", _cashed_check)
 	SignalManager.connect("playerFired", _player_fired)
+	SignalManager.connect("completedAccounting", _completed_accounting)
 
 
 func _game_start_getter():
@@ -56,3 +57,6 @@ func _cashed_check():
 
 func _player_fired():
 	moneyBar.value -= 10
+
+func _completed_accounting():
+	moneyBar.value += 20

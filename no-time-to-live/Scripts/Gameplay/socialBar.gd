@@ -12,6 +12,7 @@ func _ready():
 	SignalManager.connect("tailorTaskComplete", _on_tailor_complete)
 	SignalManager.connect("pauseSocialBarSignal", _pause_social_bar)
 	SignalManager.connect("unpauseSocialBarSignal", _unpause_social_bar)
+	SignalManager.connect("clothesTaskFail", _clothes_task_fail)
 
 func _game_start_getter():
 	gameStarted = 1
@@ -36,4 +37,8 @@ func _pause_social_bar():
 	pausedBar = true
 
 func _unpause_social_bar():
-		pausedBar = false
+	print("unPaused bar")
+	pausedBar = false
+
+func _clothes_task_fail():
+	socialBar.value -= 20

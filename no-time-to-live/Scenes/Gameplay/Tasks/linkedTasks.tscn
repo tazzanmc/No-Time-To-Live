@@ -107,7 +107,6 @@ offset_right = 779.0
 offset_bottom = 440.0
 
 [node name="taskPrompt" type="CharacterBody2D" parent="t_mendClothes"]
-visible = false
 
 [node name="promptPlaceholder" type="ColorRect" parent="t_mendClothes/taskPrompt"]
 offset_left = 695.0
@@ -168,6 +167,11 @@ offset_right = 894.0
 offset_bottom = 360.0
 text = "Mend"
 
+[node name="Timer" type="Timer" parent="t_mendClothes"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="t_mendClothes/mendClothesTask/sew1" to="t_mendClothes" method="_on_sew_1_pressed"]
 [connection signal="pressed" from="t_mendClothes/mendClothesTask/sew2" to="t_mendClothes" method="_on_sew_2_pressed"]
 [connection signal="pressed" from="t_mendClothes/mendClothesTask/sew3" to="t_mendClothes" method="_on_sew_3_pressed"]
@@ -179,3 +183,4 @@ text = "Mend"
 [connection signal="pressed" from="t_mendClothes/mendClothesTask/sew9" to="t_mendClothes" method="_on_sew_9_pressed"]
 [connection signal="pressed" from="t_mendClothes/taskPrompt/tailorButton" to="t_mendClothes" method="_tailor_button_pressed"]
 [connection signal="pressed" from="t_mendClothes/taskPrompt/mendButton" to="t_mendClothes" method="_mend_button_pressed"]
+[connection signal="timeout" from="t_mendClothes/Timer" to="t_mendClothes" method="_on_timer_timeout"]

@@ -9,8 +9,11 @@ func _ready() -> void:
 	$RigidBody2D/friends/pixelSprite2D3.show()
 
 func _process(float)->void:
-	if($RigidBody2D.position.y > 400):
-		$RigidBody2D.linear_velocity.y = -400
+	if($RigidBody2D.position.y > 550):
+		$RigidBody2D.linear_velocity.y = -600
+	$RigidBody2D.rotation = 0
+	$RigidBody2D.position.x = 0
+
 
 func _on_pause_social_bar_timeout() -> void:
 	SignalManager.unpauseSocialBarSignal.emit()

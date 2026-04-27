@@ -1,6 +1,12 @@
 extends task_generic
 
 @export var equationArray : Array[int]
+var lineSumBool1 = false
+var lineSumBool2 = false
+var lineSumBool3 = false
+var lineSumBool4 = false
+var lineSumBool5 = false
+var lineSumBool6 = false
 
 func _ready() -> void:
 	var num1 = 0
@@ -10,9 +16,6 @@ func _ready() -> void:
 		equationArray[x] = randi_range(0, 20)
 		equationArray[x + 1] = randi_range(0,20)
 		equationArray[x + 2] = equationArray[x] + equationArray[x + 1]
-		print(equationArray[x])
-		print(equationArray[x + 1])
-		print(equationArray[x + 2])
 		x += 3
 	
 	$Label2.text = "Account one: " + str(equationArray[0]) + " + " + str(equationArray[1]) + " ="
@@ -32,10 +35,52 @@ func _process(_delta):
 		$".".global_position = Vector2(1495, $".".global_position.y)
 	if $".".global_position.y > 545:
 		$".".global_position = Vector2( $".".global_position.x, 545)
+	
 
-func _on_line_edit_text_submitted(new_text: String) -> bool:
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
 	if(str(equationArray[0] + equationArray[1]) == new_text):
-		print("true")
-		return true
-	print("false")
-	return false
+		lineSumBool1 = true
+	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
+		SignalManager.completedAccounting.emit()
+		$".".queue_free()
+
+
+func _on_line_edit_2_text_submitted(new_text: String) -> void:
+	if(str(equationArray[3] + equationArray[4]) == new_text):
+		lineSumBool2 = true
+	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
+		SignalManager.completedAccounting.emit()
+		$".".queue_free()
+
+func _on_line_edit_3_text_submitted(new_text: String) -> void:
+	if(str(equationArray[6] + equationArray[7]) == new_text):
+		lineSumBool3 = true
+	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
+		SignalManager.completedAccounting.emit()
+		$".".queue_free()
+
+func _on_line_edit_4_text_submitted(new_text: String) -> void:
+	if(str(equationArray[9] + equationArray[10]) == new_text):
+		lineSumBool4 = true
+	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
+		SignalManager.completedAccounting.emit()
+		$".".queue_free()
+
+func _on_line_edit_5_text_submitted(new_text: String) -> void:
+	if(str(equationArray[12] + equationArray[13]) == new_text):
+		lineSumBool5 = true
+	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
+		SignalManager.completedAccounting.emit()
+		$".".queue_free()
+
+func _on_line_edit_6_text_submitted(new_text: String) -> void:
+	if(str(equationArray[15] + equationArray[16]) == new_text):
+		lineSumBool6 = true
+	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
+		SignalManager.completedAccounting.emit()
+		$".".queue_free()
+
+func _on_timer_timeout() -> void:
+	SignalManager.failedAccounting.emit()
+	$".".queue_free()
