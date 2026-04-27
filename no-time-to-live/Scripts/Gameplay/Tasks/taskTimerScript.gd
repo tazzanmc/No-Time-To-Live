@@ -31,9 +31,9 @@ func _failed_accounting():
 
 func _randomize_task():
 	taskRandomizer = randi_range(1, 11)
-	taskRandomizer = 3
+	taskRandomizer = 8
 	if taskRandomizer == 1: 
-		taskGen.spawn_task("normal", "t_phoneScene", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+		SignalManager.callPhoneTask.emit()
 	elif taskRandomizer == 2 && !SignalManager.jobPool:
 		taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 3 :
@@ -44,7 +44,7 @@ func _randomize_task():
 		taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))		
 	elif taskRandomizer == 6:
 		taskGen.spawn_task("linked", "t_mendClothes", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 7 && SignalManager.jobPool:
+	elif taskRandomizer == 7 && !SignalManager.jobPool:
 		taskGen.spawn_task("auto", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 8:
 		taskGen.spawn_task("auto", "t_friendsArrive", false, Vector2(0,0))
