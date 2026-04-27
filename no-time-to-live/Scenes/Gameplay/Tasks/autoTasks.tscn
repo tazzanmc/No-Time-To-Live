@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cauk5gol1qh08"]
+[gd_scene load_steps=15 format=3 uid="uid://cauk5gol1qh08"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_3biq7"]
 [ext_resource type="Script" uid="uid://w2l2bnrbdycj" path="res://Scripts/Gameplay/Tasks/Friends Arrive/t_friends_arrive.gd" id="2_0g13w"]
@@ -7,8 +7,10 @@
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="3_rqyup"]
 [ext_resource type="Material" uid="uid://bnm4uuh5ghkqu" path="res://Assets/Materials/friendShadow.tres" id="4_26rjg"]
 [ext_resource type="Texture2D" uid="uid://c5xodl0xcgobp" path="res://Assets/Textures/Tasks/friend1.png" id="4_hfj20"]
+[ext_resource type="Texture2D" uid="uid://d0knevlfubebf" path="res://Assets/Textures/Tasks/payCheque.png" id="4_hqasj"]
 [ext_resource type="Texture2D" uid="uid://dkd4cwscwvn7g" path="res://Assets/Textures/Tasks/friend2.png" id="5_26rjg"]
 [ext_resource type="Texture2D" uid="uid://b00tqen7ge10c" path="res://Assets/Textures/Tasks/friend3.png" id="6_hqasj"]
+[ext_resource type="Texture2D" uid="uid://dhwgosbqk1j8l" path="res://Assets/Textures/Tasks/pinkSlip.png" id="11_2wpti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0g13w"]
 size = Vector2(1966, 663)
@@ -67,7 +69,6 @@ visible = false
 texture = ExtResource("1_3biq7")
 
 [node name="t_payCheque" type="Node2D" parent="."]
-visible = false
 script = ExtResource("2_26rjg")
 
 [node name="Timer" type="Timer" parent="t_payCheque"]
@@ -76,11 +77,16 @@ one_shot = true
 autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="t_payCheque"]
-offset_right = 666.0
-offset_bottom = 228.0
-metadata/_edit_use_anchors_ = true
+offset_right = 351.0
+offset_bottom = 147.0
+color = Color(1, 1, 1, 0)
+
+[node name="pixelSprite2D" parent="t_payCheque" instance=ExtResource("3_b4uax")]
+position = Vector2(175, 73)
+texture = ExtResource("4_hqasj")
 
 [node name="t_friendsArrive" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_0g13w")
 
 [node name="pauseSocialBar" type="Timer" parent="t_friendsArrive"]
@@ -133,9 +139,13 @@ one_shot = true
 autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="t_pinkSlip"]
-offset_right = 666.0
-offset_bottom = 228.0
-color = Color(1, 0.66999996, 0.66999996, 1)
+offset_right = 252.0
+offset_bottom = 363.0
+color = Color(1, 0.66999996, 0.66999996, 0)
+
+[node name="pixelSprite2D" parent="t_pinkSlip" instance=ExtResource("3_b4uax")]
+position = Vector2(126.00001, 181)
+texture = ExtResource("11_2wpti")
 
 [connection signal="timeout" from="t_payCheque/Timer" to="t_payCheque" method="_on_timer_timeout"]
 [connection signal="timeout" from="t_friendsArrive/pauseSocialBar" to="t_friendsArrive" method="_on_pause_social_bar_timeout"]
