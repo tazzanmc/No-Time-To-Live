@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cauk5gol1qh08"]
+[gd_scene load_steps=13 format=3 uid="uid://cauk5gol1qh08"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_3biq7"]
 [ext_resource type="Script" uid="uid://w2l2bnrbdycj" path="res://Scripts/Gameplay/Tasks/Friends Arrive/t_friends_arrive.gd" id="2_0g13w"]
+[ext_resource type="Script" uid="uid://b1jf5cq0swuew" path="res://Scripts/Gameplay/Tasks/Pay Cheque/t_pay_cheque.gd" id="2_26rjg"]
 [ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="3_b4uax"]
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="3_rqyup"]
 [ext_resource type="Material" uid="uid://bnm4uuh5ghkqu" path="res://Assets/Materials/friendShadow.tres" id="4_26rjg"]
@@ -16,6 +17,44 @@ size = Vector2(1966, 663)
 font = ExtResource("3_rqyup")
 font_size = 32
 
+[sub_resource type="GDScript" id="GDScript_26rjg"]
+script/source = "extends Node2D
+
+var taskSelected : bool = false
+var centerMouse := Vector2.ZERO
+
+func _start():
+	$\".\".show()
+
+func _on_timer_timeout() -> void:
+	SignalManager.playerFired.emit()
+	$\".\".queue_free()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			var checkPos = Rect2($ColorRect.global_position, $ColorRect.size)
+			if checkPos.has_point(event.position):
+				print(\"test\")
+				taskSelected = true
+				centerMouse = position - event.position 
+		else:
+			taskSelected = false
+	elif event is InputEventMouse and taskSelected:
+		position = event.position + centerMouse
+
+func _process(_delta):
+	if $\".\".global_position.x < 0:
+		$\".\".global_position = Vector2(1, $\".\".global_position.y)
+	if $\".\".global_position.y < 0:
+		$\".\".global_position = Vector2($\".\".global_position.x, 1)
+
+	if $\".\".global_position.x > 1250:
+		$\".\".global_position = Vector2(1250, $\".\".global_position.y)
+	if $\".\".global_position.y > 850:
+		$\".\".global_position = Vector2( $\".\".global_position.x, 850)
+"
+
 [node name="AutoTasks" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
@@ -28,6 +67,18 @@ visible = false
 texture = ExtResource("1_3biq7")
 
 [node name="t_payCheque" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_26rjg")
+
+[node name="Timer" type="Timer" parent="t_payCheque"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="t_payCheque"]
+offset_right = 666.0
+offset_bottom = 228.0
+metadata/_edit_use_anchors_ = true
 
 [node name="t_friendsArrive" type="Node2D" parent="."]
 script = ExtResource("2_0g13w")
@@ -42,14 +93,6 @@ one_shot = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="t_friendsArrive"]
 position = Vector2(0, 318)
-
-[node name="ColorRect" type="ColorRect" parent="t_friendsArrive/RigidBody2D"]
-offset_left = -5.0
-offset_top = 436.0
-offset_right = 1970.0
-offset_bottom = 876.37
-color = Color(0.11858138, 0.11858138, 0.11858138, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_friendsArrive/RigidBody2D"]
 position = Vector2(968, 767.5)
@@ -80,5 +123,20 @@ offset_bottom = 514.0
 text = "Your friends are here! (They wont leave)"
 label_settings = SubResource("LabelSettings_4ponn")
 
+[node name="t_pinkSlip" type="Node2D" parent="."]
+script = SubResource("GDScript_26rjg")
+
+[node name="Timer" type="Timer" parent="t_pinkSlip"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="t_pinkSlip"]
+offset_right = 666.0
+offset_bottom = 228.0
+color = Color(1, 0.66999996, 0.66999996, 1)
+
+[connection signal="timeout" from="t_payCheque/Timer" to="t_payCheque" method="_on_timer_timeout"]
 [connection signal="timeout" from="t_friendsArrive/pauseSocialBar" to="t_friendsArrive" method="_on_pause_social_bar_timeout"]
 [connection signal="timeout" from="t_friendsArrive/friendTimer" to="t_friendsArrive" method="_on_friend_timer_timeout"]
+[connection signal="timeout" from="t_pinkSlip/Timer" to="t_pinkSlip" method="_on_timer_timeout"]

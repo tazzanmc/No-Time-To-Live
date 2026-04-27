@@ -4,7 +4,9 @@ func _ready() -> void:
 	$pauseSocialBar.start()
 	$friendTimer.start()
 	SignalManager.pauseSocialBarSignal.emit()
-	$RigidBody2D/ColorRect.show()
+	$RigidBody2D/friends/pixelSprite2D.show()
+	$RigidBody2D/friends/pixelSprite2D2.show()
+	$RigidBody2D/friends/pixelSprite2D3.show()
 
 func _process(float)->void:
 	if($RigidBody2D.position.y > 400):

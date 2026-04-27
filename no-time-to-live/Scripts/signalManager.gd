@@ -28,6 +28,12 @@ signal billTaskFailed()
 signal pauseSocialBarSignal()
 signal unpauseSocialBarSignal()
 
+# Cashed cheque signal
+signal cashedCheck()
+
+# Pink slip signal
+signal playerFired()
+
 var jobPool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -41,3 +47,7 @@ func _process(_delta):
 func _enable_job_pool():
 	jobPool = true
 	print("job pool enabled")
+
+func _disable_job_pool():
+	jobPool = false
+	print("job pool disabled")
