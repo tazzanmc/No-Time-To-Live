@@ -90,47 +90,101 @@ color = Color(0.4, 0.4, 0.4, 0)
 position = Vector2(278.00006, 278)
 texture = ExtResource("8_cm04n")
 
-[node name="pixelSprite2D2" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
-position = Vector2(281.00006, 179)
+[node name="breakerSwitch1" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(275.00006, 179)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch2" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(275.00006, 218)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch3" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(275.00006, 257)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch4" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(275.00006, 296)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch5" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(275.00006, 335)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch6" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(275.00006, 374)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch7" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(353.00006, 179)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch8" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(353.00006, 218)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch9" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(353.00006, 257)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch10" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(353.00006, 296)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch11" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(353.00006, 335)
+texture = ExtResource("9_jnavp")
+
+[node name="breakerSwitch12" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]
+position = Vector2(353.00006, 374)
 texture = ExtResource("9_jnavp")
 
 [node name="CheckButton1" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 offset_left = 214.0
 offset_top = 160.0
 offset_right = 303.00003
 offset_bottom = 198.0
+icon_alignment = 2
+expand_icon = true
 
 [node name="CheckButton2" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 214.0
 offset_top = 199.0
 offset_right = 303.00003
 offset_bottom = 237.0
 
 [node name="CheckButton3" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 213.0
 offset_top = 238.0
 offset_right = 304.0
 offset_bottom = 276.0
 
 [node name="CheckButton4" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 214.0
 offset_top = 276.0
 offset_right = 304.0
 offset_bottom = 315.0
 
 [node name="CheckButton5" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 214.0
 offset_top = 315.0
 offset_right = 304.0
 offset_bottom = 354.0
 
 [node name="CheckButton6" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 214.0
 offset_top = 354.0
 offset_right = 303.0
 offset_bottom = 393.0
 
 [node name="CheckButton7" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 414.27917
 offset_top = 198.44568
 offset_right = 503.74756
@@ -138,6 +192,7 @@ offset_bottom = 237.1616
 rotation = 3.1415927
 
 [node name="CheckButton8" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 414.29688
 offset_top = 237.81697
 offset_right = 503.59375
@@ -145,6 +200,7 @@ offset_bottom = 276.63394
 rotation = -3.1415927
 
 [node name="CheckButton9" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 414.77637
 offset_top = 276.61578
 offset_right = 504.55273
@@ -152,6 +208,7 @@ offset_bottom = 315.23163
 rotation = -3.1415927
 
 [node name="CheckButton10" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 414.3407
 offset_top = 315.74475
 offset_right = 504.6814
@@ -159,6 +216,7 @@ offset_bottom = 355.48938
 rotation = -3.1415927
 
 [node name="CheckButton11" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 414.3407
 offset_top = 354.18027
 offset_right = 504.6814
@@ -166,6 +224,7 @@ offset_bottom = 393.36053
 rotation = -3.1415927
 
 [node name="CheckButton12" type="CheckButton" parent="t_electricalOutage"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 414.90527
 offset_top = 393.61578
 offset_right = 505.81055
