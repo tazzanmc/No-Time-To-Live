@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dtuvfbvd43bh1" path="res://Scripts/Gameplay/moneyBar.gd" id="4_1n8j8"]
 [ext_resource type="Script" uid="uid://c1hknm3os0soj" path="res://Scripts/Gameplay/Tasks/taskTimerScript.gd" id="7_1n8j8"]
 [ext_resource type="Script" uid="uid://d0vexbdk2yna2" path="res://Scripts/Gameplay/Tasks/task_generator.gd" id="9_wu1q0"]
-[ext_resource type="PackedScene" uid="uid://dttmf8duyinv" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
 [ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="10_4eg07"]
 [ext_resource type="PackedScene" uid="uid://t4nm6v2h7adf" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="11_s8ik7"]
 [ext_resource type="PackedScene" uid="uid://dxp5pntperpdp" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="12_l60cb"]

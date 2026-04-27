@@ -22,11 +22,28 @@ func _on_timeout() -> void:
 	if(maxWaitTime > 2.5):
 		maxWaitTime -= ranTime
 	
+	
 	randomizeTask.emit()
 
 func _randomize_task():
-	taskRandomizer = randi_range(1, 14)
-	if taskRandomizer <= 7:
-		SignalManager.emit_signal("callPhoneTask")
-	else:
+	taskRandomizer = randi_range(1, 10)
+	if taskRandomizer == 1: 
+		taskGen.spawn_task("normal", "t_phoneScene", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 2 && !SignalManager.jobPool:
 		taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 3:
+		taskGen.spawn_task("normal", "t_makeFood", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 4:
+		taskGen.spawn_task("normal", "t_groceryList", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 5 && SignalManager.jobPool:
+		taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))		
+	elif taskRandomizer == 6:
+		taskGen.spawn_task("linked", "t_mendClothes", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 7 && SignalManager.jobPool:
+		taskGen.spawn_task("auto", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 8:
+		taskGen.spawn_task("auto", "t_friendsArrive", false, 0,0)
+	elif taskRandomizer == 9:
+		taskGen.spawn_task("vital", "t_rentDue", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 10:
+		taskGen.spawn_task("vital", "t_electricalOutage", false, Vector2(randi_range(0, 640), randi_range(0, 360)))

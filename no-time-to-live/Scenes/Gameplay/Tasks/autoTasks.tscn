@@ -124,6 +124,7 @@ text = "Your friends are here! (They wont leave)"
 label_settings = SubResource("LabelSettings_4ponn")
 
 [node name="t_pinkSlip" type="Node2D" parent="."]
+visible = false
 script = SubResource("GDScript_26rjg")
 
 [node name="Timer" type="Timer" parent="t_pinkSlip"]

@@ -723,6 +723,7 @@ label_settings = SubResource("LabelSettings_6sgfl")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
+[connection signal="pressed" from="t_phoneScene/denyCallButton" to="t_phoneScene" method="_deny_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
 [connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
 [connection signal="pressed" from="t_groceryList/submitButton" to="t_groceryList" method="_submit_button_pressed"]
