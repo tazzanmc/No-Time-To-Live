@@ -79,6 +79,8 @@ func _process(float) -> void:
 
 func _on_check_button_1_pressed() -> void:
 	flipSwitch($breakerSwitch1, fuseBox[0])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton1.button_pressed):
 		fuseBox[0] = true
 	elif(!$CheckButton1.button_pressed):
@@ -91,6 +93,8 @@ func _on_check_button_1_pressed() -> void:
 
 func _on_check_button_2_pressed() -> void:
 	flipSwitch($breakerSwitch2, fuseBox[1])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton2.button_pressed):
 		fuseBox[1] = true
 	elif(!$CheckButton2.button_pressed):
@@ -103,6 +107,8 @@ func _on_check_button_2_pressed() -> void:
 
 func _on_check_button_3_pressed() -> void:
 	flipSwitch($breakerSwitch3, fuseBox[2])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton3.button_pressed):
 		fuseBox[2] = true
 	elif(!$CheckButton3.button_pressed):
@@ -114,6 +120,8 @@ func _on_check_button_3_pressed() -> void:
 
 func _on_check_button_4_pressed() -> void:
 	flipSwitch($breakerSwitch4, fuseBox[3])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton4.button_pressed):
 		fuseBox[3] = true
 	elif(!$CheckButton4.button_pressed):
@@ -126,6 +134,8 @@ func _on_check_button_4_pressed() -> void:
 
 func _on_check_button_5_pressed() -> void:
 	flipSwitch($breakerSwitch5, fuseBox[4])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton5.button_pressed):
 		fuseBox[4] = true
 	elif(!$CheckButton5.button_pressed):
@@ -138,6 +148,8 @@ func _on_check_button_5_pressed() -> void:
 
 func _on_check_button_6_pressed() -> void:
 	flipSwitch($breakerSwitch6, fuseBox[5])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton6.button_pressed):
 		fuseBox[5] = true
 	elif(!$CheckButton6.button_pressed):
@@ -150,6 +162,8 @@ func _on_check_button_6_pressed() -> void:
 
 func _on_check_button_7_pressed() -> void:
 	flipSwitch($breakerSwitch7, fuseBox[6])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton7.button_pressed):
 		fuseBox[6] = true
 	elif(!$CheckButton7.button_pressed):
@@ -162,6 +176,8 @@ func _on_check_button_7_pressed() -> void:
 
 func _on_check_button_8_pressed() -> void:
 	flipSwitch($breakerSwitch8, fuseBox[7])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton8.button_pressed):
 		fuseBox[7] = true
 	elif(!$CheckButton8.button_pressed):
@@ -174,6 +190,8 @@ func _on_check_button_8_pressed() -> void:
 
 func _on_check_button_9_pressed() -> void:
 	flipSwitch($breakerSwitch9, fuseBox[8])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton9.button_pressed):
 		fuseBox[8] = true
 	elif(!$CheckButton9.button_pressed):
@@ -186,6 +204,8 @@ func _on_check_button_9_pressed() -> void:
 
 func _on_check_button_10_pressed() -> void:
 	flipSwitch($breakerSwitch10, fuseBox[9])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton10.button_pressed):
 		fuseBox[9] = true
 	elif(!$CheckButton10.button_pressed):
@@ -198,6 +218,8 @@ func _on_check_button_10_pressed() -> void:
 
 func _on_check_button_11_pressed() -> void:
 	flipSwitch($breakerSwitch11, fuseBox[10])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton11.button_pressed):
 		fuseBox[10] = true
 	elif(!$CheckButton11.button_pressed):
@@ -210,6 +232,8 @@ func _on_check_button_11_pressed() -> void:
 
 func _on_check_button_12_pressed() -> void:
 	flipSwitch($breakerSwitch12, fuseBox[11])
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.5, 1.5)
+	$AudioStreamPlayer2D.play()
 	if($CheckButton12.button_pressed):
 		fuseBox[11] = true
 	elif(!$CheckButton12.button_pressed):

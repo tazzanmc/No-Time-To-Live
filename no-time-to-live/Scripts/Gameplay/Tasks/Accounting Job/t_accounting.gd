@@ -45,8 +45,10 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	
 	if(str(equationArray[0] + equationArray[1]) == new_text):
 		lineSumBool1 = true
+		$AudioPlayerCorrect.play()
 		$CheckmarkSprite.show()
 	else:
+		$AudioPlayerIncorrect.play()
 		$CrossSprite.show()
 		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
@@ -60,8 +62,10 @@ func _on_line_edit_2_text_submitted(new_text: String) -> void:
 	$CrossSprite2.hide()
 	if(str(equationArray[3] + equationArray[4]) == new_text):
 		lineSumBool2 = true
+		$AudioPlayerCorrect.play()
 		$CheckmarkSprite2.show()
 	else:
+		$AudioPlayerIncorrect.play()
 		$CrossSprite2.show()
 		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
@@ -73,8 +77,10 @@ func _on_line_edit_3_text_submitted(new_text: String) -> void:
 	$CrossSprite3.hide()
 	if(str(equationArray[6] + equationArray[7]) == new_text):
 		lineSumBool3 = true
+		$AudioPlayerCorrect.play()
 		$CheckmarkSprite3.show()
 	else:
+		$AudioPlayerIncorrect.play()
 		$CrossSprite3.show()
 		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
@@ -86,8 +92,10 @@ func _on_line_edit_4_text_submitted(new_text: String) -> void:
 	$CrossSprite4.hide()
 	if(str(equationArray[9] + equationArray[10]) == new_text):
 		lineSumBool4 = true
+		$AudioPlayerCorrect.play()
 		$CheckmarkSprite4.show()
 	else:
+		$AudioPlayerIncorrect.play()
 		$CrossSprite4.show()
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
@@ -98,8 +106,10 @@ func _on_line_edit_5_text_submitted(new_text: String) -> void:
 	$CrossSprite5.hide()
 	if(str(equationArray[12] + equationArray[13]) == new_text):
 		lineSumBool5 = true
+		$AudioPlayerCorrect.play()
 		$CheckmarkSprite5.show()
 	else:
+		$AudioPlayerIncorrect.play()
 		$CrossSprite5.show()
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
@@ -110,8 +120,10 @@ func _on_line_edit_6_text_submitted(new_text: String) -> void:
 	$CrossSprite6.hide()
 	if(str(equationArray[15] + equationArray[16]) == new_text):
 		lineSumBool6 = true
+		$AudioPlayerCorrect.play()
 		$CheckmarkSprite6.show()
 	else:
+		$AudioPlayerIncorrect.play()
 		$CrossSprite6.show()
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()

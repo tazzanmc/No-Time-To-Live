@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=43 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -10,16 +10,21 @@
 [ext_resource type="Script" uid="uid://cx3b04o7c3ub2" path="res://Scripts/Gameplay/Tasks/Job Application/t_job_application.gd" id="8_tucb0"]
 [ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="9_bn2gp"]
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="9_jtea1"]
+[ext_resource type="AudioStream" uid="uid://e0d6vgwo4sob" path="res://Assets/Sound Effects/NTTLPhoneBuzzSound.mp3" id="9_xff3l"]
 [ext_resource type="Texture2D" uid="uid://ds83yciijpdlg" path="res://Assets/Textures/Tasks/jobApplication.png" id="10_20noh"]
 [ext_resource type="Script" uid="uid://cx5wcepomi3r2" path="res://Scripts/Gameplay/Tasks/Grocery List/t_grocery_list.gd" id="12_20noh"]
 [ext_resource type="Script" uid="uid://bs8gvsyp77m1t" path="res://Scripts/Gameplay/Tasks/Make Food/t_make_food.gd" id="13_6cqc7"]
 [ext_resource type="Texture2D" uid="uid://b67q6p24rpu8h" path="res://Assets/Textures/Tasks/groceryList.png" id="13_16ecs"]
+[ext_resource type="AudioStream" uid="uid://kljwlhsx84jd" path="res://Assets/Sound Effects/NTTLWritingSound.mp3" id="13_rotl6"]
 [ext_resource type="Texture2D" uid="uid://bh1aj6v6ehq7y" path="res://Assets/Textures/Tasks/grilledCheese.png" id="15_1qwhc"]
 [ext_resource type="Texture2D" uid="uid://b2kga51jtm8hh" path="res://Assets/Textures/Tasks/fryPan.png" id="15_caxf5"]
+[ext_resource type="AudioStream" uid="uid://bc7ljofoe4wch" path="res://Assets/Sound Effects/NTTLFryingSound.mp3" id="17_s5rbj"]
 [ext_resource type="Script" uid="uid://fh4et11kw2di" path="res://Scripts/Gameplay/Tasks/Accounting Job/t_accounting.gd" id="17_w3er4"]
 [ext_resource type="Texture2D" uid="uid://d15oefixmcf3q" path="res://Assets/Textures/Tasks/CheckmarkSprite.png" id="18_1f5pw"]
 [ext_resource type="Texture2D" uid="uid://4h8roborgdhm" path="res://Assets/Textures/Tasks/accounting.png" id="18_3lhdd"]
 [ext_resource type="Texture2D" uid="uid://8q1u5g4t5awi" path="res://Assets/Textures/Tasks/CrossSprite.png" id="19_xff3l"]
+[ext_resource type="AudioStream" uid="uid://dylgbw8h36bv6" path="res://Assets/Sound Effects/NTTLCorrectDingSound.mp3" id="21_prigd"]
+[ext_resource type="AudioStream" uid="uid://d1xc5d10l6la5" path="res://Assets/Sound Effects/NTTLWrongDingSound.mp3" id="22_1v6kk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(182, 366.5)
@@ -157,6 +162,9 @@ metadata/_edit_use_anchors_ = true
 [node name="callTaskTimer" type="Timer" parent="t_phoneScene"]
 wait_time = 10.0
 script = ExtResource("7_12sih")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_phoneScene"]
+stream = ExtResource("9_xff3l")
 
 [node name="t_jobApplication" type="Node2D" parent="."]
 position = Vector2(-851, 65)
@@ -302,6 +310,9 @@ metadata/_edit_use_anchors_ = true
 [node name="completedTask" type="Timer" parent="t_jobApplication"]
 one_shot = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_jobApplication"]
+stream = ExtResource("13_rotl6")
+
 [node name="t_groceryList" type="Node2D" parent="."]
 position = Vector2(-840, 683)
 script = ExtResource("12_20noh")
@@ -429,10 +440,13 @@ offset_bottom = 322.0
 metadata/_edit_use_anchors_ = true
 
 [node name="submitButton" type="Button" parent="t_groceryList"]
-offset_left = 150.0
-offset_top = 339.0
-offset_right = 273.0
-offset_bottom = 363.0
+texture_filter = 1
+offset_left = 116.0
+offset_top = 332.0
+offset_right = 314.0
+offset_bottom = 372.0
+scale = Vector2(0.9, 0.9)
+theme_override_font_sizes/font_size = 32
 text = "Is that everything?"
 metadata/_edit_use_anchors_ = true
 
@@ -441,8 +455,14 @@ wait_time = 20.0
 one_shot = true
 autostart = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_groceryList"]
+stream = ExtResource("13_rotl6")
+
 [node name="t_makeFood" type="Node2D" parent="."]
 script = ExtResource("13_6cqc7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_makeFood"]
+stream = ExtResource("17_s5rbj")
 
 [node name="cookingPrompt" type="CharacterBody2D" parent="t_makeFood"]
 position = Vector2(414, 298)
@@ -580,9 +600,20 @@ shape = SubResource("ConvexPolygonShape2D_1qwhc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D"]
 shape = SubResource("CircleShape2D_3lhdd")
 
+[node name="Timer" type="Timer" parent="t_makeFood"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [node name="t_accounting" type="Node2D" parent="."]
 script = ExtResource("17_w3er4")
 equationArray = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+[node name="AudioPlayerCorrect" type="AudioStreamPlayer2D" parent="t_accounting"]
+stream = ExtResource("21_prigd")
+
+[node name="AudioPlayerIncorrect" type="AudioStreamPlayer2D" parent="t_accounting"]
+stream = ExtResource("22_1v6kk")
 
 [node name="ColorRect" type="ColorRect" parent="t_accounting"]
 offset_right = 426.0
@@ -826,12 +857,22 @@ texture = ExtResource("19_xff3l")
 [connection signal="pressed" from="t_phoneScene/denyCallButton" to="t_phoneScene" method="_deny_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
 [connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
+[connection signal="text_changed" from="t_jobApplication/SocialSecurityField" to="t_jobApplication" method="_on_social_security_field_text_changed"]
+[connection signal="text_changed" from="t_jobApplication/DOBField" to="t_jobApplication" method="_on_dob_field_text_changed"]
+[connection signal="text_changed" from="t_jobApplication/BossDescriptorField" to="t_jobApplication" method="_on_boss_descriptor_field_text_changed"]
 [connection signal="timeout" from="t_jobApplication/completedTask" to="t_jobApplication" method="_on_completed_task_timeout"]
+[connection signal="pressed" from="t_groceryList/stickyCheck1" to="t_groceryList" method="_on_sticky_check_1_pressed"]
+[connection signal="pressed" from="t_groceryList/stickyCheck2" to="t_groceryList" method="_on_sticky_check_2_pressed"]
+[connection signal="pressed" from="t_groceryList/stickyCheck3" to="t_groceryList" method="_on_sticky_check_3_pressed"]
+[connection signal="pressed" from="t_groceryList/stickyCheck4" to="t_groceryList" method="_on_sticky_check_4_pressed"]
+[connection signal="pressed" from="t_groceryList/stickyCheck5" to="t_groceryList" method="_on_sticky_check_5_pressed"]
+[connection signal="pressed" from="t_groceryList/stickyCheck6" to="t_groceryList" method="_on_sticky_check_6_pressed"]
 [connection signal="pressed" from="t_groceryList/submitButton" to="t_groceryList" method="_submit_button_pressed"]
 [connection signal="timeout" from="t_groceryList/Timer" to="t_groceryList" method="_on_timer_timeout"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/confirmButton" to="t_makeFood" method="_confirm_button_pressed"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/denyButton" to="t_makeFood" method="_deny_button_pressed"]
 [connection signal="area_entered" from="t_makeFood/fryingPanMinigame/GrilledCheese/Area2D" to="t_makeFood" method="_sandwich_area_entered"]
+[connection signal="timeout" from="t_makeFood/Timer" to="t_makeFood" method="_on_timer_timeout"]
 [connection signal="text_submitted" from="t_accounting/LineEdit" to="t_accounting" method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="t_accounting/LineEdit2" to="t_accounting" method="_on_line_edit_2_text_submitted"]
 [connection signal="text_submitted" from="t_accounting/LineEdit3" to="t_accounting" method="_on_line_edit_3_text_submitted"]

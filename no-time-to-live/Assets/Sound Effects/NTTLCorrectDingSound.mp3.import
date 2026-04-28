@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dylgbw8h36bv6"
+path="res://.godot/imported/NTTLCorrectDingSound.mp3-c98fe5179445287fb76857e8d7874bb3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/NTTLCorrectDingSound.mp3"
+dest_files=["res://.godot/imported/NTTLCorrectDingSound.mp3-c98fe5179445287fb76857e8d7874bb3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

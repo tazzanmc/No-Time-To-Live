@@ -21,6 +21,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed && event.is_echo() == false: 
 			if event.button_index == MOUSE_BUTTON_LEFT:
+				$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+				$AudioStreamPlayer2D.play()
 				var lpos = to_local(event.position)
 				var impos = lpos - offset + get_rect().size / 2.0
 				_paint_tex(impos)

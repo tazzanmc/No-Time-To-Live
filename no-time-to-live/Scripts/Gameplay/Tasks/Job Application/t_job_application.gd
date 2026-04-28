@@ -72,3 +72,15 @@ func _submit_information():
 
 func _on_completed_task_timeout() -> void:
 	$".".queue_free()
+
+func _on_social_security_field_text_changed(new_text: String) -> void:
+		$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$AudioStreamPlayer2D.play()
+
+func _on_dob_field_text_changed(new_text: String) -> void:
+		$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$AudioStreamPlayer2D.play()
+
+func _on_boss_descriptor_field_text_changed(new_text: String) -> void:
+		$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$AudioStreamPlayer2D.play()

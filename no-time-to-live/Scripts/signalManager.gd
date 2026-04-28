@@ -45,6 +45,7 @@ signal gameEnd()
 var jobPool = false
 var powerOut = true
 var gameEndBool = false
+var friendsActivated = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -72,3 +73,9 @@ func _power_restored():
 
 func _game_end_bool():
 	gameEndBool = true
+
+func friendsActive():
+	friendsActivated = true
+
+func friendsDeactivated():
+	friendsActivated = false

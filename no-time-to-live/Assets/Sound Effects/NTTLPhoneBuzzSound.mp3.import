@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e0d6vgwo4sob"
+path="res://.godot/imported/NTTLPhoneBuzzSound.mp3-62bf70bce0e316aab2aa815b600253ce.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/NTTLPhoneBuzzSound.mp3"
+dest_files=["res://.godot/imported/NTTLPhoneBuzzSound.mp3-62bf70bce0e316aab2aa815b600253ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

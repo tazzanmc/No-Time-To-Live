@@ -5,6 +5,7 @@ var centerMouse := Vector2.ZERO
 
 func _ready():
 	$".".show()
+	$AudioStreamPlayer2D.play()
 	SignalManager.connect("gameEnd", _end_game_call)
 
 func _end_game_call():

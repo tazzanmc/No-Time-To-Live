@@ -33,6 +33,7 @@ func _deny_button_pressed() -> void:
 
 
 func _confirm_button_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	$cookingPrompt/ColorRect.hide()
 	$cookingPrompt/Label.hide()
 	$cookingPrompt/confirmButton.hide()
@@ -69,3 +70,7 @@ func _input(event: InputEvent) -> void:
 
 func _sandwich_area_entered(area: Area2D) -> void:
 	touchBottomPanCount += 1
+
+
+func _on_timer_timeout() -> void:
+	$".".queue_free()

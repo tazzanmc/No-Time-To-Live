@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://t4nm6v2h7adf"]
+[gd_scene load_steps=8 format=3 uid="uid://t4nm6v2h7adf"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_h1px6"]
 [ext_resource type="Script" uid="uid://dmr0ojrs5ufp2" path="res://Scripts/Gameplay/Tasks/Mend Clothes/t_mend_clothes.gd" id="2_jvaiu"]
+[ext_resource type="AudioStream" uid="uid://5r4u4bck2nhx" path="res://Assets/Sound Effects/NTTLSewingSound.mp3" id="3_xraqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvaiu"]
 size = Vector2(378, 308)
@@ -105,6 +106,9 @@ offset_left = 762.0
 offset_top = 422.0
 offset_right = 779.0
 offset_bottom = 440.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_mendClothes/mendClothesTask"]
+stream = ExtResource("3_xraqp")
 
 [node name="taskPrompt" type="CharacterBody2D" parent="t_mendClothes"]
 

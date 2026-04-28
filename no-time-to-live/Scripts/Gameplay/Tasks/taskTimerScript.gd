@@ -6,7 +6,7 @@ signal randomizeTask
 @onready var taskGen := $"../taskGenerator"
 @export var minWaitTime: float = 5.0
 @export var maxWaitTime: float = 10.0
-var taskRandomizer: int 
+var taskRandomizer: int
 
 
 func _ready():
@@ -29,7 +29,7 @@ func _failed_accounting():
 	taskGen.spawn_task("auto", "t_pinkSlip", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 
 func _randomize_task():
-	#taskRandomizer = 9
+	#taskRandomizer = 4
 	taskRandomizer = randi_range(1, 10)
 
 	# Spawns in one of the random tasks for the player
@@ -40,12 +40,13 @@ func _randomize_task():
 	elif taskRandomizer == 3:
 		taskGen.spawn_task("linked", "t_mendClothes", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 4:
-		taskGen.spawn_task("auto", "t_friendsArrive", false, Vector2(0,0))
+		if 	!SignalManager.friendsActivated:
+			taskGen.spawn_task("auto", "t_friendsArrive", false, Vector2(0,0))
 	elif taskRandomizer == 5:
 		taskGen.spawn_task("vital", "t_rentDue", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 6:
 		taskGen.spawn_task("vital", "t_electricalOutage", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 7 && !SignalManager.powerOut:
+	elif taskRandomizer == 7 && SignalManager.powerOut:
 		SignalManager.callPhoneTask.emit()
 	elif taskRandomizer == 8:
 		if(!SignalManager.jobPool):
@@ -58,7 +59,7 @@ func _randomize_task():
 		else:
 			taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 10:
-		if(!SignalManager.jobPool):
+		if(SignalManager.jobPool):
 			taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 		else:
 			taskGen.spawn_task("auto", "t_payCheque", false, Vector2(randi_range(0, 640), randi_range(0, 360)))

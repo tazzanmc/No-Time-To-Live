@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4c8kqb1j3wfv"
+path="res://.godot/imported/NTTLATMBeepSound.mp3-a63efd3a9cbec5c71f0e3268dafab4ab.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/NTTLATMBeepSound.mp3"
+dest_files=["res://.godot/imported/NTTLATMBeepSound.mp3-a63efd3a9cbec5c71f0e3268dafab4ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxp5pntperpdp"]
+[gd_scene load_steps=15 format=3 uid="uid://dxp5pntperpdp"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_g02lt"]
 [ext_resource type="Script" uid="uid://dcg3xkdx1iyeg" path="res://Scripts/Gameplay/Tasks/Rent Due/t_rent_due.gd" id="2_bl68h"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" uid="uid://clyh3b5mnw32e" path="res://Scripts/Gameplay/Tasks/Electrical Outage/t_electrical_outage.gd" id="4_aqo5i"]
 [ext_resource type="Texture2D" uid="uid://ffhyiya7paa6" path="res://Assets/Textures/Tasks/bill.png" id="4_doyvd"]
 [ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="6_doyvd"]
+[ext_resource type="AudioStream" uid="uid://kljwlhsx84jd" path="res://Assets/Sound Effects/NTTLWritingSound.mp3" id="7_ls7ca"]
 [ext_resource type="Texture2D" uid="uid://dxtwe8vcnu7iy" path="res://Assets/Textures/Tasks/circuitBreaker.png" id="8_cm04n"]
 [ext_resource type="Texture2D" uid="uid://c7p58i4waas3a" path="res://Assets/Textures/Tasks/circuitBreakerSwitch.png" id="9_jnavp"]
+[ext_resource type="AudioStream" uid="uid://b5hi4ib7jhhxt" path="res://Assets/Sound Effects/NTTLBreakerSwitchSound.mp3" id="10_g22wj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cm04n"]
 font = ExtResource("6_doyvd")
@@ -56,6 +58,11 @@ position = Vector2(212.94, 455.16)
 script = ExtResource("3_s2h5i")
 paint_color = Color(0.9843137, 0.29803923, 0.49803922, 1)
 brush_size = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_rentDue/signatureImage"]
+position = Vector2(-212.94, -455.16)
+stream = ExtResource("7_ls7ca")
+volume_db = 10.0
 
 [node name="ApplicationHeader" type="Label" parent="t_rentDue"]
 texture_filter = 3
@@ -242,6 +249,9 @@ text = "Circuit Breaker
 (Electronic devices will not work)"
 label_settings = SubResource("LabelSettings_aqo5i")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_electricalOutage"]
+stream = ExtResource("10_g22wj")
 
 [connection signal="timeout" from="t_rentDue/taskTimer" to="t_rentDue" method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="t_rentDue/Area2D" to="t_rentDue" method="_on_area_2d_mouse_entered"]

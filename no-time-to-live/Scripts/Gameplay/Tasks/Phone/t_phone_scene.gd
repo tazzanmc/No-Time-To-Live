@@ -27,6 +27,8 @@ func _process(_delta):
 		$".".global_position = Vector2( $".".global_position.x, 685)
 
 func _start_call_task():
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
 	callType  =  randi_range(1, 4)
 	match callType:
 		1:

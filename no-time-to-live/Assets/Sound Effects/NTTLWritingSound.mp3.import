@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kljwlhsx84jd"
+path="res://.godot/imported/NTTLWritingSound.mp3-231346d5838efffde35241c3d60714fd.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/NTTLWritingSound.mp3"
+dest_files=["res://.godot/imported/NTTLWritingSound.mp3-231346d5838efffde35241c3d60714fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -54,45 +54,63 @@ func _mend_button_pressed() -> void:
 
 
 func _on_sew_1_pressed() -> void:
+	$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$mendClothesTask/AudioStreamPlayer2D.play()
 	$mendClothesTask/sew1.hide()
 
 
 func _on_sew_2_pressed() -> void:
 	if($mendClothesTask/sew1.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew2.hide()
 
 func _on_sew_3_pressed() -> void:
 	if($mendClothesTask/sew2.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew3.hide()
 
 
 func _on_sew_4_pressed() -> void:
 	if($mendClothesTask/sew3.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew4.hide()
 
 
 func _on_sew_5_pressed() -> void:
 	if($mendClothesTask/sew4.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew5.hide()
 
 
 func _on_sew_6_pressed() -> void:
 	if($mendClothesTask/sew5.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew6.hide()
 
 
 func _on_sew_7_pressed() -> void:
 	if($mendClothesTask/sew6.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew7.hide()
 
 
 func _on_sew_8_pressed() -> void:
 	if($mendClothesTask/sew7.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		$mendClothesTask/sew8.hide()
 
 
 func _on_sew_9_pressed() -> void:
 	if($mendClothesTask/sew8.visible == false):
+		$mendClothesTask/AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+		$mendClothesTask/AudioStreamPlayer2D.play()
 		taskCompleted = true
 		SignalManager.mendTaskComplete.emit()
 		$mendClothesTask/sew9.hide()

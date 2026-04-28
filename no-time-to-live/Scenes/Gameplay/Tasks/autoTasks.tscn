@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cauk5gol1qh08"]
+[gd_scene load_steps=17 format=3 uid="uid://cauk5gol1qh08"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_3biq7"]
 [ext_resource type="Script" uid="uid://w2l2bnrbdycj" path="res://Scripts/Gameplay/Tasks/Friends Arrive/t_friends_arrive.gd" id="2_0g13w"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d0knevlfubebf" path="res://Assets/Textures/Tasks/payCheque.png" id="4_hqasj"]
 [ext_resource type="Texture2D" uid="uid://dkd4cwscwvn7g" path="res://Assets/Textures/Tasks/friend2.png" id="5_26rjg"]
 [ext_resource type="Texture2D" uid="uid://b00tqen7ge10c" path="res://Assets/Textures/Tasks/friend3.png" id="6_hqasj"]
+[ext_resource type="AudioStream" uid="uid://ct6c8bbsn5lwy" path="res://Assets/Sound Effects/NTTLTalkingSound.mp3" id="7_j3xhl"]
 [ext_resource type="Texture2D" uid="uid://dhwgosbqk1j8l" path="res://Assets/Textures/Tasks/pinkSlip.png" id="11_2wpti"]
+[ext_resource type="AudioStream" uid="uid://c4c8kqb1j3wfv" path="res://Assets/Sound Effects/NTTLATMBeepSound.mp3" id="12_v076b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0g13w"]
 size = Vector2(1966, 382)
@@ -76,7 +78,7 @@ texture = ExtResource("1_3biq7")
 script = ExtResource("2_26rjg")
 
 [node name="Timer" type="Timer" parent="t_payCheque"]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
@@ -89,15 +91,21 @@ color = Color(1, 1, 1, 0)
 position = Vector2(175, 73)
 texture = ExtResource("4_hqasj")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_payCheque"]
+stream = ExtResource("12_v076b")
+
 [node name="t_friendsArrive" type="Node2D" parent="."]
 script = ExtResource("2_0g13w")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_friendsArrive"]
+stream = ExtResource("7_j3xhl")
+
 [node name="pauseSocialBar" type="Timer" parent="t_friendsArrive"]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [node name="friendTimer" type="Timer" parent="t_friendsArrive"]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="t_friendsArrive"]

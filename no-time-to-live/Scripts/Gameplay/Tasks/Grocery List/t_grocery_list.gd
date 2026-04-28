@@ -46,3 +46,28 @@ func _submit_button_pressed() -> void:
 func _on_timer_timeout() -> void:
 	SignalManager.failedGrocery.emit()
 	$".".queue_free()
+
+
+func _on_sticky_check_1_pressed() -> void:
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
+
+func _on_sticky_check_2_pressed() -> void:
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
+
+func _on_sticky_check_3_pressed() -> void:
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
+
+func _on_sticky_check_4_pressed() -> void:
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
+
+func _on_sticky_check_5_pressed() -> void:
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
+
+func _on_sticky_check_6_pressed() -> void:
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)
+	$AudioStreamPlayer2D.play()
