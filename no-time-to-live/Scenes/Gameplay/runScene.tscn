@@ -15,13 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://cauk5gol1qh08" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="13_d84c4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
-bg_color = Color(0, 0.54901963, 0.6117647, 1)
+bg_color = Color(0, 0.39600003, 0.44, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdl1d"]
 bg_color = Color(0, 0.62487906, 0.9985897, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wu1q0"]
-font_size = 32
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtffl"]
 bg_color = Color(0.65879554, 0.55531865, 0, 1)
@@ -47,10 +48,12 @@ offset_bottom = 1080.0
 color = Color(0.43, 0.21586002, 0.07310001, 1)
 
 [node name="socialBar" type="ProgressBar" parent="."]
+texture_filter = 1
 offset_left = 12.0
 offset_top = 13.0
-offset_right = 468.0
-offset_bottom = 40.0
+offset_right = 1904.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_gmi6l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rdl1d")
 value = 100.0
@@ -60,50 +63,52 @@ script = ExtResource("2_28rcq")
 [node name="Label" type="Label" parent="socialBar"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 7.0
-offset_top = -6.0
-offset_right = 63.0
-offset_bottom = 26.0
+offset_left = 10.0
+offset_top = -11.0
+offset_right = 94.0
+offset_bottom = 37.0
 text = "Social"
 label_settings = SubResource("LabelSettings_wu1q0")
 
 [node name="satietyBar" type="ProgressBar" parent="."]
 offset_left = 12.0
-offset_top = 43.0
-offset_right = 468.0
-offset_bottom = 70.0
+offset_top = 60.0
+offset_right = 1904.0
+offset_bottom = 95.0
 theme_override_styles/background = SubResource("StyleBoxFlat_dtffl")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yb3aw")
 value = 100.0
 show_percentage = false
 script = ExtResource("3_bbkr7")
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="satietyBar"]
 texture_filter = 1
-offset_left = 19.0
-offset_top = 38.0
-offset_right = 75.0
-offset_bottom = 70.0
+layout_mode = 0
+offset_left = 9.0
+offset_top = -11.0
+offset_right = 111.0
+offset_bottom = 37.0
 text = "Satiety"
 label_settings = SubResource("LabelSettings_wu1q0")
 
 [node name="moneyBar" type="ProgressBar" parent="."]
 offset_left = 12.0
-offset_top = 73.0
-offset_right = 468.0
-offset_bottom = 100.0
+offset_top = 108.0
+offset_right = 1904.0
+offset_bottom = 143.0
 theme_override_styles/background = SubResource("StyleBoxFlat_helsn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4wu1m")
 value = 100.0
 show_percentage = false
 script = ExtResource("4_1n8j8")
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="moneyBar"]
 texture_filter = 1
-offset_left = 19.0
-offset_top = 68.0
-offset_right = 87.0
-offset_bottom = 100.0
+layout_mode = 0
+offset_left = 10.0
+offset_top = -11.0
+offset_right = 100.0
+offset_bottom = 88.0
 text = "Money
 "
 label_settings = SubResource("LabelSettings_wu1q0")
@@ -119,8 +124,8 @@ label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(595, 409)
-scale = Vector2(3, 3)
+position = Vector2(962, 516)
+scale = Vector2(4, 4)
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
 
@@ -136,27 +141,25 @@ autostart = true
 script = ExtResource("7_1n8j8")
 
 [node name="buttonSettings" parent="." instance=ExtResource("9_xorqe")]
-offset_left = 613.00006
-offset_top = 625.0
-offset_right = 613.00006
-offset_bottom = 625.0
+offset_left = 1078.0
+offset_top = 893.0
+offset_right = 1078.0
+offset_bottom = 893.0
 scale = Vector2(3.0534618, 2.9410028)
 
 [node name="Button" parent="buttonSettings" index="0"]
 text = "Settings"
 
 [node name="buttonQuit" parent="." instance=ExtResource("9_xorqe")]
-offset_left = 346.00006
-offset_top = 722.00006
-offset_right = 346.00006
-offset_bottom = 722.00006
+offset_left = 594.0
+offset_top = 893.00006
+offset_right = 594.0
+offset_bottom = 893.00006
 scale = Vector2(3.0534618, 2.9410028)
 
 [node name="Button" parent="buttonQuit" index="0"]
-offset_left = 29.802221
-offset_top = -13.600824
-offset_right = 79.80222
-offset_bottom = 34.399178
+offset_right = 50.0
+offset_bottom = 48.0
 text = "Quit"
 
 [node name="taskGenerator" type="Node" parent="."]

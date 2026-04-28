@@ -64,6 +64,11 @@ func _submit_information():
 	
 	if helper >= 3:
 		SignalManager.correctJobInfoSubmission.emit()
-		win()
+		SignalManager._enable_job_pool()
+		$completedTask.start()
 	else:
-		fail()
+		$completedTask.start()
+
+
+func _on_completed_task_timeout() -> void:
+	$".".queue_free()

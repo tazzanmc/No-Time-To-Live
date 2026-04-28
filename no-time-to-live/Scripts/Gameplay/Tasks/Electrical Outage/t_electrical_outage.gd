@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var fuseBox = [false,false,false,false,false,false,true,true,true,true,true,true]
 var count = 0
+var taskSelected : bool = false
+var centerMouse := Vector2.ZERO
 
 signal breakerTaskComplete
 
@@ -229,4 +231,15 @@ func flipSwitch(switchSprite, stateBool):
 		switchSprite.flip_h = true
 	else:
 		switchSprite.flip_h = false
-	
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			var breakerPos = Rect2($ColorRect.global_position, $ColorRect.size)
+			if breakerPos.has_point(event.position):
+				taskSelected = true
+				centerMouse = position - event.position 
+		else:
+			taskSelected = false
+	elif event is InputEventMouse and taskSelected:
+		position = event.position + centerMouse

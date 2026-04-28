@@ -22,6 +22,7 @@ animations = [{
 font_size = 32
 
 [node name="phoneTask" type="Node2D"]
+position = Vector2(1511, 275)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
@@ -35,6 +36,7 @@ offset_top = 9.999954
 offset_right = 210.99997
 offset_bottom = 383.99994
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(111, 202.99995)
@@ -49,6 +51,7 @@ offset_right = 189.99997
 offset_bottom = 78.999954
 text = "123-456-7890"
 label_settings = SubResource("LabelSettings_72alo")
+metadata/_edit_use_anchors_ = true
 
 [node name="answerCallButton" type="Button" parent="."]
 offset_left = 19.99997
@@ -58,6 +61,7 @@ offset_bottom = 375.99994
 icon = ExtResource("2_rk4eu")
 flat = true
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
 [node name="denyCallButton" type="Button" parent="."]
 offset_left = 140.99997
@@ -67,6 +71,7 @@ offset_bottom = 378.99994
 icon = ExtResource("3_k74k1")
 flat = true
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
 [node name="taskTimer" type="Timer" parent="."]
 wait_time = 10.0

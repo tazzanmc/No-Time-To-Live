@@ -11,6 +11,9 @@ var gameEnded = false
 
 func _ready():
 	print("nodes ready")
+	$socialBar.hide()
+	$satietyBar.hide()
+	$moneyBar.hide()
 
 func _process(_delta):
 	# Starts the game 
@@ -19,6 +22,9 @@ func _process(_delta):
 		gameStart.emit()
 		print("Game Start")
 		print(gameActiveBool) 
+		$socialBar.show()
+		$satietyBar.show()
+		$moneyBar.show()
 		if $".".find_child("buttonSettings", false, true) != null && $".".find_child("buttonQuit", false, true) != null:
 			$buttonSettings.queue_free()
 			$buttonQuit.queue_free()

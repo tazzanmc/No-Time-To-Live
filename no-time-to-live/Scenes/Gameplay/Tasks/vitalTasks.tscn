@@ -84,6 +84,7 @@ script = ExtResource("4_aqo5i")
 offset_left = 72.0
 offset_right = 556.0
 offset_bottom = 559.0
+mouse_filter = 1
 color = Color(0.4, 0.4, 0.4, 0)
 
 [node name="pixelSprite2D" parent="t_electricalOutage" instance=ExtResource("3_3hug7")]

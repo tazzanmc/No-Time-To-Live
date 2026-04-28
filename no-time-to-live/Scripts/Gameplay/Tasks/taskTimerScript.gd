@@ -29,31 +29,36 @@ func _failed_accounting():
 	taskGen.spawn_task("auto", "t_pinkSlip", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 
 func _randomize_task():
-	# Checks if job tasks are enabled
-	if(!SignalManager.jobPool):
-		taskRandomizer = randi_range(1, 11)
-	taskRandomizer = randi_range(1, 8)
-	taskRandomizer = 10
+	taskRandomizer = 8
+	#taskRandomizer = randi_range(1, 10)
+
 	# Spawns in one of the random tasks for the player
 	if taskRandomizer == 1:
 		taskGen.spawn_task("normal", "t_makeFood", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 2:
-		taskGen.spawn_task("normal", "t_groceryList", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+		taskGen.spawn_task("normal", "t_groceryList", false, Vector2(randi_range(0, 640), randi_range(0, 360)))		
 	elif taskRandomizer == 3:
-		taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))		
-	elif taskRandomizer == 4:
 		taskGen.spawn_task("linked", "t_mendClothes", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 5:
+	elif taskRandomizer == 4:
 		taskGen.spawn_task("auto", "t_friendsArrive", false, Vector2(0,0))
-	elif taskRandomizer == 6:
+	elif taskRandomizer == 5:
 		taskGen.spawn_task("vital", "t_rentDue", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 7:
+	elif taskRandomizer == 6:
 		taskGen.spawn_task("vital", "t_electricalOutage", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 8 && !SignalManager.powerOut: 
+	elif taskRandomizer == 7 && !SignalManager.powerOut:
 		SignalManager.callPhoneTask.emit()
-	elif taskRandomizer == 9 && SignalManager.jobPool:
-		taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 10 && SignalManager.jobPool:
-		taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
-	elif taskRandomizer == 11 && SignalManager.jobPool:
-		taskGen.spawn_task("auto", "t_payCheque", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 8:
+		if(!SignalManager.jobPool):
+			taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+		else:
+			taskGen.spawn_task("auto", "t_payCheque", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 9:
+		if(!SignalManager.jobPool):
+			taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+		else:
+			taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+	elif taskRandomizer == 10:
+		if(!SignalManager.jobPool):
+			taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+		else:
+			taskGen.spawn_task("auto", "t_payCheque", false, Vector2(randi_range(0, 640), randi_range(0, 360)))

@@ -24,7 +24,7 @@ func _game_start_getter():
 
 func _timer_interval() -> void:
 	if(gameStarted == 1):
-		moneyBar.value -= pow(numIntervals, .3)/2
+		moneyBar.value -= pow(numIntervals, .5)/10
 		numIntervals += 1
 
 func _on_call_pizza():

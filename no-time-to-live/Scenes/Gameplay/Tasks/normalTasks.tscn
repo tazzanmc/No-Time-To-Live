@@ -96,7 +96,7 @@ visible = false
 texture = ExtResource("2_qq832")
 
 [node name="t_phoneScene" type="Node2D" parent="."]
-position = Vector2(-226, 546)
+position = Vector2(1556, 502)
 script = ExtResource("3_g7syt")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="t_phoneScene"]
@@ -298,6 +298,9 @@ offset_bottom = 449.0
 placeholder_text = "Boss Description"
 caret_blink = true
 metadata/_edit_use_anchors_ = true
+
+[node name="completedTask" type="Timer" parent="t_jobApplication"]
+one_shot = true
 
 [node name="t_groceryList" type="Node2D" parent="."]
 position = Vector2(-840, 683)
@@ -824,6 +827,7 @@ texture = ExtResource("19_xff3l")
 [connection signal="pressed" from="t_phoneScene/denyCallButton" to="t_phoneScene" method="_deny_call"]
 [connection signal="timeout" from="t_phoneScene/callTaskTimer" to="t_phoneScene" method="_deny_call"]
 [connection signal="pressed" from="t_jobApplication/SubmitButton" to="t_jobApplication" method="_submit_information"]
+[connection signal="timeout" from="t_jobApplication/completedTask" to="t_jobApplication" method="_on_completed_task_timeout"]
 [connection signal="pressed" from="t_groceryList/submitButton" to="t_groceryList" method="_submit_button_pressed"]
 [connection signal="timeout" from="t_groceryList/Timer" to="t_groceryList" method="_on_timer_timeout"]
 [connection signal="pressed" from="t_makeFood/cookingPrompt/confirmButton" to="t_makeFood" method="_confirm_button_pressed"]

@@ -20,7 +20,7 @@ func _game_start_getter():
 
 func _timer_interval() -> void:
 	if(gameStarted == 1 && !pausedBar):
-		socialBar.value -= pow(numIntervals, .3)/2
+		socialBar.value -= pow(numIntervals, .5)/10
 		numIntervals += 1
 
 func _on_call_family():
