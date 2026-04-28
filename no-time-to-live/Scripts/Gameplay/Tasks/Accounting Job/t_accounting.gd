@@ -17,6 +17,10 @@ func _ready() -> void:
 		equationArray[x + 1] = randi_range(0,20)
 		equationArray[x + 2] = equationArray[x] + equationArray[x + 1]
 		x += 3
+		SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 	
 	$Label2.text = "Account one: " + str(equationArray[0]) + " + " + str(equationArray[1]) + " ="
 	$Label3.text = "Account two: " + str(equationArray[3]) + " + " + str(equationArray[4]) + " ="
@@ -39,44 +43,78 @@ func _process(_delta):
 
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
+	$CheckmarkSprite.hide()
+	$CrossSprite.hide()
+	
 	if(str(equationArray[0] + equationArray[1]) == new_text):
 		lineSumBool1 = true
+		$CheckmarkSprite.show()
+	else:
+		$CrossSprite.show()
+		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
 		$".".queue_free()
 
 
 func _on_line_edit_2_text_submitted(new_text: String) -> void:
+	$CheckmarkSprite2.hide()
+	$CrossSprite2.hide()
 	if(str(equationArray[3] + equationArray[4]) == new_text):
 		lineSumBool2 = true
+		$CheckmarkSprite2.show()
+	else:
+		$CrossSprite2.show()
+		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
 		$".".queue_free()
 
 func _on_line_edit_3_text_submitted(new_text: String) -> void:
+	$CheckmarkSprite3.hide()
+	$CrossSprite3.hide()
 	if(str(equationArray[6] + equationArray[7]) == new_text):
 		lineSumBool3 = true
+		$CheckmarkSprite3.show()
+	else:
+		$CrossSprite3.show()
+		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
 		$".".queue_free()
 
 func _on_line_edit_4_text_submitted(new_text: String) -> void:
+	$CheckmarkSprite4.hide()
+	$CrossSprite4.hide()
 	if(str(equationArray[9] + equationArray[10]) == new_text):
 		lineSumBool4 = true
+		$CheckmarkSprite4.show()
+	else:
+		$CrossSprite4.show()
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
 		$".".queue_free()
 
 func _on_line_edit_5_text_submitted(new_text: String) -> void:
+	$CheckmarkSprite5.hide()
+	$CrossSprite5.hide()
 	if(str(equationArray[12] + equationArray[13]) == new_text):
 		lineSumBool5 = true
+		$CheckmarkSprite5.show()
+	else:
+		$CrossSprite5.show()
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
 		$".".queue_free()
 
 func _on_line_edit_6_text_submitted(new_text: String) -> void:
+	$CheckmarkSprite6.hide()
+	$CrossSprite6.hide()
 	if(str(equationArray[15] + equationArray[16]) == new_text):
 		lineSumBool6 = true
+		$CheckmarkSprite6.show()
+	else:
+		$CrossSprite6.show()
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
 		$".".queue_free()

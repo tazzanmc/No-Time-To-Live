@@ -25,8 +25,12 @@ script/source = "extends Node2D
 var taskSelected : bool = false
 var centerMouse := Vector2.ZERO
 
-func _start():
+func _ready():
 	$\".\".show()
+	SignalManager.connect(\"gameEnd\", _end_game_call)
+
+func _end_game_call():
+	$\".\".queue_free()
 
 func _on_timer_timeout() -> void:
 	SignalManager.playerFired.emit()
@@ -86,11 +90,10 @@ position = Vector2(175, 73)
 texture = ExtResource("4_hqasj")
 
 [node name="t_friendsArrive" type="Node2D" parent="."]
-visible = false
 script = ExtResource("2_0g13w")
 
 [node name="pauseSocialBar" type="Timer" parent="t_friendsArrive"]
-wait_time = 15.0
+wait_time = 5.0
 one_shot = true
 
 [node name="friendTimer" type="Timer" parent="t_friendsArrive"]

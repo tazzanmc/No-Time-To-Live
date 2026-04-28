@@ -40,7 +40,11 @@ signal cashedCheck()
 # Pink slip signal
 signal playerFired()
 
+signal gameEnd()
+
 var jobPool = false
+var powerOut = true
+var gameEndBool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,3 +61,14 @@ func _enable_job_pool():
 func _disable_job_pool():
 	jobPool = false
 	print("job pool disabled")
+
+func _power_out():
+	powerOut = true
+	print("power outage")
+
+func _power_restored():
+	powerOut = false
+	print("power outage")
+
+func _game_end_bool():
+	gameEndBool = true

@@ -6,8 +6,12 @@ var mouseInSignature = false
 
 signal billTaskFailed
 
-func _start():
+func _ready():
 	$taskTimer.start()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 
 func _on_timer_timeout() -> void:
 	billTaskFailed.emit()

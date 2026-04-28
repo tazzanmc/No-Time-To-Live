@@ -233,10 +233,10 @@ rotation = -3.1415927
 
 [node name="Label" type="Label" parent="t_electricalOutage"]
 texture_filter = 1
-offset_left = 160.0
-offset_top = -70.0
-offset_right = 474.0
-offset_bottom = -3.0
+offset_left = 158.0
+offset_top = 1.0
+offset_right = 472.0
+offset_bottom = 68.0
 text = "Circuit Breaker
 (Electronic devices will not work)"
 label_settings = SubResource("LabelSettings_aqo5i")

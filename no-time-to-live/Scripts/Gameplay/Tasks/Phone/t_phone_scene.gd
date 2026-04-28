@@ -10,7 +10,11 @@ var centerMouse := Vector2.ZERO
 
 func _ready():
 	SignalManager.connect("callPhoneTask", _start_call_task)
-	
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
+
 func _process(_delta):
 	if $".".global_position.x < 0:
 		$".".global_position = Vector2(1, $".".global_position.y)

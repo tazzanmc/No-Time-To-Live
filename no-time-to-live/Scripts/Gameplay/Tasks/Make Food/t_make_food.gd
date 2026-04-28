@@ -13,6 +13,10 @@ func _ready() -> void:
 	touchBottomPanCount = 0
 	$fryingPanMinigame/Pan.hide()
 	$fryingPanMinigame/GrilledCheese.hide()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://telqfa7fe0ja"]
+[gd_scene load_steps=38 format=3 uid="uid://telqfa7fe0ja"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_q3qvi"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_qq832"]
@@ -17,7 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://bh1aj6v6ehq7y" path="res://Assets/Textures/Tasks/grilledCheese.png" id="15_1qwhc"]
 [ext_resource type="Texture2D" uid="uid://b2kga51jtm8hh" path="res://Assets/Textures/Tasks/fryPan.png" id="15_caxf5"]
 [ext_resource type="Script" uid="uid://fh4et11kw2di" path="res://Scripts/Gameplay/Tasks/Accounting Job/t_accounting.gd" id="17_w3er4"]
+[ext_resource type="Texture2D" uid="uid://d15oefixmcf3q" path="res://Assets/Textures/Tasks/CheckmarkSprite.png" id="18_1f5pw"]
 [ext_resource type="Texture2D" uid="uid://4h8roborgdhm" path="res://Assets/Textures/Tasks/accounting.png" id="18_3lhdd"]
+[ext_resource type="Texture2D" uid="uid://8q1u5g4t5awi" path="res://Assets/Textures/Tasks/CrossSprite.png" id="19_xff3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lco26"]
 size = Vector2(182, 366.5)
@@ -47,6 +49,7 @@ size = Vector2(273, 179)
 
 [sub_resource type="LabelSettings" id="LabelSettings_16ecs"]
 font = ExtResource("9_jtea1")
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sgfl"]
@@ -454,13 +457,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="t_makeFood/cookingPrompt"]
 texture_filter = 1
-offset_left = -63.0
-offset_top = -37.0
-offset_right = 68.0
-offset_bottom = 17.0
+offset_left = -129.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 38.0
 text = "You feel hungry..
-
-Do you want to make food?"
+Do you want to make food?
+(Shake the pan)"
 label_settings = SubResource("LabelSettings_16ecs")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -631,11 +634,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="t_accounting"]
 texture_filter = 1
-offset_left = 42.0
-offset_top = 67.0
-offset_right = 223.0
-offset_bottom = 99.0
-text = "Account Expenses"
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 217.0
+offset_bottom = 58.0
+text = "Account Expenses
+(Press enter to submit problem)"
 label_settings = SubResource("LabelSettings_3lhdd")
 metadata/_edit_use_anchors_ = true
 
@@ -731,6 +735,90 @@ metadata/_edit_use_anchors_ = true
 wait_time = 45.0
 one_shot = true
 autostart = true
+
+[node name="CheckmarkSprite" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(319, 200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_1f5pw")
+
+[node name="CrossSprite" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(319, 202)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_xff3l")
+
+[node name="CheckmarkSprite2" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(320, 257)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_1f5pw")
+
+[node name="CrossSprite2" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(320, 259)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_xff3l")
+
+[node name="CheckmarkSprite3" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(321, 315)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_1f5pw")
+
+[node name="CrossSprite3" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(321, 317)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_xff3l")
+
+[node name="CheckmarkSprite4" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(322, 372)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_1f5pw")
+
+[node name="CrossSprite4" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(322, 374)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_xff3l")
+
+[node name="CheckmarkSprite5" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(322, 428)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_1f5pw")
+
+[node name="CrossSprite5" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(322, 430)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_xff3l")
+
+[node name="CheckmarkSprite6" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(323, 485)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_1f5pw")
+
+[node name="CrossSprite6" type="Sprite2D" parent="t_accounting"]
+visible = false
+texture_filter = 1
+position = Vector2(323, 487)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_xff3l")
 
 [connection signal="pressed" from="t_phoneScene/answerCallButton" to="t_phoneScene" method="_answer_call"]
 [connection signal="pressed" from="t_phoneScene/denyCallButton" to="t_phoneScene" method="_deny_call"]

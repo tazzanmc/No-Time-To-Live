@@ -19,6 +19,11 @@ func _ready():
 	$CheckButton10.button_pressed = fuseBox[9]
 	$CheckButton11.button_pressed = fuseBox[10]
 	$CheckButton12.button_pressed = fuseBox[11]
+	SignalManager._power_out()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 	
 	if !$CheckButton1.button_pressed:
 		$breakerSwitch1.flip_h = true
@@ -77,6 +82,7 @@ func _on_check_button_1_pressed() -> void:
 		fuseBox[0]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		$".".queue_free()
 
 
@@ -88,6 +94,7 @@ func _on_check_button_2_pressed() -> void:
 		fuseBox[1]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -99,6 +106,7 @@ func _on_check_button_3_pressed() -> void:
 		fuseBox[2]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 func _on_check_button_4_pressed() -> void:
@@ -109,6 +117,7 @@ func _on_check_button_4_pressed() -> void:
 		fuseBox[3]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -120,6 +129,7 @@ func _on_check_button_5_pressed() -> void:
 		fuseBox[4]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -131,6 +141,7 @@ func _on_check_button_6_pressed() -> void:
 		fuseBox[5]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -142,6 +153,7 @@ func _on_check_button_7_pressed() -> void:
 		fuseBox[6]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -153,6 +165,7 @@ func _on_check_button_8_pressed() -> void:
 		fuseBox[7]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -164,6 +177,7 @@ func _on_check_button_9_pressed() -> void:
 		fuseBox[8]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -175,6 +189,7 @@ func _on_check_button_10_pressed() -> void:
 		fuseBox[9]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -186,6 +201,7 @@ func _on_check_button_11_pressed() -> void:
 		fuseBox[10]= false
 	if(arrayCount()):
 		SignalManager.emit_signal("breakerTaskComplete")
+		SignalManager._power_restored()
 		queue_free()
 
 
@@ -196,8 +212,8 @@ func _on_check_button_12_pressed() -> void:
 	elif(!$CheckButton12.button_pressed):
 		fuseBox[11]= false
 	if(arrayCount()):
+		SignalManager._power_restored()
 		SignalManager.emit_signal("breakerTaskComplete")
-		queue_free()
 
 func arrayCount() -> bool:
 	var fullTrue = true

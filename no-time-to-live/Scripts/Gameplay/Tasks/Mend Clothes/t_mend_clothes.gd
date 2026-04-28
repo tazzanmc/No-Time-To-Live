@@ -10,7 +10,10 @@ var centerMouse := Vector2.ZERO
 var taskCompleted : bool = false
 
 func _ready():
-	pass
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 
 func _process(float) -> void:
 	if (taskCompleted && $mendClothesTask/dragCollider/holePlaceholder.scale.x > 0):

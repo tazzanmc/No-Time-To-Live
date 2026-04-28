@@ -1,7 +1,6 @@
 extends Node
 
 signal gameStart
-signal gameEnd
 
 @onready var socialBar = $socialBar
 @onready var satietyBar = $satietyBar
@@ -19,15 +18,16 @@ func _process(_delta):
 		gameStart.emit()
 		print("Game Start")
 		print(gameActiveBool) 
-		$buttonSettings.queue_free()
-		$buttonQuit.queue_free()
+		if $".".find_child("buttonSettings", false, true) != null && $".".find_child("buttonQuit", false, true) != null:
+			$buttonSettings.queue_free()
+			$buttonQuit.queue_free()
 		$taskGenerator.spawn_task("normal", "t_phone", false, Vector2(0,0))
 		SignalManager.emit_signal("callPhoneTask")
+		SignalManager.gameEndBool = false
 	# Ends the game (placeholder condition to test title)
-	elif (socialBar.value <= 0 && gameActiveBool == 1 || moneyBar.value <= 0 ||satietyBar.value <= 0):
+	if (socialBar.value <= 0 && gameActiveBool == 1 || moneyBar.value <= 0 ||satietyBar.value <= 0):
 		gameActiveBool = 0
-		gameEnd.emit()
-		print("Game End")
-		print(gameActiveBool)
+		SignalManager.gameEnd.emit()
+		SignalManager._game_end_bool()
 	
 	

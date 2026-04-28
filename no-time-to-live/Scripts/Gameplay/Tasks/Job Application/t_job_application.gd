@@ -9,6 +9,10 @@ var bossDescIndex : int = randi_range(0, 9)
 
 func _ready():
 	_random_answer_generator()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 
 func _process(_delta):
 	if $".".global_position.x < 0:

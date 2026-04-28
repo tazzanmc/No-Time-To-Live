@@ -7,6 +7,10 @@ func _ready() -> void:
 	$RigidBody2D/friends/pixelSprite2D.show()
 	$RigidBody2D/friends/pixelSprite2D2.show()
 	$RigidBody2D/friends/pixelSprite2D3.show()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 
 func _process(float)->void:
 	if($RigidBody2D.position.y > 550):

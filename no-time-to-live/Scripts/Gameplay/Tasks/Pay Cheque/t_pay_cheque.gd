@@ -3,8 +3,12 @@ extends Node2D
 var taskSelected : bool = false
 var centerMouse := Vector2.ZERO
 
-func _start():
+func _ready():
 	$".".show()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$t_friendsArrive.queue_free()
 
 func _on_timer_timeout() -> void:
 	SignalManager.cashedCheck.emit()

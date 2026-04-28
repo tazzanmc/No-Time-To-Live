@@ -6,6 +6,10 @@ var groceryNum = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_random_grocery_generator()
+	SignalManager.connect("gameEnd", _end_game_call)
+
+func _end_game_call():
+	$".".queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

@@ -4,6 +4,9 @@ var speed = 300
 var acceleration = 10
 var gameStartBool = false
 
+func _ready() -> void:
+	SignalManager.connect("gameEnd", _game_end_signal)
+
 func _game_start_signal():
 	speed = -300
 	acceleration = 10
