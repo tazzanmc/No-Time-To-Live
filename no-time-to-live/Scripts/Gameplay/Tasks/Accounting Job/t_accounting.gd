@@ -7,11 +7,13 @@ var lineSumBool3 = false
 var lineSumBool4 = false
 var lineSumBool5 = false
 var lineSumBool6 = false
+var completedTask = false
 
 func _ready() -> void:
 	var num1 = 0
 	var num2 = 0
 	var x = 0
+	$Timer.start()
 	while x < 17:
 		equationArray[x] = randi_range(0, 20)
 		equationArray[x + 1] = randi_range(0,20)
@@ -49,6 +51,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		
 	if(lineSumBool1 && lineSumBool2 && lineSumBool3 && lineSumBool4 && lineSumBool5 && lineSumBool6): 
 		SignalManager.completedAccounting.emit()
+		completedTask = true 
 		$".".queue_free()
 
 
@@ -115,5 +118,6 @@ func _on_line_edit_6_text_submitted(new_text: String) -> void:
 		$".".queue_free()
 
 func _on_timer_timeout() -> void:
-	SignalManager.failedAccounting.emit()
-	$".".queue_free()
+	if(!completedTask):
+		SignalManager._disable_job_pool()
+		$".".queue_free()

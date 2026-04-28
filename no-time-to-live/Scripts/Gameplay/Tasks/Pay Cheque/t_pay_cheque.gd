@@ -12,7 +12,6 @@ func _end_game_call():
 
 func _on_timer_timeout() -> void:
 	SignalManager.cashedCheck.emit()
-	SignalManager._disable_job_pool()
 	$".".queue_free()
 
 func _input(event: InputEvent) -> void:

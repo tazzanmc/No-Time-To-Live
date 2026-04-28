@@ -48,7 +48,7 @@ var gameEndBool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalManager.correctJobInfoSubmission.connect(_enable_job_pool)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

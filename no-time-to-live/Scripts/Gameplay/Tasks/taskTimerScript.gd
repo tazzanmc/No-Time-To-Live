@@ -29,8 +29,8 @@ func _failed_accounting():
 	taskGen.spawn_task("auto", "t_pinkSlip", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 
 func _randomize_task():
-	taskRandomizer = 8
-	#taskRandomizer = randi_range(1, 10)
+	#taskRandomizer = 9
+	taskRandomizer = randi_range(1, 10)
 
 	# Spawns in one of the random tasks for the player
 	if taskRandomizer == 1:
