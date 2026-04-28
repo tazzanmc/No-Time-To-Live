@@ -27,6 +27,7 @@ func _process(_delta):
 		SignalManager.gameEndBool = false
 	# Ends the game (placeholder condition to test title)
 	if (socialBar.value <= 0 && gameActiveBool == 1 || moneyBar.value <= 0 ||satietyBar.value <= 0 && !gameEnded):
+		get_tree().reload_current_scene()
 		gameEnded = true
 		gameActiveBool = 0
 		SignalManager.gameEnd.emit()
