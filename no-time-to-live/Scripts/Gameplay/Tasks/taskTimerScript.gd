@@ -29,7 +29,7 @@ func _failed_accounting():
 	taskGen.spawn_task("auto", "t_pinkSlip", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 
 func _randomize_task():
-	#taskRandomizer = 4
+	#taskRandomizer = 3
 	taskRandomizer = randi_range(1, 10)
 
 	# Spawns in one of the random tasks for the player
@@ -59,7 +59,7 @@ func _randomize_task():
 		else:
 			taskGen.spawn_task("normal", "t_accounting", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 	elif taskRandomizer == 10:
-		if(SignalManager.jobPool):
+		if(!SignalManager.jobPool):
 			taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 		else:
 			taskGen.spawn_task("auto", "t_payCheque", false, Vector2(randi_range(0, 640), randi_range(0, 360)))

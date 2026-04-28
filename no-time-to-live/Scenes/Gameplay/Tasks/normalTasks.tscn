@@ -457,6 +457,7 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_groceryList"]
 stream = ExtResource("13_rotl6")
+volume_db = 20.0
 
 [node name="t_makeFood" type="Node2D" parent="."]
 script = ExtResource("13_6cqc7")

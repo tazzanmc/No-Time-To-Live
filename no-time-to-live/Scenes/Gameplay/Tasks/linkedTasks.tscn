@@ -109,6 +109,7 @@ offset_bottom = 440.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="t_mendClothes/mendClothesTask"]
 stream = ExtResource("3_xraqp")
+volume_db = 10.0
 
 [node name="taskPrompt" type="CharacterBody2D" parent="t_mendClothes"]
 
