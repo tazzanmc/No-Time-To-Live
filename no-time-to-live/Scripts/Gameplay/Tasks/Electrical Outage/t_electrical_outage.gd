@@ -19,12 +19,13 @@ func _ready():
 	$CheckButton10.button_pressed = fuseBox[9]
 	$CheckButton11.button_pressed = fuseBox[10]
 	$CheckButton12.button_pressed = fuseBox[11]
-	SignalManager._power_out()
-	SignalManager.connect("gameEnd", _end_game_call)
+	#SignalManager._power_out()
+	#SignalManager.connect("gameEnd", _end_game_call)
 
 func _end_game_call():
 	$".".queue_free()
-	
+
+func _process(float) -> void:
 	if !$CheckButton1.button_pressed:
 		$breakerSwitch1.flip_h = true
 	else:

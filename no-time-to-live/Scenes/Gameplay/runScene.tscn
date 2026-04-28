@@ -134,7 +134,6 @@ linked_tasks_scene = ExtResource("11_s8ik7")
 vital_tasks_scene = ExtResource("12_l60cb")
 auto_tasks_scene = ExtResource("13_d84c4")
 
-[connection signal="gameEnd" from="." to="titleCard" method="_game_end_signal"]
 [connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
 [connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]

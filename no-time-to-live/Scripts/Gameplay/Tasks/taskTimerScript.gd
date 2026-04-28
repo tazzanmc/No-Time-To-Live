@@ -33,7 +33,7 @@ func _randomize_task():
 	if(!SignalManager.jobPool):
 		taskRandomizer = randi_range(1, 11)
 	taskRandomizer = randi_range(1, 8)
-
+	taskRandomizer = 10
 	# Spawns in one of the random tasks for the player
 	if taskRandomizer == 1:
 		taskGen.spawn_task("normal", "t_makeFood", false, Vector2(randi_range(0, 640), randi_range(0, 360)))

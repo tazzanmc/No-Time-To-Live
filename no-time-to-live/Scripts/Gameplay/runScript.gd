@@ -7,6 +7,7 @@ signal gameStart
 @onready var moneyBar = $moneyBar
 
 var gameActiveBool = 0
+var gameEnded = false
 
 func _ready():
 	print("nodes ready")
@@ -25,7 +26,8 @@ func _process(_delta):
 		SignalManager.emit_signal("callPhoneTask")
 		SignalManager.gameEndBool = false
 	# Ends the game (placeholder condition to test title)
-	if (socialBar.value <= 0 && gameActiveBool == 1 || moneyBar.value <= 0 ||satietyBar.value <= 0):
+	if (socialBar.value <= 0 && gameActiveBool == 1 || moneyBar.value <= 0 ||satietyBar.value <= 0 && !gameEnded):
+		gameEnded = true
 		gameActiveBool = 0
 		SignalManager.gameEnd.emit()
 		SignalManager._game_end_bool()

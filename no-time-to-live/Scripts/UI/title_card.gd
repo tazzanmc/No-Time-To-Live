@@ -13,6 +13,7 @@ func _game_start_signal():
 	gameStartBool = true
 	
 func _game_end_signal() -> void:
+	print("Game end signal test title card")
 	speed = 300
 	acceleration = 10
 	position = Vector2(958.0, -595.0)
