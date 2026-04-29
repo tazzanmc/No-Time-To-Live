@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=25 format=3 uid="uid://531evwyg41l"]
-=======
-[gd_scene load_steps=27 format=3 uid="uid://531evwyg41l"]
->>>>>>> Stashed changes
+[gd_scene load_steps=26 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
 [ext_resource type="Texture2D" uid="uid://b7enn84rx53dx" path="res://Assets/Textures/UI/tabletop.png" id="2_4eg07"]
@@ -17,11 +13,10 @@
 [ext_resource type="Script" uid="uid://d0vexbdk2yna2" path="res://Scripts/Gameplay/Tasks/task_generator.gd" id="9_wu1q0"]
 [ext_resource type="PackedScene" uid="uid://dttmf8duyinv" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
 [ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="10_4eg07"]
-[ext_resource type="PackedScene" uid="uid://du422oawc5a4s" path="res://Scenes/UI/menuLabel.tscn" id="11_l60cb"]
 [ext_resource type="PackedScene" uid="uid://t4nm6v2h7adf" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="11_s8ik7"]
 [ext_resource type="PackedScene" uid="uid://dxp5pntperpdp" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="12_l60cb"]
 [ext_resource type="PackedScene" uid="uid://cauk5gol1qh08" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="13_d84c4"]
-[ext_resource type="Script" uid="uid://dt74n1eeo0ixv" path="res://Scripts/UI/quit.gd" id="13_ef4nq"]
+[ext_resource type="PackedScene" uid="uid://du422oawc5a4s" path="res://Scenes/UI/menuLabel.tscn" id="16_l60cb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
 bg_color = Color(0, 0.39600003, 0.44, 1)
@@ -47,10 +42,6 @@ bg_color = Color(0, 0.8627451, 0.34117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gmi6l"]
 font_size = 80
-
-[sub_resource type="LabelSettings" id="LabelSettings_s8ik7"]
-font_size = 64
-font_color = Color(0, 0, 0, 1)
 
 [node name="RunScene" type="Node2D"]
 script = ExtResource("1_ncvfw")
@@ -152,12 +143,8 @@ label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" type="Sprite2D" parent="."]
 texture_filter = 1
-<<<<<<< Updated upstream
-position = Vector2(962, 468)
-=======
 material = ExtResource("7_d84c4")
-position = Vector2(954, 501)
->>>>>>> Stashed changes
+position = Vector2(962, 468)
 scale = Vector2(4, 4)
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
@@ -173,46 +160,32 @@ wait_time = 30.0
 script = ExtResource("7_1n8j8")
 
 [node name="buttonSettings" parent="." instance=ExtResource("9_xorqe")]
-offset_left = 1052.0
-offset_top = 1226.0
-offset_right = 1052.0
-offset_bottom = 1226.0
+offset_left = 1078.0
+offset_top = 893.0
+offset_right = 1078.0
+offset_bottom = 893.0
 scale = Vector2(3.0534618, 2.9410028)
 
 [node name="Button" parent="buttonSettings" index="0"]
-offset_left = 27.509762
-offset_top = -1.0200603
-offset_right = 99.509766
-offset_bottom = 46.97994
+offset_left = -10.152411
+offset_top = 81.60482
+offset_right = 61.847588
+offset_bottom = 129.60483
 text = "Settings"
 
 [node name="buttonQuit" parent="." instance=ExtResource("9_xorqe")]
-offset_left = 954.00006
-offset_top = 808.00006
-offset_right = 954.00006
-offset_bottom = 808.00006
+offset_left = 594.0
+offset_top = 893.00006
+offset_right = 594.0
+offset_bottom = 893.00006
 scale = Vector2(3.0534618, 2.9410028)
 
 [node name="Button" parent="buttonQuit" index="0"]
-offset_left = -22.269806
+offset_left = 91.04421
 offset_top = -2.075318e-05
-offset_right = 27.730194
+offset_right = 141.04422
 offset_bottom = 47.99998
 text = "Quit"
-script = ExtResource("13_ef4nq")
-
-[node name="MenuLabel" parent="buttonQuit" instance=ExtResource("11_l60cb")]
-layout_mode = 1
-offset_left = -55.674522
-offset_top = 14.960857
-offset_right = -55.674522
-offset_bottom = 14.960857
-
-[node name="Label" parent="buttonQuit/MenuLabel" index="0"]
-offset_top = 37.06217
-offset_right = 119.0
-offset_bottom = 65.062164
-text = "Press Space to start!"
 
 [node name="taskGenerator" type="Node" parent="."]
 script = ExtResource("9_wu1q0")
@@ -221,17 +194,18 @@ linked_tasks_scene = ExtResource("11_s8ik7")
 vital_tasks_scene = ExtResource("12_l60cb")
 auto_tasks_scene = ExtResource("13_d84c4")
 
-[node name="Label" type="Label" parent="."]
-texture_filter = 1
-offset_left = 728.0
-offset_top = 797.0
-offset_right = 1142.0
-offset_bottom = 861.0
-text = "Press Space to Start"
-label_settings = SubResource("LabelSettings_s8ik7")
+[node name="MenuLabel" parent="." instance=ExtResource("16_l60cb")]
 
-[connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
+[node name="Label" parent="MenuLabel" index="0"]
+offset_left = 783.0
+offset_top = 804.0
+offset_right = 1129.0
+offset_bottom = 864.0
+theme_override_font_sizes/font_size = 48
+text = " Press Space to start! "
+
 [connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
+[connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
 [connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="moneyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]
@@ -245,8 +219,7 @@ label_settings = SubResource("LabelSettings_s8ik7")
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_on_randomize_task"]
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_randomize_task"]
 [connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
-[connection signal="pressed" from="buttonQuit/Button" to="buttonQuit/Button" method="_on_pressed"]
 
 [editable path="buttonSettings"]
 [editable path="buttonQuit"]
-[editable path="buttonQuit/MenuLabel"]
+[editable path="MenuLabel"]
