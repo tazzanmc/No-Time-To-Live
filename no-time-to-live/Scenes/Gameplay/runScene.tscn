@@ -159,6 +159,10 @@ autostart = true
 wait_time = 30.0
 script = ExtResource("7_1n8j8")
 
+[node name="phoneTaskTimer" type="Timer" parent="taskTimer"]
+wait_time = 15.0
+autostart = true
+
 [node name="buttonSettings" parent="." instance=ExtResource("9_xorqe")]
 offset_left = 1078.0
 offset_top = 893.0
@@ -219,6 +223,7 @@ text = " Press Space to start! "
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_on_randomize_task"]
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_randomize_task"]
 [connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
+[connection signal="timeout" from="taskTimer/phoneTaskTimer" to="taskTimer" method="_on_phone_task_timer_timeout"]
 
 [editable path="buttonSettings"]
 [editable path="buttonQuit"]
