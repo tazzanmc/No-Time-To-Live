@@ -1,27 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://du422oawc5a4s"]
+[gd_scene load_steps=2 format=3 uid="uid://du422oawc5a4s"]
 
-[ext_resource type="StyleBox" uid="uid://1jmc2fbn56oa" path="res://Assets/Materials/Button/menuButtonNormal.tres" id="1_3f034"]
-[ext_resource type="StyleBox" uid="uid://cs5kypigbeg64" path="res://Assets/Materials/Button/menuButtonHover.tres" id="2_fvv2m"]
-[ext_resource type="Script" uid="uid://c5iq657xeeu1e" path="res://Scripts/UI/buttonEffectsComponent.gd" id="3_6yctb"]
+[ext_resource type="StyleBox" uid="uid://bg374wuhr1vht" path="res://Assets/Materials/Button/menuLabel.tres" id="1_x75gi"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04acn"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[node name="MenuButton" type="Control"]
+[node name="MenuLabel" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -30,34 +11,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
-texture_filter = 3
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.060000002
-anchor_bottom = 0.051000003
-offset_right = -0.20000458
-offset_bottom = -0.08000183
-theme_override_colors/font_color = Color(0.12791999, 0.0884, 0.13, 1)
-theme_override_colors/font_focus_color = Color(0.12941177, 0.09019608, 0.12941177, 1)
-theme_override_colors/font_pressed_color = Color(0.12941177, 0.09019608, 0.12941177, 1)
-theme_override_colors/font_hover_color = Color(0.12941177, 0.09019608, 0.12941177, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.12941177, 0.09019608, 0.12941177, 1)
-theme_override_styles/normal = ExtResource("1_3f034")
-theme_override_styles/pressed = ExtResource("2_fvv2m")
-theme_override_styles/hover = ExtResource("2_fvv2m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_04acn")
-action_mode = 0
-text = "if you're seeing this,
-something went wrong!"
-alignment = 0
-
-[node name="ButtonEffectsComponent" type="Node" parent="Button"]
-script = ExtResource("3_6yctb")
-metadata/_custom_type_script = "uid://c5iq657xeeu1e"
-
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 16.0
+offset_right = 121.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.12941177, 0.09019608, 0.12941177, 1)
+theme_override_colors/font_outline_color = Color(0.12941177, 0.09019608, 0.12941177, 1)
+theme_override_styles/normal = ExtResource("1_x75gi")
+text = "if you're seeing this,
+something went wrong!"

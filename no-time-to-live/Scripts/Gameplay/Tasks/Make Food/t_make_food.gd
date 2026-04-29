@@ -35,7 +35,7 @@ func _deny_button_pressed() -> void:
 func _confirm_button_pressed() -> void:
 	$AudioStreamPlayer2D.play()
 	$cookingPrompt/ColorRect.hide()
-	$cookingPrompt/Label.hide()
+	$cookingPrompt/MenuLabel.hide()
 	$cookingPrompt/confirmButton.hide()
 	$cookingPrompt/denyButton.hide()
 	

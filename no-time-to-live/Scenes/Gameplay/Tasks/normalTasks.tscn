@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://bc7ljofoe4wch" path="res://Assets/Sound Effects/NTTLFryingSound.mp3" id="17_s5rbj"]
 [ext_resource type="Script" uid="uid://fh4et11kw2di" path="res://Scripts/Gameplay/Tasks/Accounting Job/t_accounting.gd" id="17_w3er4"]
 [ext_resource type="Texture2D" uid="uid://d15oefixmcf3q" path="res://Assets/Textures/Tasks/CheckmarkSprite.png" id="18_1f5pw"]
+[ext_resource type="PackedScene" uid="uid://du422oawc5a4s" path="res://Scenes/UI/menuLabel.tscn" id="18_1v6kk"]
 [ext_resource type="Texture2D" uid="uid://4h8roborgdhm" path="res://Assets/Textures/Tasks/accounting.png" id="18_3lhdd"]
 [ext_resource type="Texture2D" uid="uid://8q1u5g4t5awi" path="res://Assets/Textures/Tasks/CrossSprite.png" id="19_xff3l"]
 [ext_resource type="AudioStream" uid="uid://dylgbw8h36bv6" path="res://Assets/Sound Effects/NTTLCorrectDingSound.mp3" id="21_prigd"]
@@ -50,12 +51,7 @@ font_size = 32
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lhdd"]
-size = Vector2(273, 179)
-
-[sub_resource type="LabelSettings" id="LabelSettings_16ecs"]
-font = ExtResource("9_jtea1")
-font_size = 32
-font_color = Color(0, 0, 0, 1)
+size = Vector2(273, 146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sgfl"]
 size = Vector2(105, 425)
@@ -136,10 +132,10 @@ metadata/_edit_use_anchors_ = true
 [node name="answerCallButton" type="Button" parent="t_phoneScene"]
 texture_filter = 1
 custom_minimum_size = Vector2(15, 15)
-offset_left = 18.99997
-offset_top = 284.0
-offset_right = 69.99997
-offset_bottom = 335.0
+offset_left = 19.99997
+offset_top = 266.0
+offset_right = 70.99997
+offset_bottom = 317.0
 icon = ExtResource("5_16ecs")
 flat = true
 icon_alignment = 1
@@ -149,10 +145,10 @@ metadata/_edit_use_anchors_ = true
 [node name="denyCallButton" type="Button" parent="t_phoneScene"]
 texture_filter = 1
 custom_minimum_size = Vector2(15, 15)
-offset_left = 111.99997
-offset_top = 284.0
-offset_right = 162.99997
-offset_bottom = 335.0
+offset_left = 107.99997
+offset_top = 266.0
+offset_right = 158.99997
+offset_bottom = 317.0
 icon = ExtResource("6_1qwhc")
 flat = true
 icon_alignment = 1
@@ -469,44 +465,46 @@ stream = ExtResource("17_s5rbj")
 position = Vector2(414, 298)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="t_makeFood/cookingPrompt"]
-position = Vector2(-1.5, -2.5)
+position = Vector2(-1.5, -19)
 shape = SubResource("RectangleShape2D_3lhdd")
 
 [node name="ColorRect" type="ColorRect" parent="t_makeFood/cookingPrompt"]
 offset_left = -142.0
 offset_top = -95.0
 offset_right = 137.0
-offset_bottom = 92.0
-metadata/_edit_use_anchors_ = true
+offset_bottom = 54.0
 
-[node name="Label" type="Label" parent="t_makeFood/cookingPrompt"]
-texture_filter = 1
-offset_left = -129.0
-offset_top = -64.0
-offset_right = 128.0
-offset_bottom = 38.0
-text = "You feel hungry..
+[node name="MenuLabel" parent="t_makeFood/cookingPrompt" instance=ExtResource("18_1v6kk")]
+offset_left = -142.0
+offset_top = -95.0
+offset_right = -142.0
+offset_bottom = -95.0
+
+[node name="Label" parent="t_makeFood/cookingPrompt/MenuLabel" index="0"]
+offset_right = 279.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 32
+text = "You feel hungry...
 Do you want to make food?
-(Shake the pan)"
-label_settings = SubResource("LabelSettings_16ecs")
+(Shake the pan)
+"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="confirmButton" type="Button" parent="t_makeFood/cookingPrompt"]
 texture_filter = 1
-offset_left = -80.0
-offset_top = 55.0
-offset_right = -49.0
-offset_bottom = 79.0
+offset_left = -78.0
+offset_top = 23.0
+offset_right = -47.0
+offset_bottom = 47.0
 text = "Yes"
 metadata/_edit_use_anchors_ = true
 
 [node name="denyButton" type="Button" parent="t_makeFood/cookingPrompt"]
 texture_filter = 1
-offset_left = 40.0
-offset_top = 54.0
-offset_right = 71.0
-offset_bottom = 78.0
+offset_left = 42.0
+offset_top = 22.0
+offset_right = 73.0
+offset_bottom = 46.0
 text = "No"
 metadata/_edit_use_anchors_ = true
 
@@ -881,3 +879,5 @@ texture = ExtResource("19_xff3l")
 [connection signal="text_submitted" from="t_accounting/LineEdit5" to="t_accounting" method="_on_line_edit_5_text_submitted"]
 [connection signal="text_submitted" from="t_accounting/LineEdit6" to="t_accounting" method="_on_line_edit_6_text_submitted"]
 [connection signal="timeout" from="t_accounting/Timer" to="t_accounting" method="_on_timer_timeout"]
+
+[editable path="t_makeFood/cookingPrompt/MenuLabel"]

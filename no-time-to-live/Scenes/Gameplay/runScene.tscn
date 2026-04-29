@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=25 format=3 uid="uid://531evwyg41l"]
+=======
+[gd_scene load_steps=27 format=3 uid="uid://531evwyg41l"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
 [ext_resource type="Texture2D" uid="uid://b7enn84rx53dx" path="res://Assets/Textures/UI/tabletop.png" id="2_4eg07"]
@@ -9,12 +13,15 @@
 [ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://Scripts/UI/title_card.gd" id="3_ncvfw"]
 [ext_resource type="Script" uid="uid://dtuvfbvd43bh1" path="res://Scripts/Gameplay/moneyBar.gd" id="4_1n8j8"]
 [ext_resource type="Script" uid="uid://c1hknm3os0soj" path="res://Scripts/Gameplay/Tasks/taskTimerScript.gd" id="7_1n8j8"]
+[ext_resource type="Material" uid="uid://c82afls8npsr4" path="res://Assets/Materials/dropShadow.tres" id="7_d84c4"]
 [ext_resource type="Script" uid="uid://d0vexbdk2yna2" path="res://Scripts/Gameplay/Tasks/task_generator.gd" id="9_wu1q0"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
+[ext_resource type="PackedScene" uid="uid://dttmf8duyinv" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
 [ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="10_4eg07"]
+[ext_resource type="PackedScene" uid="uid://du422oawc5a4s" path="res://Scenes/UI/menuLabel.tscn" id="11_l60cb"]
 [ext_resource type="PackedScene" uid="uid://t4nm6v2h7adf" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="11_s8ik7"]
 [ext_resource type="PackedScene" uid="uid://dxp5pntperpdp" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="12_l60cb"]
 [ext_resource type="PackedScene" uid="uid://cauk5gol1qh08" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="13_d84c4"]
+[ext_resource type="Script" uid="uid://dt74n1eeo0ixv" path="res://Scripts/UI/quit.gd" id="13_ef4nq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmi6l"]
 bg_color = Color(0, 0.39600003, 0.44, 1)
@@ -145,7 +152,12 @@ label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" type="Sprite2D" parent="."]
 texture_filter = 1
+<<<<<<< Updated upstream
 position = Vector2(962, 468)
+=======
+material = ExtResource("7_d84c4")
+position = Vector2(954, 501)
+>>>>>>> Stashed changes
 scale = Vector2(4, 4)
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
@@ -161,26 +173,46 @@ wait_time = 30.0
 script = ExtResource("7_1n8j8")
 
 [node name="buttonSettings" parent="." instance=ExtResource("9_xorqe")]
-offset_left = 1078.0
-offset_top = 893.0
-offset_right = 1078.0
-offset_bottom = 893.0
+offset_left = 1052.0
+offset_top = 1226.0
+offset_right = 1052.0
+offset_bottom = 1226.0
 scale = Vector2(3.0534618, 2.9410028)
 
 [node name="Button" parent="buttonSettings" index="0"]
+offset_left = 27.509762
+offset_top = -1.0200603
+offset_right = 99.509766
+offset_bottom = 46.97994
 text = "Settings"
 
 [node name="buttonQuit" parent="." instance=ExtResource("9_xorqe")]
-offset_left = 594.0
-offset_top = 893.00006
-offset_right = 594.0
-offset_bottom = 893.00006
+offset_left = 954.00006
+offset_top = 808.00006
+offset_right = 954.00006
+offset_bottom = 808.00006
 scale = Vector2(3.0534618, 2.9410028)
 
 [node name="Button" parent="buttonQuit" index="0"]
-offset_right = 50.0
-offset_bottom = 48.0
+offset_left = -22.269806
+offset_top = -2.075318e-05
+offset_right = 27.730194
+offset_bottom = 47.99998
 text = "Quit"
+script = ExtResource("13_ef4nq")
+
+[node name="MenuLabel" parent="buttonQuit" instance=ExtResource("11_l60cb")]
+layout_mode = 1
+offset_left = -55.674522
+offset_top = 14.960857
+offset_right = -55.674522
+offset_bottom = 14.960857
+
+[node name="Label" parent="buttonQuit/MenuLabel" index="0"]
+offset_top = 37.06217
+offset_right = 119.0
+offset_bottom = 65.062164
+text = "Press Space to start!"
 
 [node name="taskGenerator" type="Node" parent="."]
 script = ExtResource("9_wu1q0")
@@ -213,6 +245,8 @@ label_settings = SubResource("LabelSettings_s8ik7")
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_on_randomize_task"]
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_randomize_task"]
 [connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
+[connection signal="pressed" from="buttonQuit/Button" to="buttonQuit/Button" method="_on_pressed"]
 
 [editable path="buttonSettings"]
 [editable path="buttonQuit"]
+[editable path="buttonQuit/MenuLabel"]
