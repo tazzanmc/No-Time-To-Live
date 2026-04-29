@@ -62,3 +62,10 @@ func _randomize_task():
 			taskGen.spawn_task("normal", "t_jobApp", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
 		else:
 			taskGen.spawn_task("auto", "t_payCheque", false, Vector2(randi_range(0, 640), randi_range(0, 360)))
+
+
+func _on_phone_task_timer_timeout() -> void:
+	$phoneTaskTimer.wait_time = randi_range(10, 20)
+	if taskRandomizer == 7 && !SignalManager.powerOut:
+		print("phone task call")
+		SignalManager.callPhoneTask.emit()

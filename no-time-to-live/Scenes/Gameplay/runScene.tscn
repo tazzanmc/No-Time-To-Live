@@ -160,6 +160,10 @@ autostart = true
 wait_time = 30.0
 script = ExtResource("7_1n8j8")
 
+[node name="phoneTaskTimer" type="Timer" parent="taskTimer"]
+wait_time = 15.0
+autostart = true
+
 [node name="buttonSettings" parent="." instance=ExtResource("9_xorqe")]
 offset_left = 1078.0
 offset_top = 893.0
@@ -206,8 +210,8 @@ offset_bottom = 864.0
 theme_override_font_sizes/font_size = 48
 text = " Press Space to start! "
 
-[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
+[connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="satietyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="moneyBar" method="_game_start_getter"]
 [connection signal="gameStart" from="." to="titleCard" method="_game_start_signal"]
