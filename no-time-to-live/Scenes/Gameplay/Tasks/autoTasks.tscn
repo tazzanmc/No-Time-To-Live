@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cauk5gol1qh08"]
+[gd_scene load_steps=14 format=3 uid="uid://cauk5gol1qh08"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_3biq7"]
 [ext_resource type="Script" uid="uid://w2l2bnrbdycj" path="res://Scripts/Gameplay/Tasks/Friends Arrive/t_friends_arrive.gd" id="2_0g13w"]
 [ext_resource type="Script" uid="uid://b1jf5cq0swuew" path="res://Scripts/Gameplay/Tasks/Pay Cheque/t_pay_cheque.gd" id="2_26rjg"]
 [ext_resource type="PackedScene" uid="uid://2mqk0ff8iocx" path="res://Scenes/UI/pixelSprite2D.tscn" id="3_b4uax"]
-[ext_resource type="FontFile" uid="uid://3ydks2hx52yk" path="res://Assets/Fonts/pixel_sans_unicode_regular/fs-pixel-sans-unicode-regular.ttf" id="3_rqyup"]
 [ext_resource type="Material" uid="uid://bnm4uuh5ghkqu" path="res://Assets/Materials/friendShadow.tres" id="4_26rjg"]
 [ext_resource type="Texture2D" uid="uid://c5xodl0xcgobp" path="res://Assets/Textures/Tasks/friend1.png" id="4_hfj20"]
 [ext_resource type="Texture2D" uid="uid://d0knevlfubebf" path="res://Assets/Textures/Tasks/payCheque.png" id="4_hqasj"]
@@ -13,13 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://ct6c8bbsn5lwy" path="res://Assets/Sound Effects/NTTLTalkingSound.mp3" id="7_j3xhl"]
 [ext_resource type="Texture2D" uid="uid://dhwgosbqk1j8l" path="res://Assets/Textures/Tasks/pinkSlip.png" id="11_2wpti"]
 [ext_resource type="AudioStream" uid="uid://c4c8kqb1j3wfv" path="res://Assets/Sound Effects/NTTLATMBeepSound.mp3" id="12_v076b"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g13w"]
-size = Vector2(1966, 382)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4ponn"]
-font = ExtResource("3_rqyup")
-font_size = 32
 
 [sub_resource type="GDScript" id="GDScript_26rjg"]
 script/source = "extends Node2D
@@ -108,37 +100,23 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="t_friendsArrive"]
+[node name="friends" type="Node2D" parent="t_friendsArrive"]
 position = Vector2(0, 318)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="t_friendsArrive/RigidBody2D"]
-position = Vector2(968, 245)
-shape = SubResource("RectangleShape2D_0g13w")
-
-[node name="friends" type="Node2D" parent="t_friendsArrive/RigidBody2D"]
-
-[node name="pixelSprite2D" parent="t_friendsArrive/RigidBody2D/friends" instance=ExtResource("3_b4uax")]
+[node name="pixelSprite2D" parent="t_friendsArrive/friends" instance=ExtResource("3_b4uax")]
 material = ExtResource("4_26rjg")
 position = Vector2(512, 257)
 texture = ExtResource("4_hfj20")
 
-[node name="pixelSprite2D2" parent="t_friendsArrive/RigidBody2D/friends" instance=ExtResource("3_b4uax")]
+[node name="pixelSprite2D2" parent="t_friendsArrive/friends" instance=ExtResource("3_b4uax")]
 material = ExtResource("4_26rjg")
 position = Vector2(1024, 350)
 texture = ExtResource("5_26rjg")
 
-[node name="pixelSprite2D3" parent="t_friendsArrive/RigidBody2D/friends" instance=ExtResource("3_b4uax")]
+[node name="pixelSprite2D3" parent="t_friendsArrive/friends" instance=ExtResource("3_b4uax")]
 material = ExtResource("4_26rjg")
 position = Vector2(1465, 259)
 texture = ExtResource("6_hqasj")
-
-[node name="Label" type="Label" parent="t_friendsArrive/RigidBody2D"]
-offset_left = 777.0
-offset_top = 482.0
-offset_right = 1179.0
-offset_bottom = 514.0
-text = "Your friends are here! (They wont leave)"
-label_settings = SubResource("LabelSettings_4ponn")
 
 [node name="t_pinkSlip" type="Node2D" parent="."]
 script = SubResource("GDScript_26rjg")

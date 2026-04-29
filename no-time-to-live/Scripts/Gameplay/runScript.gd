@@ -22,6 +22,7 @@ func _process(_delta):
 		gameStart.emit()
 		print("Game Start")
 		print(gameActiveBool) 
+		$taskTimer.start()
 		$socialBar.show()
 		$satietyBar.show()
 		$moneyBar.show()

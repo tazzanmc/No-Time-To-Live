@@ -7,20 +7,15 @@ func _ready() -> void:
 	$friendTimer.start()
 	$AudioStreamPlayer2D.play()
 	SignalManager.pauseSocialBarSignal.emit()
-	$RigidBody2D/friends/pixelSprite2D.show()
-	$RigidBody2D/friends/pixelSprite2D2.show()
-	$RigidBody2D/friends/pixelSprite2D3.show()
+	$friends/pixelSprite2D.show()
+	$friends/pixelSprite2D2.show()
+	$friends/pixelSprite2D3.show()
 	SignalManager.connect("gameEnd", _end_game_call)
 	SignalManager.friendsActive()
 
 func _end_game_call():
 	$".".queue_free()
 
-func _process(float)->void:
-	if($RigidBody2D.position.y > 550):
-		$RigidBody2D.linear_velocity.y = -600
-	$RigidBody2D.rotation = 0
-	$RigidBody2D.position.x = 0
 
 
 func _on_pause_social_bar_timeout() -> void:
