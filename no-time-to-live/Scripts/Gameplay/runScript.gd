@@ -39,6 +39,7 @@ func _process(_delta):
 		gameEnded = true
 		gameActiveBool = 0
 		SignalManager.gameEnd.emit()
+		SignalManager._disable_job_pool()
 		SignalManager._game_end_bool()
 	
 	
