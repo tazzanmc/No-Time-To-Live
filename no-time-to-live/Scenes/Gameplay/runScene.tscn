@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://531evwyg41l"]
+[gd_scene load_steps=25 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
 [ext_resource type="Texture2D" uid="uid://b7enn84rx53dx" path="res://Assets/Textures/UI/tabletop.png" id="2_4eg07"]
@@ -40,6 +40,10 @@ bg_color = Color(0, 0.8627451, 0.34117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gmi6l"]
 font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8ik7"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
 
 [node name="RunScene" type="Node2D"]
 script = ExtResource("1_ncvfw")
@@ -141,7 +145,7 @@ label_settings = SubResource("LabelSettings_gmi6l")
 
 [node name="titleCard" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(962, 516)
+position = Vector2(962, 468)
 scale = Vector2(4, 4)
 texture = ExtResource("2_u74eo")
 script = ExtResource("3_ncvfw")
@@ -184,6 +188,15 @@ normal_tasks_scene = ExtResource("10_4eg07")
 linked_tasks_scene = ExtResource("11_s8ik7")
 vital_tasks_scene = ExtResource("12_l60cb")
 auto_tasks_scene = ExtResource("13_d84c4")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 728.0
+offset_top = 797.0
+offset_right = 1142.0
+offset_bottom = 861.0
+text = "Press Space to Start"
+label_settings = SubResource("LabelSettings_s8ik7")
 
 [connection signal="gameStart" from="." to="socialBar" method="_on_run_scene_game_start"]
 [connection signal="gameStart" from="." to="socialBar" method="_game_start_getter"]
