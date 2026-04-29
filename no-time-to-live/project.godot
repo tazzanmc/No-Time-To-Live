@@ -30,6 +30,8 @@ folder_colors={
 "res://Assets/": "red",
 "res://Assets/Fonts/": "orange",
 "res://Assets/Materials/": "orange",
+"res://Assets/Music/": "orange",
+"res://Assets/Sound Effects/": "orange",
 "res://Assets/Textures/": "orange",
 "res://Assets/Textures/Tasks/": "yellow",
 "res://Assets/Textures/Test/": "yellow",

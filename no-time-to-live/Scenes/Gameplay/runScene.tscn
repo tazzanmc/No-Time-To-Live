@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://531evwyg41l"]
+[gd_scene load_steps=24 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
+[ext_resource type="Texture2D" uid="uid://b7enn84rx53dx" path="res://Assets/Textures/UI/tabletop.png" id="2_4eg07"]
 [ext_resource type="Script" uid="uid://bbdppjwi4e4vo" path="res://Scripts/Gameplay/socialBar.gd" id="2_28rcq"]
+[ext_resource type="AudioStream" uid="uid://dq85vykjl6hbj" path="res://Assets/Music/Mello C - Anxiety Creep.mp3.mp3" id="2_s8ik7"]
 [ext_resource type="Texture2D" uid="uid://bikfqaajwq3la" path="res://Assets/Textures/UI/title.png" id="2_u74eo"]
 [ext_resource type="Script" uid="uid://2dn7v832snyc" path="res://Scripts/Gameplay/satietyBar.gd" id="3_bbkr7"]
 [ext_resource type="Script" uid="uid://blgw61i66p6ey" path="res://Scripts/UI/title_card.gd" id="3_ncvfw"]
@@ -42,10 +44,25 @@ font_size = 80
 [node name="RunScene" type="Node2D"]
 script = ExtResource("1_ncvfw")
 
+[node name="musicPlayer" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="musicPlayer"]
+stream = ExtResource("2_s8ik7")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
 [node name="placeholderBackground" type="ColorRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.43, 0.21586002, 0.07310001, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(960, 540)
+scale = Vector2(2.9999998, 3)
+texture = ExtResource("2_4eg07")
 
 [node name="socialBar" type="ProgressBar" parent="."]
 texture_filter = 1

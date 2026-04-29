@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq85vykjl6hbj"
+path="res://.godot/imported/Mello C - Anxiety Creep.mp3.mp3-38d428d3fd52b038413cde1abfe2c0c2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Mello C - Anxiety Creep.mp3.mp3"
+dest_files=["res://.godot/imported/Mello C - Anxiety Creep.mp3.mp3-38d428d3fd52b038413cde1abfe2c0c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
