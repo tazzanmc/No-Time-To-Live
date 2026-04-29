@@ -57,13 +57,13 @@ size = Vector2(273, 146)
 size = Vector2(105, 425)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3er4"]
-size = Vector2(578, 71)
+size = Vector2(578, 144.50012)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caxf5"]
-size = Vector2(101.823364, 67.982666)
+size = Vector2(212.13187, 124.500854)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qwhc"]
-size = Vector2(553, 67.81717)
+size = Vector2(553, 128.81715)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_1qwhc"]
 points = PackedVector2Array(-156, -76.5, -54, -145.5, 101, -147.5, 161, -78.5, 159, 106.5, -108, 148.5, -151, 32.5)
@@ -541,35 +541,35 @@ rotation = -1.5707964
 shape = SubResource("RectangleShape2D_w3er4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/Pan"]
-position = Vector2(0, -627.9999)
+position = Vector2(0, -693)
 shape = SubResource("RectangleShape2D_w3er4")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/Pan"]
-position = Vector2(279.9646, -610.9644)
+position = Vector2(273, -644)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_caxf5")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/Pan"]
-position = Vector2(-269, -61.99991)
+position = Vector2(-277, -19.00003)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_caxf5")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/Pan"]
-position = Vector2(-264, -595.9999)
+position = Vector2(-268, -631)
 rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_caxf5")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/Pan"]
-position = Vector2(271, -60.999878)
+position = Vector2(283.98218, -34.017822)
 rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_caxf5")
 
 [node name="PanBottom" type="CollisionShape2D" parent="t_makeFood/fryingPanMinigame/Pan"]
-position = Vector2(-6, -41.09143)
+position = Vector2(-6, 25.999992)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_1qwhc")
 
