@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cauk5gol1qh08"]
+[gd_scene load_steps=15 format=3 uid="uid://cauk5gol1qh08"]
 
 [ext_resource type="Texture2D" uid="uid://3srltefbbywe" path="res://icon.svg" id="1_3biq7"]
 [ext_resource type="Script" uid="uid://w2l2bnrbdycj" path="res://Scripts/Gameplay/Tasks/Friends Arrive/t_friends_arrive.gd" id="2_0g13w"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b00tqen7ge10c" path="res://Assets/Textures/Tasks/friend3.png" id="6_hqasj"]
 [ext_resource type="AudioStream" uid="uid://ct6c8bbsn5lwy" path="res://Assets/Sound Effects/NTTLTalkingSound.mp3" id="7_j3xhl"]
 [ext_resource type="Texture2D" uid="uid://dhwgosbqk1j8l" path="res://Assets/Textures/Tasks/pinkSlip.png" id="11_2wpti"]
+[ext_resource type="PackedScene" uid="uid://du422oawc5a4s" path="res://Scenes/UI/menuLabel.tscn" id="12_j3xhl"]
 [ext_resource type="AudioStream" uid="uid://c4c8kqb1j3wfv" path="res://Assets/Sound Effects/NTTLATMBeepSound.mp3" id="12_v076b"]
 
 [sub_resource type="GDScript" id="GDScript_26rjg"]
@@ -118,6 +119,20 @@ material = ExtResource("4_26rjg")
 position = Vector2(1465, 259)
 texture = ExtResource("6_hqasj")
 
+[node name="MenuLabel" parent="t_friendsArrive" instance=ExtResource("12_j3xhl")]
+offset_left = 954.0
+offset_top = 793.0
+offset_right = 954.0
+offset_bottom = 793.0
+
+[node name="Label" parent="t_friendsArrive/MenuLabel" index="0"]
+offset_right = 239.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 32
+text = "Your friends are here!
+(They're not leaving)"
+horizontal_alignment = 1
+
 [node name="t_pinkSlip" type="Node2D" parent="."]
 script = SubResource("GDScript_26rjg")
 
@@ -139,3 +154,5 @@ texture = ExtResource("11_2wpti")
 [connection signal="timeout" from="t_friendsArrive/pauseSocialBar" to="t_friendsArrive" method="_on_pause_social_bar_timeout"]
 [connection signal="timeout" from="t_friendsArrive/friendTimer" to="t_friendsArrive" method="_on_friend_timer_timeout"]
 [connection signal="timeout" from="t_pinkSlip/Timer" to="t_pinkSlip" method="_on_timer_timeout"]
+
+[editable path="t_friendsArrive/MenuLabel"]

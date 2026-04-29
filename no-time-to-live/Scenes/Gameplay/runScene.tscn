@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://531evwyg41l"]
+[gd_scene load_steps=27 format=3 uid="uid://531evwyg41l"]
 
 [ext_resource type="Script" uid="uid://cogq52g817u4x" path="res://Scripts/Gameplay/runScript.gd" id="1_ncvfw"]
 [ext_resource type="Texture2D" uid="uid://b7enn84rx53dx" path="res://Assets/Textures/UI/tabletop.png" id="2_4eg07"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dttmf8duyinv" path="res://Scenes/UI/menuButton.tscn" id="9_xorqe"]
 [ext_resource type="PackedScene" uid="uid://telqfa7fe0ja" path="res://Scenes/Gameplay/Tasks/normalTasks.tscn" id="10_4eg07"]
 [ext_resource type="PackedScene" uid="uid://t4nm6v2h7adf" path="res://Scenes/Gameplay/Tasks/linkedTasks.tscn" id="11_s8ik7"]
+[ext_resource type="Script" uid="uid://dt74n1eeo0ixv" path="res://Scripts/UI/quit.gd" id="12_ef4nq"]
 [ext_resource type="PackedScene" uid="uid://dxp5pntperpdp" path="res://Scenes/Gameplay/Tasks/vitalTasks.tscn" id="12_l60cb"]
 [ext_resource type="PackedScene" uid="uid://cauk5gol1qh08" path="res://Scenes/Gameplay/Tasks/autoTasks.tscn" id="13_d84c4"]
 [ext_resource type="PackedScene" uid="uid://du422oawc5a4s" path="res://Scenes/UI/menuLabel.tscn" id="16_l60cb"]
@@ -186,6 +187,7 @@ offset_top = -2.075318e-05
 offset_right = 141.04422
 offset_bottom = 47.99998
 text = "Quit"
+script = ExtResource("12_ef4nq")
 
 [node name="taskGenerator" type="Node" parent="."]
 script = ExtResource("9_wu1q0")
@@ -219,6 +221,7 @@ text = " Press Space to start! "
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_on_randomize_task"]
 [connection signal="randomizeTask" from="taskTimer" to="taskTimer" method="_randomize_task"]
 [connection signal="timeout" from="taskTimer" to="taskTimer" method="_on_timeout"]
+[connection signal="pressed" from="buttonQuit/Button" to="buttonQuit/Button" method="_on_pressed"]
 
 [editable path="buttonSettings"]
 [editable path="buttonQuit"]
